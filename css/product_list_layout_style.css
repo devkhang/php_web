@@ -1,0 +1,38 @@
+.phone_list_element img:hover{
+    transform: scale(0.9);
+}
+#phone_list{
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 10px;
+}
+
+.phone_list_element_img img{
+    width: 100%;
+}
+.phone_list_element_rating{
+    display: flex;
+}
+
+.item-txt-online{
+    animation: newanimation 1s infinite;
+    color:red;
+}
+
+#page_numbering{
+    text-align: center;
+}
+#page_numbering a{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0);
+    background-color: rgba(33,51,67,255);
+    border-radius: 50%;
+    color: aliceblue;
+}
+.overlay{
+    height: 100%;
+    background:linear-gradient(0deg, rgba(77,66,66,1) 0%, rgba(108,102,102,0) 52%, rgba(0,0,0,0) 100%)
+}
