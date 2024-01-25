@@ -257,6 +257,7 @@ a{
     justify-content: center;
     align-items: center;
     background-image: url("../assets/login_bg.jpg");
+    width: 100%;
 }
 .box-login{
     width: 60%;
@@ -296,4 +297,20 @@ a{
     height: 30px;
     background-color: rgba(243,130,108,255);
     cursor:pointer;
+}
+#Order-history{
+    background-color: aliceblue;
+}
+#Order-history .history-box{
+    background-color: rgba(238,238,238,255);
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 10px;
+}
+#Order-history .history-box:hover{
+    background-color:rgba(29,162,216);
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
