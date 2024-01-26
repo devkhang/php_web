@@ -5,7 +5,7 @@
             <ul id="phone_list" class="main_content_element">
                 <!-- start here -->
                 
-                <li class="phone_list_element">
+                <li class="phone_list_element border border-dark">
                     <a href="samsung-galaxy-z-fold5-kem.html">
                         <div class="phone_list_element_img">
                             <img alt="thêm ảnh" src="assets/samsung-galaxy-z-fold5- kem-600x600.jpg">
@@ -38,7 +38,7 @@
                     </a>
                 </li>
 
-                <li class="phone_list_element">
+                <li class="phone_list_element border border-dark">
                     <a href="Galaxy-S22-Ultra-Burgundy.html">
                         <div class="phone_list_element_img">
                             <img alt="Samsung Galaxy S22 Ultra 5G 128GB" src="assets/Galaxy-S22-Ultra-Burgundy-600x600.jpg">
@@ -71,7 +71,7 @@
                     </a>
                 </li>
 
-                <li class="phone_list_element">
+                <li class="phone_list_element border border-dark">
                     <a href="samsung-galaxy-z-fold5-kem.html">
                         <div class="phone_list_element_img">
                             <img alt="thêm ảnh" src="assets/samsung-galaxy-z-fold5- kem-600x600.jpg">
@@ -104,7 +104,7 @@
                     </a>
                 </li>
 
-                <li class="phone_list_element">
+                <li class="phone_list_element border border-dark">
                     <a href="Galaxy-S22-Ultra-Burgundy.html">
                         <div class="phone_list_element_img">
                             <img alt="Samsung Galaxy S22 Ultra 5G 128GB" src="assets/Galaxy-S22-Ultra-Burgundy-600x600.jpg">
@@ -136,7 +136,7 @@
                         </div>   
                     </a>
                 </li>
-                <li class="phone_list_element">
+                <li class="phone_list_element border border-dark">
                     <a href="samsung-galaxy-z-fold5-kem.html">
                         <div class="phone_list_element_img">
                             <img alt="thêm ảnh" src="assets/samsung-galaxy-z-fold5- kem-600x600.jpg">
@@ -169,7 +169,7 @@
                     </a>
                 </li>
 
-                <li class="phone_list_element">
+                <li class="phone_list_element border border-dark">
                     <a href="Galaxy-S22-Ultra-Burgundy.html">
                         <div class="phone_list_element_img">
                             <img alt="Samsung Galaxy S22 Ultra 5G 128GB" src="assets/Galaxy-S22-Ultra-Burgundy-600x600.jpg">
@@ -204,8 +204,8 @@
             </ul>
 
             <div id="page_numbering">
-                <a href="index.html">1</a>
-                <a href="index2.html">2</a>
+                <a href="index.php">1</a>
+                <a href="index2.php">2</a>
             </div>
         </div>
         <div id="right_panel">

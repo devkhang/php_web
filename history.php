@@ -23,7 +23,7 @@
                
                 
             </div>
-            
+
         </div>
         <div id="right_panel">
         </div>
