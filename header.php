@@ -8,10 +8,43 @@
     <!--<link rel="stylesheet" href="style_test1.css">-->
     <link rel="stylesheet" href="css/product_list_layout_style.css">
     <link rel="stylesheet" href="css/layout_style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
+    .box-signup{
+        width: 50%;
+        height: 250px;
+        text-align: center;
+
+        background-color: rgba(255,255,255,255);
+        border-style: solid;
+        border-width: 1px;
+
+        box-sizing: border-box;
+
         
+    }
+    .box-signup #singup-title{
+        font-size: 20px;
+        font-weight:bolder;
+        margin-bottom: 30px;
+
         
+    }
+    .box-signup div{
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .box-signup .box-itme form input{
+        width: 95%;
+        height: 30px;
+    }
+
+    .box-signup #submit form input{
+
+        width: 100%;
+        height: 30px;
+        background-color: rgba(243,130,108,255);
+        cursor: pointer;
+    }
     </style>
 
 

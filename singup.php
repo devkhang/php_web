@@ -7,23 +7,23 @@
                     Đăng kí
                 </div>
                 <div class="box-itme" id="email">
-                    <form action="" method="get">
+                    <form action="include/signup.inc.php" method="post">
                         <input type="text" id="username" name="username" placeholder="Email/Số điện thoại/Tên đăng nhập">
                     </form>
                 </div>
                 <div class="box-itme" id="password">
-                    <form action="" method="get">
+                    <form action="include/signup.inc.php" method="post">
                         <input type="password" id="password" name="password" placeholder="Mật khẩu">
                     </form>
                 </div>
                 <div class="box-itme" id="repassword">
-                    <form action="" method="get">
-                        <input type="password" id="password" name="password" placeholder="Nhập lại mật khẩu">
+                    <form action="include/signup.inc.php" method="post">
+                        <input type="password" id="password1" name="rep_password" placeholder="Nhập lại mật khẩu">
                     </form>
                 </div>
 
                 <div class="box-itme" id="submit">
-                    <form action="" method="get" onsubmit="announment()" target="_blank">
+                    <form action="include/signup.inc.php" method="post" onsubmit="announment()" target="_blank">
                         <input type="submit" id="submit" name="submit" value="Đăng ký">
                     </form>
                 </div>
