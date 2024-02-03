@@ -36,10 +36,17 @@
     .box-signup .box-itme form input{
         width: 95%;
         height: 30px;
+        margin: 3px;
     }
 
-    .box-signup #submit form input{
+    /* .box-signup #submit form input{
 
+        width: 100%;
+        height: 30px;
+        background-color: rgba(243,130,108,255);
+        cursor: pointer;
+    } */
+    .box-signup .box-itme form #submit{
         width: 100%;
         height: 30px;
         background-color: rgba(243,130,108,255);
