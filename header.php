@@ -46,11 +46,26 @@
         background-color: rgba(243,130,108,255);
         cursor: pointer;
     } */
+    #div_form_signup{
+        margin:0px;
+        height:auto;
+    }
     .box-signup .box-itme form #submit{
+        margin-bottom:auto;
+        height:auto;
+    }
+    #form_signup{
+        height:auto;
+    }
+    .box-signup .box-itme form #submit-input{
         width: 100%;
+        box-sizing:border-box;
         height: 30px;
         background-color: rgba(243,130,108,255);
         cursor: pointer;
+        margin:0px;
+        margin-bottom:auto;
+        border-style:none;
     }
     </style>
 
