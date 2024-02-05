@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
         exit();       
     }
     if(email_exist($conn,$email)!==false){
-        header('location: ../singup.php?error=email exit');
+        header('location: ../singup.php?error=email exist');
         exit();       
     }
     createUser($conn,$email,$pwd);
