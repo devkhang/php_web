@@ -29,7 +29,7 @@ function email_exit($conn,$email){
     if(!mysqli_prepare($stmt,$sql)){
         header('location: ../singup.php?error=stmtfail');
     }
-    mysqli_bind_param($stmt,'ss',$email,$pwd);
+    mysqli_bind_param($stmt,'s',$email);
     mysqli_stmt_execute($stmt);
 
     $resultdata = mysqli_stmt_get_result($stmt);
