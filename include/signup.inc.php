@@ -4,7 +4,19 @@ if(isset($_POST['submit'])){
     $pwd = $_POST["password"];
     $rep_pwd = $_POST["rep_password"];
     var_dump($email, $pwd, $rep_pwd);
-    require_once ('db.inc.php');
+    echo "<br> <br>";
+
+    var_dump(empty($email));
+    echo "<br>";
+    var_dump(empty($pwd));
+    echo "<br>";
+    var_dump(empty($rep_pwd));
+    echo "<br>";
+    
+    require_once ('functions.php');
+    var_dump(emptyInputSignUp($email,$pwd, $rep_pwd));
+    
+
     require_once ('functions.php');
     var_dump(emptyInputSignUp($email,$pwd,$rep_pwd));
     exit();
