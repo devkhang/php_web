@@ -11,7 +11,6 @@
     <style>
     .box-signup{
         width: 50%;
-        height: 250px;
         text-align: center;
 
         background-color: rgba(255,255,255,255);
