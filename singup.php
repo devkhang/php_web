@@ -7,7 +7,7 @@
                     Đăng kí
                 </div>
                 <div class="box-itme" id="div_form_signup">
-                    <form action="include/ssignup.inc.php" method="post" id="form_signup">
+                    <form action="include/signup.inc.php" method="post" id="form_signup">
                         <input type="text" id="username" name="username" placeholder="Email/Số điện thoại/Tên đăng nhập">
                         <div class="box-itme" id="password">
                             <input type="password" id="password" name="password" placeholder="Mật khẩu">

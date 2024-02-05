@@ -3,11 +3,8 @@ if(isset($_POST['submit'])){
     $email = $_POST["username"];
     $pwd = $_POST["password"];
     $rep_pwd = $_POST["rep_password"];
-    var_dump($email, $pwd, $rep_pwd);
     require_once ('db.inc.php');
     require_once ('functions.php');
-    var_dump(emptyInputSignUp($email,$pwd,$rep_pwd));
-    exit();
     if(emptyInputSignUp($email,$pwd,$rep_pwd)!==false){
         header('location: ../singup.php?error=emptyInput');
         exit();
@@ -20,7 +17,7 @@ if(isset($_POST['submit'])){
         header('location: ../singup.php?error=password do not matching');
         exit();       
     }
-    if(email_exit($conn,$email)!==false){
+    if(email_exist($conn,$email)!==false){
         header('location: ../singup.php?error=email exit');
         exit();       
     }
