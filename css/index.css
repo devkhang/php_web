@@ -261,7 +261,6 @@ a{
 }
 .box-login{
     width: 60%;
-    height: 250px;
     text-align: center;
 
     background-color: #FFC0CB;
@@ -283,20 +282,24 @@ a{
     margin-bottom: 20px;
     width: 100%;
 }
-.box-login .username form input{
+.box-login form{
+    box-sizing: border-box;
+}
+.box-login form .username input{
     width: 95%;
     height: 30px;
 }
-.box-login .password form input{
+.box-login form .password input{
     width: 95%;
     height: 30px;
 }
-.box-login .submit form input{
+.box-login form .submit input{
 
     width: 100%;
     height: 30px;
     background-color: rgba(243,130,108,255);
     cursor:pointer;
+    border-style: none;
 }
 #Order-history{
     background-color: aliceblue;
