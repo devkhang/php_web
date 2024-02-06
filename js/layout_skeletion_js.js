@@ -34,18 +34,6 @@ function muaHang(){
 
 
 
-
-
-
-//remove advance search image
-let advanced_search=document.getElementById("advanced_search");
-let advanced_search_button=(advanced_search.getElementsByTagName("a"))[0];
-let advanced_search_button_img=(advanced_search_button.getElementsByTagName("img"))[0];
-/*advanced_search_button_img.setAttribute("src","assets/timkiemnangcao.png");
-advanced_search_button_img.setAttribute("with", "50px");
-advanced_search_button_img.setAttribute("height", "50px");*/
-advanced_search_button_img.remove();
-
 //add "tim kiem nang cao"
 let advanced_search_top=document.createElement("div");
 advanced_search_top.setAttribute("class","menu_top_element");

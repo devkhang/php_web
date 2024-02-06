@@ -111,7 +111,6 @@
 
             <div class="menu_top_element" id="advanced_search">
                 <a href="advanced_search.html">
-                    <img src="assets/advanced_search.png" width="20" height="20">
                     <p>Tiềm kiếm nâng cao</p>
                 </a>
             </div>
