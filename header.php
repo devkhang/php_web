@@ -98,6 +98,11 @@
             <div class="menu_top_element" id="history">
                 <a href="history.php">Lịch sử mua hàng</a>
             </div>
+            <div class="menu_top_element" id="advancedSearch">
+                <a href="advanced_search.html">
+                    <p>Tìm kiếm nâng cao</p>
+                </a>
+            </div>
         </div>
         
         <div id="search">
@@ -109,11 +114,7 @@
                 </form>
             </div>
 
-            <div class="menu_top_element" id="advanced_search">
-                <a href="advanced_search.html">
-                    <p>Tiềm kiếm nâng cao</p>
-                </a>
-            </div>
+            
         </div>
         
     </div>

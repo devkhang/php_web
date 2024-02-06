@@ -34,16 +34,6 @@ function muaHang(){
 
 
 
-//add "tim kiem nang cao"
-let advanced_search_top=document.createElement("div");
-advanced_search_top.setAttribute("class","menu_top_element");
-advanced_search_top.setAttribute("id","advancedSearch");
-let advanced_search_link=document.createElement("a");
-advanced_search_link.setAttribute("href","advanced_search.html")
-advanced_search_top.appendChild(advanced_search_link);
-advanced_search_link.innerText="Tìm kiếm nâng cao";
-let menu_top=document.getElementById("menu_top");
-menu_top.append(advanced_search_top);
 
 //add onclick action to simple search "tim" button
 inputSubmit.setAttribute("onclick","window.location.replace('search_result.html')");
