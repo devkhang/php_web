@@ -35,12 +35,7 @@ function muaHang(){
 
 
 
-//change the submit to tim in simple search
-let simple_search=document.getElementById("simple_search");
 
-let simple_search_form=(simple_search.getElementsByTagName("form"))[0];
-let inputSubmit=(simple_search_form.getElementsByTagName("input"))[1];
-inputSubmit.value="Tìm";
 
 //remove advance search image
 let advanced_search=document.getElementById("advanced_search");

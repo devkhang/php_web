@@ -105,7 +105,7 @@
             <div class="menu_top_element" id="simple_search">
                 <form action="" method="get">
                     <input type="text" placeholder="Tìm theo tên" id="ss" name="ss">
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Tìm">
                 </form>
             </div>
 
