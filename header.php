@@ -99,7 +99,7 @@
                 <a href="history.php">Lịch sử mua hàng</a>
             </div>
             <div class="menu_top_element" id="advancedSearch">
-                <a href="advanced_search.html">
+                <a href="advanced_search.php">
                     <p>Tìm kiếm nâng cao</p>
                 </a>
             </div>
