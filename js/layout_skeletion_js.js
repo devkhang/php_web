@@ -21,12 +21,12 @@ function setisLoginTrue(currentTag){
     let userAccount=
 
 
-    window.location="index.html"; 
+    window.location="index.php"; 
 }
 function setisLoginFalse(currentTag){
     sessionStorage.setItem("loginState", "false");;
     alert("Đăng xuất thành công");
-    window.location="index.html"; 
+    window.location="index.php"; 
 }
 function muaHang(){
     alert("Đặt hàng thành công");
@@ -35,8 +35,35 @@ function muaHang(){
 
 
 
+//change the submit to tim in simple search
+let simple_search=document.getElementById("simple_search");
+
+let simple_search_form=(simple_search.getElementsByTagName("form"))[0];
+let inputSubmit=(simple_search_form.getElementsByTagName("input"))[1];
+inputSubmit.value="Tìm";
+
+//remove advance search image
+let advanced_search=document.getElementById("advanced_search");
+let advanced_search_button=(advanced_search.getElementsByTagName("a"))[0];
+let advanced_search_button_img=(advanced_search_button.getElementsByTagName("img"))[0];
+/*advanced_search_button_img.setAttribute("src","assets/timkiemnangcao.png");
+advanced_search_button_img.setAttribute("with", "50px");
+advanced_search_button_img.setAttribute("height", "50px");*/
+advanced_search_button_img.remove();
+
+//add "tim kiem nang cao"
+let advanced_search_top=document.createElement("div");
+advanced_search_top.setAttribute("class","menu_top_element");
+advanced_search_top.setAttribute("id","advancedSearch");
+let advanced_search_link=document.createElement("a");
+advanced_search_link.setAttribute("href","advanced_search.php")
+advanced_search_top.appendChild(advanced_search_link);
+advanced_search_link.innerText="Tìm kiếm nâng cao";
+let menu_top=document.getElementById("menu_top");
+menu_top.append(advanced_search_top);
+
 //add onclick action to simple search "tim" button
-inputSubmit.setAttribute("onclick","window.location.replace('search_result.html')");
+inputSubmit.setAttribute("onclick","window.location.replace('search_result.php')");
 simple_search_form.setAttribute("target","_blank");
 
 //change submit to "tim" of advanced search + add onclick action to simple search "tim" button
@@ -45,7 +72,7 @@ if(advanced_search_form!=null)
 {
     let advanced_submit_button=advanced_search_form.lastElementChild;
     advanced_submit_button.value="Tìm";
-    advanced_submit_button.setAttribute("onclick","window.location.replace('search_result.html')");
+    advanced_submit_button.setAttribute("onclick","window.location.replace('search_result.php')");
     advanced_search_form.setAttribute("target","_blank");
 }
 
@@ -79,7 +106,7 @@ image.style.objectFit="cover";
 image.style.borderStyle="hidden";
 image.style.borderRadius="50%";
 
-a_image.setAttribute("href","robute_user.html");
+a_image.setAttribute("href","robute_user.php");
 
 
 
@@ -120,6 +147,3 @@ if(addToCartButton.length!==0){
     addToCartButton=addToCartButton[0].getElementsByTagName("button")[0];
     addToCartButton.setAttribute("onclick","alert('Đã thêm sản phẩm vào giỏ hàng')")
 }
-
-
-
