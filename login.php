@@ -6,20 +6,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="css\layout_style.css">
     <style>
-        #main_content{
+        #main_content1{
             display: flex;
             justify-content: center;
             align-items: center;
+            background-image: url("assets/login_bg.jpg");
+            width: 100%;
         }
         .box-login{
-            width: 50%;
-            height: 250px;
+            width: 60%;
             text-align: center;
 
-            background-color: rgba(255,255,255,255);
+            background-color: #FFC0CB;
             border-style: solid;
-            border-width: 1px;
-
+            border-width: 5px;
+            
             box-sizing: border-box;
 
             
@@ -35,21 +36,26 @@
             margin-bottom: 20px;
             width: 100%;
         }
-        .box-login .username form input{
+        .box-login form{
+            box-sizing: border-box;
+        }
+        .box-login form .username input{
             width: 95%;
             height: 30px;
         }
-        .box-login .password form input{
+        .box-login form .password input{
             width: 95%;
             height: 30px;
         }
-        .box-login .submit form input{
-       
+        .box-login form .submit input{
+
             width: 100%;
             height: 30px;
             background-color: rgba(243,130,108,255);
             cursor:pointer;
+            border-style: none;
         }
+
     </style>
 
 </head>
@@ -59,33 +65,33 @@
     <div id="main_body">
         <?php include_once("leftPannelRegion.php") ?>
 
-        <div id="main_content">
+
+        <div id="main_content1">
             <div class="box-login">
                 <div class="login-title">
                     Đăng nhập
                 </div>
-                <div class="username">
-                    <form action="" method="get">
+    
+                <form action="" method="post" onsubmit="setisLoginTrue(this)">
+                    <div class="username">
+                            <input type="text" id="username" name="username" placeholder="Email/Số điện thoại/Tên đăng nhập">
+                    </div>
+                    <div class="username">               
                         <input type="text" id="username" name="username" placeholder="Email/Số điện thoại/Tên đăng nhập">
-                    </form>
-                </div>
-                <div class="password">
-                    <form action="" method="get">
-                        <input type="password" id="password" name="password" placeholder="Mật khẩu">
-                    </form>
-                </div>
-
-                <div class="submit">
-                    <form action="" method="get" onsubmit="setisLoginTrue(this)" target="_blank">
-                        <input type="submit" id="submit" name="submit" value="Đăng nhập">
-                    </form>
-                </div>
+                    </div>
+                    <div class="password" >
+                            <input type="password" id="password" name="password" placeholder="Mật khẩu">
+                    </div>
+                    <div class="submit">
+                            <input type="submit" id="submit" name="submit" value="Đăng nhập" >
+                    </div>
+                </form>
 
             </div>
 
             
         </div>
-
+        
         <?php include_once("rightPannelRegion.php") ?>
         
     </div>
