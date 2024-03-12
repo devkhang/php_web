@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="css\layout_style.css">
 
     <style>
+        #main_content1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url("assets/login_bg.jpg");
+        width: 100%;
+    }
        .box-signup{
         width: 50%;
         text-align: center;
