@@ -1,7 +1,13 @@
-<?php
-    include_once("header.php");
-?>
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/layout_style.css">
+
+    <style>
         #main_content{
             display: grid;
             place-items: center;
@@ -34,7 +40,14 @@
             background-color: aliceblue;
         }
     </style>
-<div id="main_content">
+
+</head>
+<body>
+    <?php include_once("headerRegion.php"); ?>
+    <div id="main_body">
+        <?php include_once("leftPannelRegion.php"); ?>
+
+        <div id="main_content">
             <div id="search_advance">
                 <div class="title">Tìm kiếm nâng cao</div>
                 <div class="container">
@@ -63,8 +76,12 @@
                 </div>
             </div>
         </div>
-        <div id="right_panel">
-        </div>
-<?php
-    include_once("footer.php");
-?>
+
+        <?php include_once("rightPannelRegion.php"); ?>
+
+    </div>
+
+    <?php include_once("footerRegion.php"); ?>
+    
+</body>
+</html>
