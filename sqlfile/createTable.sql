@@ -1,3 +1,5 @@
+Ten cua database la: webphpdatabase
+
 CREATE TABLE SANPHAM(
     HangDTH varchar(10),
     Ten varchar(50),
