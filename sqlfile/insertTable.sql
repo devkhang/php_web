@@ -59,5 +59,23 @@ Màn hình Super Retina XDR\n
  20,25990000, "assets/iphone-15-plus-128gb-xanh-thumb-600x600.jpg", "assets/iphone-15-128gb.jpg"
 ),
 
-
+("iphone", "Phone 15 Pro Max 256GB", "trắng", 0, 
+"Mới, đầy đủ phụ kiện từ nhà sản xuất\n
+Kích thước: 6.1 inch\n
+Super Retina XDR OLED\n
+Công nghệ ProMotion\n
+Dynamic Island\n
+2556 x 1179 pixels\n
+1 ĐỔI 1 trong 30 ngày nếu có lỗi phần cứng nhà sản xuất. Bảo hành 12 tháng tại trung tâm bảo hành chính hãng Apple\n",
+ 30,33990000, "assets/iphone-15-pro-max-white-thumbnew-600x600.jpg", "assets/iphone_15_pro_max_256gb_-_1_1_.webp"
+)
 ;  
+
+
+INSERT INTO taikhoan
+VALUES
+("KH0", "Roboute Guilliman","assets/guillimanfinal.jpg", "TP.Hồ Chí Minh", "A@gmail.com", "12345", "113", "k"),
+("KH1", "Horus Lupercal","assets/horus.jpg", "TP.Hồ Chí Minh", "Horus@gmail.com", "12345", "114", "m"),
+("KH2", "Lion El'jonson","assets/lion.jpg", "TP.Hồ Chí Minh", "Lion@gmail.com", "12345", "115", "k")
+
+;

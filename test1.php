@@ -14,8 +14,12 @@ echo "connection succeed <br>";
 
 $result=$conn->query("SELECT * FROM sanpham;");
 
-$row=$result->fetch_array(MYSQLI_ASSOC);
-echo "<img src=".$row["HinhAnhMH"].">";
+while($row=$result->fetch_array(MYSQLI_ASSOC)){
+       foreach($row as $column){
+        echo $column."<br>";
+       }
+       echo "-----------------<br>";
+}
 
 
 
