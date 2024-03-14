@@ -1,14 +1,20 @@
-<form action="" method="post" onsubmit="setisLoginTrue(this)">
-                    <div class="username">
-                            <input type="text" id="username" name="username" placeholder="Email/Số điện thoại/Tên đăng nhập">
-                    </div>
-                    <div class="username">               
-                        <input type="text" id="username" name="username" placeholder="Email/Số điện thoại/Tên đăng nhập">
-                    </div>
-                    <div class="password" >
-                            <input type="password" id="password" name="password" placeholder="Mật khẩu">
-                    </div>
-                    <div class="submit">
-                            <input type="submit" id="submit" name="submit" value="Đăng nhập" >
-                    </div>
-</form>
+<?php 
+$host="localhost";
+$username="root";
+$pwd="";
+$db="test";
+$conn=mysqli_connect($host, $username, $pwd, $db);
+
+if($conn->connect_errno){
+        die($conn->connect_errno);
+}
+
+echo "connection succeed <br>";
+
+
+$result=$conn->query("SELECT * FROM tb1;");
+
+while($row=$result->fetch_array(MYSQLI_ASSOC)){
+        echo $row["id"]." ".$row["str"]."<br>";
+}
+
