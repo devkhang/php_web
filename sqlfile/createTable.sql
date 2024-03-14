@@ -9,6 +9,7 @@ CREATE TABLE SANPHAM(
     SoLuongTonKho int NOT NULL,
     Gia int,
     HinhAnhMH varchar(200),
+    HinhAnhChiTiet varchar(200),
     CONSTRAINT pk_sanpham PRIMARY KEY(HangDTH, Ten)
 );
 
