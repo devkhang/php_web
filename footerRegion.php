@@ -13,8 +13,4 @@
             </p>
             
         </div>
-    </div>
-
-    <script src="js/layout_skeletion_js.js"></script>
-</body>
-</html>
+</div>
