@@ -2,6 +2,11 @@
     include_once("header.php");
 ?>
 <style>
+        /* .search_container{
+            display: grid;
+            grid-row-start:auto;
+            column-gap: 20px;
+        } */
         #main_content{
             display: grid;
             place-items: center;
@@ -38,7 +43,7 @@
             <div id="search_advance">
                 <div class="title">Tìm kiếm nâng cao</div>
                 <div class="container">
-                    <form id="item1" width="200px" height="200px" action="" method="get" target="_blank">
+                    <form id="item1" width="200px" height="200px" action="search_result" method="post" target="_blank">
                         <label for="name">Tên sản phẩm:</label>
                         <input type="text" placeholder="iphone 15promax" id="name" name="name"><br>
                         
