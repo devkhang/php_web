@@ -2,7 +2,7 @@
 $host="localhost";
 $username="root";
 $pwd="";
-$db="test";
+$db="webphpdatabase";
 $conn=mysqli_connect($host, $username, $pwd, $db);
 
 if($conn->connect_errno){
@@ -12,9 +12,10 @@ if($conn->connect_errno){
 echo "connection succeed <br>";
 
 
-$result=$conn->query("SELECT * FROM tb1;");
+$result=$conn->query("SELECT * FROM sanpham;");
 
-while($row=$result->fetch_array(MYSQLI_ASSOC)){
-        echo $row["id"]." ".$row["str"]."<br>";
-}
+$row=$result->fetch_array(MYSQLI_ASSOC);
+echo "<img src=".$row["HinhAnhMH"].">";
+
+
 
