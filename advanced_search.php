@@ -6,8 +6,27 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="css/layout_style.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
+        .product-card{
+            display: grid;
+            width: 80%;
+            height: 100px;
+            margin-left:10%;
+            margin-right:10%;
+            border: 1px solid black;
+            box-sizing:border-box;
+        }
+        img{
+            object-fit:cover;
+        }
+        .product-img{
+            width: 90%;
+            height: 50px;
+            margin-bottom:5px;
+            padding: 5px;
+        }
         #main_content{
             display: grid;
             place-items: center;
@@ -51,7 +70,7 @@
             <div id="search_advance">
                 <div class="title">Tìm kiếm nâng cao</div>
                 <div class="container">
-                    <form id="item1" width="200px" height="200px" action="search_result" method="post" target="_blank">
+                    <form id="item1" width="200px" height="200px" action="search_result.php" method="POST" target="_blank">
                         <label for="name">Tên sản phẩm:</label>
                         <input type="text" placeholder="iphone 15promax" id="name" name="name"><br>
                         
@@ -68,10 +87,14 @@
                         </select><br>
 
                         <input type="reset">
-                        <input type="submit" value="Tìm" onclick="window.location.replace('search_result.html')">
+                        <input type="submit" value="Tìm" >
 
                     </form>
-                    <div></div>
+                    <!-- <div class="product-card">
+                        <div class="product-img">
+                            hello
+                        </div>
+                    </div> -->
                     
                 </div>
             </div>
