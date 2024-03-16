@@ -15,11 +15,11 @@
             <div class="menu_top_element" id="login" style="display: inline;">
                 <a href="login.php">Đăng nhập</a>
             </div>
-            <div class="menu_top_element" id="singout" style="display: none;">
-                <a href="singout.php">Đăng xuất</a>
+            <div class="menu_top_element" id="signout" style="display: none;">
+                <a href="signout.php">Đăng xuất</a>
             </div>
-            <div class="menu_top_element" id="singup">
-                <a href="singup.php">Đăng ký</a>
+            <div class="menu_top_element" id="signup">
+                <a href="signup.php">Đăng ký</a>
             </div>    
             <div class="menu_top_element" id="history">
                 <a href="history.php">Lịch sử mua hàng</a>

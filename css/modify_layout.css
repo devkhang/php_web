@@ -4,11 +4,11 @@
 }
 
 #genernal-info{
-    display: grid;
     width: 100%;
-    height: 40%;
-    grid-template-columns: 50% 50%; 
+    height: 80px;
+    grid-template-columns: 100%; 
     grid-template-rows: 100%;
+    
     
 }
 #avatar{
@@ -53,17 +53,17 @@
 #Email{
     grid-area: Email;
 }
-#FullName-title{
-    grid-area: FullName-title;
+#Adress-title{
+    grid-area: Adress-title;
 }
-#FullName{
-    grid-area: FullName;
+#Adress{
+    grid-area: Adress;
 }
-#Role-title{
-    grid-area: Role-title;
+#Pwd-title{
+    grid-area: Pwd-title;
 }
-#Role{
-    grid-area: Role;
+#Pwd{
+    grid-area: Pwd;
 }
 #Phone-title{
     grid-area: Phone-title;
@@ -85,8 +85,8 @@
         "Account Account"
         "UserName-title UserName"
         "Email-title Email"
-        "FullName-title FullName"
-        "Role-title Role"
+        "Adress-title Adress"
+        "Pwd-title Pwd"
         "Phone-title Phone"
     ;
 }
@@ -159,4 +159,13 @@
 }
 #right_panel #Sumbit-all-button:hover{
     background-color: red;
+}
+
+#add-all-button{
+    width: 25%;
+    height:55px;
+}
+#add-all-button button{
+    width: 100%;
+    height: 100%;
 }
