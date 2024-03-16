@@ -94,7 +94,7 @@
                         </div>
                     </div>
                     <div id="add-all-button">
-                        <button type="submit" onclick="AddUser(this)">Thêm</a>
+                        <button type="submit" onclick="AddUser(this)">Đăng ký</a>
                     </div>
                 </form>
             </div>

@@ -1,0 +1,12 @@
+#general-info{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(6, 1fr);
+
+    background-color: rgba(222,243,246);
+}
+#general-info .real-value{
+    border-style: solid;
+    border-width: 1px;
+}
