@@ -1,4 +1,4 @@
-INSERT INTO sanpham
+INSERT INTO sanpham (HangDTH, Ten, Mau, KhuyeMai, MieuTa, SoLuongTonKho, Gia, HinhAnhMH, HinhAnhChiTiet)
 VALUES 
 ("oppo", "OPPO A57 128GB", "xanh", 0, 
 "Mới, đầy đủ phụ kiện từ nhà sản xuất \n\n
