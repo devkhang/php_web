@@ -45,7 +45,6 @@ function email_exist($conn,$email){
     }
     mysqli_stmt_close($stmt);
 }
-
 function createUser($conn,$email,$pwd){
     $sql = "insert into Customer (user_account,pwd)values(?,?)";
     $stmt = mysqli_stmt_init($conn);

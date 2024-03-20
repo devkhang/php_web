@@ -2,7 +2,7 @@
 $host = 'localhost';
 $user = 'root';
 $pwd1 = '';
-$db = 'webdb';
+$db = 'WebPHPDataBase';
 
 $conn = mysqli_connect($host,$user,$pwd1,$db);
 
