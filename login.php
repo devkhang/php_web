@@ -72,30 +72,35 @@
                     Đăng nhập
                 </div>
     
-                <form action="" method="post" onsubmit="setisLoginTrue(this)">
+                <form action="include/login.inc.php" method="post">
                     <div class="username">
                             <input type="text" id="username" name="username" placeholder="Email/Số điện thoại/Tên đăng nhập">
                     </div>
                     <div class="username">               
-                        <input type="text" id="username" name="username" placeholder="Email/Số điện thoại/Tên đăng nhập">
-                    </div>
-                    <div class="password" >
-                            <input type="password" id="password" name="password" placeholder="Mật khẩu">
+                        <input type="password" id="password" name="password" placeholder="mật khẩu">
                     </div>
                     <div class="submit">
                             <input type="submit" id="submit" name="submit" value="Đăng nhập" >
                     </div>
                 </form>
-
+                <?php
+                if(isset($_GET["error"])){
+                    if($_GET["error"]=="emptyInput"){
+                            echo "<p style='color:red'> fill all the field !</P>";
+                    }
+                    else if($_GET["error"]=="wrong_user_or_password"){
+                        echo "<p 'color:red'>incorrent login information !</P>";
+                    }
+                }
+            ?>
             </div>
-
             
         </div>
         
         <?php include_once("rightPannelRegion.php") ?>
         
     </div>
-
+    
     <?php include_once("footerRegion.php") ?>
     
     <script src="js\layout_skeletion_js.js"></script>
