@@ -13,214 +13,46 @@
 </head>
 <body>
     
+    <!-- connect to database, query sanpham with HangDTH="oppo", then display the result using html and css-->
     <?php include_once("headerRegion.php"); ?>
     <div id="main_body">
         <?php include_once("leftPannelRegion.php"); ?>
 
         <div id="main_content">
+
+            <?php 
+            include_once('include\db.inc.php');
+
+            $result=$conn->query("SELECT * FROM sanpham where HangDTH='oppo'");
+            ?>
+
             <ul id="phone_list" class="main_content_element">
-                <!-- start here -->
-            
 
-                <li class="phone_list_element">
-                    <a href="OPPO-A57-128GB.html">
-                        <div class="phone_list_element_img">
-                            <img alt="thêm ảnh" src="assets/oppo-a57-xanh-thumb-1-600x600.jpeg">
-                        </div>
-        
-                        <h3>
-                            Điện thoại OPPO A57 128GB
-                        </h3>
-                        
-                        <div class="phone_list_element_compare">
-                                    <span>6.56"</span>
-                                    <span>HD+</span>
-                        </div>
+            <?php
+            while($sanpham=$result->fetch_array(MYSQLI_ASSOC)){ ?>
+                    <li class="phone_list_element">
+                        <a href="#">
+                            <div class="phone_list_element_img">
+                                <img alt="thêm ảnh" src=<?php echo $sanpham["HinhAnhMH"] ?>>
+                            </div>
+            
+                            <h3>
+                                <?php echo $sanpham["Ten"] ?>
+                            </h3>
+                            
 
-                        <strong class="phone_list_element_price">3.790.000₫</strong>
-            
-            
-            
-                        <div class="phone_list_element_rating">
-                            <p>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
-                                    
-                            </p>
-                            <p class="item-rating-total">303</p>
-                        </div>   
-                    </a>
-                </li>
-                <li class="phone_list_element">
-                    <a href="oppo-reno10-5g-128gb.html">
-                        <div class="phone_list_element_img">
-                            <img alt="Điện thoại OPPO Reno10 5G 128GB" src="assets/oppo-reno10-blue-thumbnew-600x600.jpg">
-                        </div>
-        
-                        <h3>
-                            Điện thoại OPPO Reno10 5G 128GB
-                        </h3>
-                        
-                        <div class="phone_list_element_compare">
-                                    <span>6.7"</span>
-                                    <span>Full HD+</span>
-                        </div>
-
-                        <strong class="phone_list_element_price">9.490.000₫</strong>
-            
-            
-            
-                        <div class="phone_list_element_rating">
-                            <p>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
-                                    
-                            </p>
-                            <p class="item-rating-total">11</p>
-                        </div>   
-                    </a>
-                </li>
-                <li class="phone_list_element">
-                    <a href="OPPO-A57-128GB.html">
-                        <div class="phone_list_element_img">
-                            <img alt="thêm ảnh" src="assets/oppo-a57-xanh-thumb-1-600x600.jpeg">
-                        </div>
-        
-                        <h3>
-                            Điện thoại OPPO A57 128GB
-                        </h3>
-                        
-                        <div class="phone_list_element_compare">
-                                    <span>6.56"</span>
-                                    <span>HD+</span>
-                        </div>
-
-                        <strong class="phone_list_element_price">3.790.000₫</strong>
-            
-            
-            
-                        <div class="phone_list_element_rating">
-                            <p>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
-                                    
-                            </p>
-                            <p class="item-rating-total">303</p>
-                        </div>   
-                    </a>
-                </li>
-                <li class="phone_list_element">
-                    <a href="oppo-reno10-5g-128gb.html">
-                        <div class="phone_list_element_img">
-                            <img alt="Điện thoại OPPO Reno10 5G 128GB" src="assets/oppo-reno10-blue-thumbnew-600x600.jpg">
-                        </div>
-        
-                        <h3>
-                            Điện thoại OPPO Reno10 5G 128GB
-                        </h3>
-                        
-                        <div class="phone_list_element_compare">
-                                    <span>6.7"</span>
-                                    <span>Full HD+</span>
-                        </div>
-
-                        <strong class="phone_list_element_price">9.490.000₫</strong>
-            
-            
-            
-                        <div class="phone_list_element_rating">
-                            <p>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
-                                    
-                            </p>
-                            <p class="item-rating-total">11</p>
-                        </div>   
-                    </a>
-                </li>
-                <li class="phone_list_element">
-                    <a href="OPPO-A57-128GB.html">
-                        <div class="phone_list_element_img">
-                            <img alt="thêm ảnh" src="assets/oppo-a57-xanh-thumb-1-600x600.jpeg">
-                        </div>
-        
-                        <h3>
-                            Điện thoại OPPO A57 128GB
-                        </h3>
-                        
-                        <div class="phone_list_element_compare">
-                                    <span>6.56"</span>
-                                    <span>HD+</span>
-                        </div>
-
-                        <strong class="phone_list_element_price">3.790.000₫</strong>
-            
-            
-            
-                        <div class="phone_list_element_rating">
-                            <p>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
-                                    
-                            </p>
-                            <p class="item-rating-total">303</p>
-                        </div>   
-                    </a>
-                </li>
-                <li class="phone_list_element">
-                    <a href="oppo-reno10-5g-128gb.html">
-                        <div class="phone_list_element_img">
-                            <img alt="Điện thoại OPPO Reno10 5G 128GB" src="assets/oppo-reno10-blue-thumbnew-600x600.jpg">
-                        </div>
-        
-                        <h3>
-                            Điện thoại OPPO Reno10 5G 128GB
-                        </h3>
-                        
-                        <div class="phone_list_element_compare">
-                                    <span>6.7"</span>
-                                    <span>Full HD+</span>
-                        </div>
-
-                        <strong class="phone_list_element_price">9.490.000₫</strong>
-            
-            
-            
-                        <div class="phone_list_element_rating">
-                            <p>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/star.png"></span>
-                                    <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
-                                    
-                            </p>
-                            <p class="item-rating-total">11</p>
-                        </div>   
-                    </a>
-                </li>
+                            <strong class="phone_list_element_price"><?php echo $sanpham["Gia"] ?>₫</strong>
                 
+                        </a>
+                    </li>
+
+            <?php };?>
 
             </ul>
 
             <div id="page_numbering">
-                <a href="oppo.html">1</a>
-                <a href="oppo2.html">2</a>
+                <!-- create page numbering base on the number of row resulted from query -->
+            
             </div>
         </div>
 

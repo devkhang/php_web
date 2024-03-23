@@ -1,6 +1,9 @@
 .phone_list_element img:hover{
     transform: scale(0.9);
 }
+.phone_list_element{
+    border: 1px solid green;
+}
 #phone_list{
     display: grid;
     grid-template-columns: repeat(3,minmax(0,1fr));
