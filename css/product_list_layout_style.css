@@ -39,3 +39,7 @@
     height: 100%;
     background:linear-gradient(0deg, rgba(77,66,66,1) 0%, rgba(108,102,102,0) 52%, rgba(0,0,0,0) 100%)
 }
+
+ul li{
+    list-style-type: none;
+}

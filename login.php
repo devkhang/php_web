@@ -74,18 +74,10 @@
     
                 <form action="include/login.inc.php" method="post">
                     <div class="username">
-<<<<<<< HEAD
-                            <input type="text" id="username" name="username" placeholder="Email">
-                    </div>
-                   
-                    <div class="password" >
-                            <input type="password" id="password" name="password" placeholder="Mật khẩu">
-=======
                             <input type="text" id="username" name="username" placeholder="Email/Số điện thoại/Tên đăng nhập">
                     </div>
                     <div class="username">               
                         <input type="password" id="password" name="password" placeholder="mật khẩu">
->>>>>>> khang
                     </div>
                     <div class="submit">
                             <input type="submit" id="submit" name="submit" value="Đăng nhập" >

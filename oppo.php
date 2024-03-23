@@ -12,8 +12,9 @@
 
 </head>
 <body>
+    <script src="js\simple.js"></script>
     
-    <!-- connect to database, query sanpham with HangDTH="oppo", then display the result using html and css-->
+    <!-- connect to database, query sanpham with HangDTH="oppo", then display the result using html and css--> 
     <?php include_once("headerRegion.php"); ?>
     <div id="main_body">
         <?php include_once("leftPannelRegion.php"); ?>
@@ -31,7 +32,11 @@
             <?php
             while($sanpham=$result->fetch_array(MYSQLI_ASSOC)){ ?>
                     <li class="phone_list_element">
-                        <a href="#">
+                        
+                        <a href="#" onclick="watchProductDetail(this)">
+                            
+                            <p class="masp" style="display: none;"><?php echo $sanpham["MaSP"]?></p><!-- use to identity sanpham to query chitietsanpham-->
+
                             <div class="phone_list_element_img">
                                 <img alt="thêm ảnh" src=<?php echo $sanpham["HinhAnhMH"] ?>>
                             </div>
@@ -52,13 +57,27 @@
 
             <div id="page_numbering">
                 <!-- create page numbering base on the number of row resulted from query -->
-            
+                <?php
+
+                ?>
+                
             </div>
+
+            <div style="display: none;">
+                <form action="chiTietSanPham.php"  name="chitietsp" method="post">
+                    <input type="text" name="masp">
+                    <input type="submit" name="xemchitiet" value="nhan">
+                </form>
+            </div>
+
+
+
         </div>
 
 
         <?php include_once("rightPannelRegion.php"); ?>
-
+        
+        
 
     </div>
 

@@ -236,7 +236,7 @@
                 </div>
             </div>
                 
-            <?php include_once("leftPannelRegion.php"); ?>
+            <?php include_once("rightPannelRegion.php"); ?>
 
 
 
