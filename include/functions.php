@@ -74,8 +74,6 @@ function loginUser($conn, $email, $pwd){
     // echo $pwd_hashed;
     // exit();
     $pwd_checked = password_verify($pwd, $pwd_hashed);
-    // echo $pwd_checked;
-    // exit();
     if($pwd_checked===false){
         // Mật khẩu không khớp
         header('location: ../login.php?error=wrong_user_or_password');
@@ -86,7 +84,7 @@ function loginUser($conn, $email, $pwd){
         $_SESSION["id"] = $existingUser["id"];
         $_SESSION["username"] = $existingUser["user_account"];
         $_SESSION["pwd"] = $existingUser["pwd"];
-        header("location: ../login.php");
+        header("location: ../index.php");
         exit();
     }
 }
