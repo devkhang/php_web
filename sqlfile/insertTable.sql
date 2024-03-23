@@ -79,3 +79,25 @@ VALUES
 ("KH2", "Lion El'jonson","assets/lion.jpg", "TP.Hồ Chí Minh", "Lion@gmail.com", "12345", "115", "k")
 
 ;
+
+
+INSERT into hoadon
+VALUES
+("hd1", "2023-10-29", "chua", "KH0"),
+("hd2", "2023-9-29", "co", "KH1"),
+("hd3", "2023-8-29", "chua", "KH2"),
+("hd4", "2023-7-29", "co", "KH2"),
+("hd5", "2023-11-29", "co", "KH1"),
+("hd6", "2023-11-29", "chua", "KH1"),
+("hd7", "2023-11-29", "chua", "KH1"),
+("hd8", "2023-11-29", "co", "KH0"),
+("hd9", "2023-11-29", "chua", "KH2")
+;
+
+
+
+
+
+
+
+

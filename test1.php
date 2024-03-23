@@ -1,25 +1,11 @@
-<?php 
-$host="localhost";
-$username="root";
-$pwd="";
-$db="webphpdatabase";
-$conn=mysqli_connect($host, $username, $pwd, $db);
-
-if($conn->connect_errno){
-        die($conn->connect_errno);
+<?php
+if(!isset($_REQUEST["name"])){
+        echo '<form action="test1.php" method="POST">
+        Name: <input type="text" name="name"><br>
+        E-mail: <input type="text" name="email"><br>
+        <input type="submit">
+        </form>';
 }
-
-echo "connection succeed <br>";
-
-
-$result=$conn->query("SELECT * FROM sanpham;");
-
-while($row=$result->fetch_array(MYSQLI_ASSOC)){
-       foreach($row as $column){
-        echo $column."<br>";
-       }
-       echo "-----------------<br>";
+else{
+        echo "welcome" . $_REQUEST["name"];
 }
-
-
-

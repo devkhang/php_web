@@ -27,8 +27,8 @@ CREATE TABLE TAIKHOAN(
 
 CREATE TABLE HOADON(
     MaHD varchar(10) PRIMARY KEY,
-    ThoiGianDat date ,
-    TrangThaiXuLy varchar(1),
+    ThoiGianDat date,
+    TrangThaiXuLy varchar(1), //c (chưa xong), x(đã xong)
     MaTK varchar(20),
     CONSTRAINT fk_hoadon_taikhoan FOREIGN KEY(MaTK) REFERENCES TAIKHOAN(MaTK)
 );
