@@ -15,14 +15,15 @@ CREATE TABLE SANPHAM(
 
 
 CREATE TABLE TAIKHOAN(
-    MaTK varchar(20) PRIMARY KEY,
-    TenNguoiDung varchar(60), 
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    user_account varchar(60) NOT null, 
     HinhDaiDien varchar(200), 
     DiaChi varchar(100), 
     Email varchar(100), 
-    Pwd varchar(20), 
+    pwd varchar(20) NOT null, 
     SoDTH varchar(10), 
-    TinhTrang varchar(1)
+    TinhTrang char(1),
+    vaitro char(1)
 );
 
 CREATE TABLE HOADON(

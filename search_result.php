@@ -90,10 +90,10 @@
                             <strong class="phone_list_element_price"><?php echo "giá tiền: $gia"?></strong>
                 </ul>
 
-                <div id="page_numbering">
+                <!-- <div id="page_numbering">
                     <a href="index.html">1</a>
                     <a href="index2.html">2</a>
-                </div>
+                </div> -->
             </div>
                 
             <?php include_once("leftPannelRegion.php"); ?>
@@ -105,6 +105,4 @@
 
 
     </body>
-
-
 </html>
