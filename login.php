@@ -3,115 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="css\layout_style.css">
-    <style>
-        #main_content1{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url("assets/login_bg.jpg");
-            width: 100%;
-        }
-        .box-login{
-            width: 60%;
-            text-align: center;
 
-            background-color: #FFC0CB;
-            border-style: solid;
-            border-width: 5px;
-            
-            box-sizing: border-box;
+<style>
+    #main_content1 { 
+    margin:40px;
+    padding-left :100px; 
+    align-items: center; 
+    width: 70%;
+}
+.box-login {
+    width: 60%;
+    text-align: center; 
+    border-style: solid;
+    border-width: 5px;
+    box-sizing: border-box;
+    padding:5px;
+}
 
-            
-        }
-        .box-login .login-title{
-            font-size: 20px;
-            font-weight:bolder;
-            margin-bottom: 30px;
+.login-title{ 
+margin:9px 0 25px;
+    font-size: 30px;
+    text-align: center;
+}
 
-            
-        }
-        .box-login div{
-            margin-bottom: 20px;
-            width: 100%;
-        }
-        .box-login form{
-            box-sizing: border-box;
-        }
-        .box-login form .username input{
-            width: 95%;
-            height: 30px;
-        }
-        .box-login form .password input{
-            width: 95%;
-            height: 30px;
-        }
-        .box-login form .submit input{
-
-            width: 100%;
-            height: 30px;
-            background-color: rgba(243,130,108,255);
-            cursor:pointer;
-            border-style: none;
-        }
-
-    </style>
+#username{
+    
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 45px;
+    padding: 15px 30px 15px 20px;
+    color: #000;
+    font-size: 14px;
+    line-height: 15px;
+    border: 1px solid #e4e4e4;
+    border-radius: 0;
+    outline: none;
+    transition: border-color .35s ease, padding .35s ease;
+    resize: none;
+}
+#password{
+    
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 45px;
+    padding: 15px 30px 15px 20px;
+    color: #000;
+    font-size: 14px;
+    line-height: 15px;
+    border: 1px solid #e4e4e4;
+    border-radius: 0;
+    outline: none;
+    transition: border-color .35s ease, padding .35s ease;
+    resize: none;
+}
+#submit{
+    background:#e4e4e4;
+        color:black;
+        border: none;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 19px 30px;
+        position: relative;
+        width: 100%; 
+        margin-top: 10px;
+        margin-bottom: 25px;
+}
+#submit:active {
+    background: #b3b3b3; /* Màu nền mới */
+    color: white; /* Màu chữ mới */
+}   
+</style>
 
 </head>
 <body>
-    <?php include_once("headerRegion.php") ?>
-    
-    <div id="main_body">
-        <?php include_once("leftPannelRegion.php") ?>
-
-
+    <?php include_once("headerRegion.php"); ?>
+    <div id="main_body"> 
+        <?php include_once("leftPannelRegion.php"); ?>
         <div id="main_content1">
+             
             <div class="box-login">
                 <div class="login-title">
                     Đăng nhập
                 </div>
-    
-                <form action="include/login.inc.php" method="post">
-                    <div class="username">
-<<<<<<< HEAD
-                            <input type="text" id="username" name="username" placeholder="Email">
-                    </div>
-                   
-                    <div class="password" >
-                            <input type="password" id="password" name="password" placeholder="Mật khẩu">
-=======
-                            <input type="text" id="username" name="username" placeholder="Email/Số điện thoại/Tên đăng nhập">
-                    </div>
-                    <div class="username">               
-                        <input type="password" id="password" name="password" placeholder="mật khẩu">
->>>>>>> khang
-                    </div>
-                    <div class="submit">
-                            <input type="submit" id="submit" name="submit" value="Đăng nhập" >
-                    </div>
-                </form>
-                <?php
-                if(isset($_GET["error"])){
-                    if($_GET["error"]=="emptyInput"){
-                            echo "<p style='color:red'> fill all the field !</P>";
-                    }
-                    else if($_GET["error"]=="wrong_user_or_password"){
-                        echo "<p 'color:red'>incorrent login information !</P>";
-                    }
-                }
-            ?>
+                <div class="username">
+                    <form action="" method="get">
+                        <input type="text" id="username" name="username" placeholder="Email/Số điện thoại/Tên đăng nhập">
+                    </form>
+                </div>
+                <div class="password" >
+                    <form action="" method="get">
+                        <input type="password" id="password" name="password" placeholder="Mật khẩu">
+                    </form>
+                </div>
+
+                <div class="submit">
+                    <form action="" method="get" onsubmit="setisLoginTrue(this)" target="_blank">
+                        <input type="submit" id="submit" name="submit" value="Đăng nhập" >
+                    </form>
+                </div>
+
             </div>
+
             
         </div>
-        
-        <?php include_once("rightPannelRegion.php") ?>
-        
+        </div>
+    
+        <?php include_once("rightPannelRegion.php"); ?>
+
+
     </div>
     
-    <?php include_once("footerRegion.php") ?>
+    <?php include_once("footerRegion.php"); ?>
     
-    <script src="js\layout_skeletion_js.js"></script>
-
 </body>
 </html>

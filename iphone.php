@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trang chủ</title>
+        <link rel="stylesheet" href="css\layout_style.css">
+        <!--<link rel="stylesheet" href="style_test1.css">-->
+        <link rel="stylesheet" href="css\product_list_layout_style.css">
+        
+        < 
 
-    <link rel="stylesheet" href="css/layout_style.css">
-    <link rel="stylesheet" href="css/product_list_layout_style.css">
 
-</head>
+    </head>
 <body>
     <?php include_once("headerRegion.php"); ?>
 
@@ -32,8 +34,7 @@
                                     <span>6.7"</span>
                                     <span>Super Retina XDR</span>
                         </div>
-
-                        <p class="item-txt-online">Hàng sắp về</p>
+ 
                         <strong class="phone_list_element_price">46.990.000₫</strong>
             
             
@@ -128,8 +129,7 @@
                                     <span>6.7"</span>
                                     <span>Super Retina XDR</span>
                         </div>
-
-                        <p class="item-txt-online">Hàng sắp về</p>
+ 
                         <strong class="phone_list_element_price">46.990.000₫</strong>
             
             
@@ -210,20 +210,22 @@
                         </div>   
                     </a>
                 </li>
-                
-            </ul>
-
-            <div id="page_numbering">
-                <a href="iphone.html">1</a>
-                <a href="iphone2.html">2</a>
-            </div>
-        </div>
-
-        <?php include_once("rightPannelRegion.php"); ?>
-
-    </div>
-
-    <?php include_once("footerRegion.php"); ?>
-    
-</body>
+                 
+                </ul> 
+                 
+                 </div>
+                 
+             <?php include_once("rightPannelRegion.php"); ?>
+ 
+ 
+              
+         </div>
+         <div id="page_numbering">
+                     <a href="index.html">1</a>
+                     <a href="index2.html">2</a>
+                 </div>
+         <?php include_once("footerRegion.php"); ?>
+ 
+ 
+     </body> 
 </html>

@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\layout_style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
     <style>
+        
+#main_body{
+    display: flex; 
+}
+        
+#main_content{ 
+    width: 70%;
+    border-style: solid;
+    border-color: rgba(0,0,0,0);
+    display:block;  
+    margin:5px;
+   
+}
+
         .box-product{
             width: 100%;
             height: 150px;
@@ -15,8 +28,8 @@
             align-items: center;
             background-color: rgba(255,243,237,255);
             border-style: solid;
-            border-width: 5px;
-            border-color: red;
+            border-width: 3px;
+            border-color: #F2B705;
             padding:5px;
             margin-bottom: 10px;
         }
@@ -39,7 +52,7 @@
 
         .box-product .box-product-interaction .interaction{
             display: flex;
-
+            
         }
         .box-product .box-product-interaction .interaction .plus{
             width: 32px;
@@ -60,17 +73,34 @@
             object-fit: contain;
         }
         #form_address{
-            background-color: rgba(236,236,234,255);
+            
             width: 100%;
-            border-style: solid;
-            border-width: 1px;
+            
+            margin-left:4px;
         }
         #form_address #text_address{
             box-sizing: border-box;
             width: 100%;
-            display:none;
+            display:none; 
         }
+        .number-of-product {
+            text-align: center;
 
+        }
+        #submit{  
+        background: #F2B705;
+        color:black;
+        border: none;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 19px 30px;
+        position: relative;
+        width: 100%; 
+        margin-top: 10px;
+        margin-bottom: 25px;
+        }
 
     </style>
 
@@ -89,9 +119,8 @@
 
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <?php include_once("headerRegion.php"); ?>
-    <div id="main_body">
+    <?php include_once("headerRegion.php"); ?> 
+      <div id="main_body">
         <?php include_once("leftPannelRegion.php"); ?>
 
         <div id="main_content">
@@ -100,20 +129,20 @@
                     <img src="assets/iphone-15-plus-128gb-xanh-thumb-600x600.jpg">
                 </div>
                 <div class="box-product-description">
-                    Điện thoại iPhone 15 Plus 128GB
+                   iPhone 15 Plus 128GB
                 </div>
                 <div class="box-product-price">
                     25.990.000₫
                 </div>
                 <div class="box-product-interaction">
-                    <div class="interaction">
+                    <div class="interaction"> 
+                    <button class="minus">
+                            <img src="assets/minus-icon.png" <="" button="">
+                    </button>
+                        <input class="true-value" type="text" id="number-of-product" value="1">
                         <button class="plus">
                            <img src="assets/plus-icon.png">
-                        </button>
-                        <input class="true-value" type="text" id="number-of-product" value="1">
-                        <button class="minus">
-                            <img src="assets/minus-icon.png"  button="">
-                    </button></div>
+                        </button> </div>
                 </div>
             </div>
 
@@ -128,14 +157,14 @@
                     3.090.000₫
                 </div>
                 <div class="box-product-interaction">
-                    <div class="interaction">
+                    <div class="interaction"> 
+                    <button class="minus">
+                            <img src="assets/minus-icon.png" <="" button="">
+                    </button>
+                        <input class="true-value" type="text" id="number-of-product" value="1">
                         <button class="plus">
                            <img src="assets/plus-icon.png">
-                        </button>
-                        <input class="true-value" type="text" id="number-of-product" value="1">
-                        <button class="minus">
-                            <img src="assets/minus-icon.png"  button="">
-                    </button></div>
+                        </button> </div>
                 </div>
             </div>
 
@@ -144,20 +173,20 @@
                     <img src="assets/oppo-a57-xanh-thumb-1-600x600.jpeg">
                 </div>
                 <div class="box-product-description">
-                    Điện thoại OPPO Reno10 5G 128GB
+                    OPPO Reno10 5G 128GB
                 </div>
                 <div class="box-product-price">
                     9.490.000₫
                 </div>
                 <div class="box-product-interaction">
-                    <div class="interaction">
+                    <div class="interaction"> 
+                    <button class="minus">
+                            <img src="assets/minus-icon.png" <="" button="">
+                    </button>
+                        <input class="true-value" type="text" id="number-of-product" value="1">
                         <button class="plus">
                            <img src="assets/plus-icon.png">
-                        </button>
-                        <input class="true-value" type="text" id="number-of-product" value="1">
-                        <button class="minus">
-                            <img src="assets/minus-icon.png" button="">
-                    </button></div>
+                        </button> </div>
                 </div>
             </div>
 
@@ -166,12 +195,12 @@
                     <input type="radio" id="address_option1" name="address_option" value="Chọn địa chỉ từ tài khoản" onclick="showAddressInputBox(this)" checked="checked">
                     <label for="address_option1">Chọn địa chỉ từ tài khoản</label><br>
                     <input type="radio" id="address_option2" name="address_option" value="Nhập địa chỉ giao hàng mới" onclick="showAddressInputBox(this)">
-                    <label for="address_option2">Nhập địa chỉ giao hàng mới</label><br>
-                    <input type="text" id="text_address" placeholder="NHẬP ĐỈA CHỊ CỦA BẠN"><br>
-                    <input type="submit" id="submit" value="Mua hàng" onclick="muaHang()">
+                    <label for="address_option2">Chọn địa chỉ giao hàng khác</label><br>
+                    <input type="text" id="text_address" placeholder="Nhập địa chỉ mới"> 
+                    <input type="submit" id="submit" value="THANH TOÁN" onclick="muaHang()">
                 </form>
             </div>
-            <!-- <button class="btn-primary">testing</button> -->
+            
         </div>
 
         <?php include_once("rightPannelRegion.php"); ?>

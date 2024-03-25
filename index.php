@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -9,12 +6,8 @@
         <link rel="stylesheet" href="css\layout_style.css">
         <!--<link rel="stylesheet" href="style_test1.css">-->
         <link rel="stylesheet" href="css\product_list_layout_style.css">
-
-        <style>
-            
-            
-        </style>
-
+        
+        < 
 
 
     </head>
@@ -228,19 +221,20 @@
                             </div>   
                         </a>
                     </li>
-                </ul>
+                
+                </ul> 
+                 
+                </div>
+                
+            <?php include_once("rightPannelRegion.php"); ?>
 
-                <div id="page_numbering">
+
+             
+        </div>
+        <div id="page_numbering">
                     <a href="index.html">1</a>
                     <a href="index2.html">2</a>
                 </div>
-            </div>
-                
-            <?php include_once("leftPannelRegion.php"); ?>
-
-
-
-        </div>
         <?php include_once("footerRegion.php"); ?>
 
 
