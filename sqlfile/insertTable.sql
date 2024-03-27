@@ -29,7 +29,7 @@ Dung lượng: 256 GB\n
 Camera sau: Chính 50 MP & Phụ 12 MP, 10 MP\n
 Camera trước: 10 MP & 4 MP\n
 Pin 4400 mAh, Sạc 25 W\n",
- 10,40990000, "assets/samsung-galaxy-z-fold5- kem-600x600.jpg", "assets/samsung-galaxy-z-fold5- kem-600x600.jpg"
+ 10,40990000, "assets/samsung-galaxy-z-fold5-kem-600x600.jpg", "assets/samsung-galaxy-z-fold5-kem-600x600.jpg"
 ),
 
 ("samsung", "Samsung Galaxy S22 Ultra 5G 128GB", "Dull Purple", 0, 

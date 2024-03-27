@@ -24,13 +24,15 @@
             <?php 
             include_once('include\db.inc.php');
 
-            $result=$conn->query("SELECT * FROM sanpham where HangDTH='oppo'");
+
+            
+            $resultLietKeSP=$conn->query("SELECT * FROM sanpham where HangDTH=".$_GET["type"].";");
             ?>
 
             <ul id="phone_list" class="main_content_element">
 
             <?php
-            while($sanpham=$result->fetch_array(MYSQLI_ASSOC)){ ?>
+            while($sanpham=$resultLietKeSP->fetch_array(MYSQLI_ASSOC)){ ?>
                     <li class="phone_list_element">
                         
                         <a href="#" onclick="watchProductDetail(this)">
@@ -70,7 +72,8 @@
                 </form>
             </div>
 
-
+            
+            <?php require_once("page_numberingRegion.php"); ?>
 
         </div>
 
