@@ -20,7 +20,7 @@ CREATE TABLE TAIKHOAN(
     Email varchar(100), 
     pwd varchar(20) NOT null, 
     SoDTH varchar(10), 
-    TinhTrang char(1)
+    TinhTrang char(1)// 'k' (khoa), 'm' (mo)
 );
 
 CREATE TABLE HOADON(
