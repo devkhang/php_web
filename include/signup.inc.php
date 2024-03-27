@@ -3,8 +3,6 @@ if(isset($_POST['submit'])){
     $email = $_POST["username"];
     $pwd = $_POST["password"];
     $rep_pwd = $_POST["rep_password"];
-    // echo var_dump($pwd);
-    // exit();
     require_once ('db.inc.php');
     require_once ('functions.php');
     if(emptyInputSignUp($email,$pwd,$rep_pwd)!==false){
