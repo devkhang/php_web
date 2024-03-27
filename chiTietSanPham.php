@@ -34,6 +34,9 @@ if($_SERVER["REQUEST_METHOD"]!="POST"){
             <?php 
                 include_once('include\db.inc.php');
 
+                $start=0;
+                
+
                 $result=$conn->query("SELECT * FROM `sanpham` WHERE masp=".$_POST["masp"]. ";");
                 $sanpham=$result->fetch_array(MYSQLI_ASSOC);
 

@@ -1,3 +1,6 @@
+Ten databse "webphpdatabase"
+
+
 CREATE TABLE SANPHAM(
     MaSP int PRIMARY KEY AUTO_INCREMENT,
     HangDTH varchar(10),

@@ -24,9 +24,19 @@
             <?php 
             include_once('include\db.inc.php');
 
+            $start=0;
+            $sanphamPerPage=6;
 
+            echo $_GET["type"];
+            $record=$conn->query("SELECT * FROM sanpham where HangDTH=".$_GET["type"].";");
+            $numberOfPage=ceil($record->num_rows/$sanphamPerPage)+3;
             
-            $resultLietKeSP=$conn->query("SELECT * FROM sanpham where HangDTH=".$_GET["type"].";");
+
+            if(isset($_GET["page-nr"])){
+                $start=($_GET["page-nr"]-1)*$sanphamPerPage;
+            }
+            $resultLietKeSP=$conn->query("SELECT * FROM sanpham where HangDTH=".$_GET["type"]." limit $start, $sanphamPerPage;");
+
             ?>
 
             <ul id="phone_list" class="main_content_element">
@@ -72,8 +82,19 @@
                 </form>
             </div>
 
-            
-            <?php require_once("page_numberingRegion.php"); ?>
+            <div id="page_numbering">
+                <?php 
+                    
+                ?>
+                <?php
+                    for($i=1; $i<=$numberOfPage; ++$i){ 
+                        ?>
+                        <a href=<?php echo "?type=".$_GET["type"]."?page-nr=".$i?>><?php echo $i ?></a>
+                        <?php 
+                    } 
+                ?>
+            </div>
+      
 
         </div>
 
