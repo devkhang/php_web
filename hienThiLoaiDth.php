@@ -27,15 +27,23 @@
             $start=0;
             $sanphamPerPage=6;
 
-            echo $_GET["type"];
-            $record=$conn->query("SELECT * FROM sanpham where HangDTH=".$_GET["type"].";");
-            $numberOfPage=ceil($record->num_rows/$sanphamPerPage)+3;
             
+            $record=$conn->query("SELECT * FROM sanpham where HangDTH='".$_GET["type"]."';");
+            $numberOfPage=ceil($record->num_rows/$sanphamPerPage);
+            
+            
+           
 
+            // echo "true1: ".isset($_GET["page-nr"]);
+            // echo "<br>";
+            // echo "true2: ".isset($_GET["type"]);
+            // echo "<br>";
             if(isset($_GET["page-nr"])){
                 $start=($_GET["page-nr"]-1)*$sanphamPerPage;
+                
             }
-            $resultLietKeSP=$conn->query("SELECT * FROM sanpham where HangDTH=".$_GET["type"]." limit $start, $sanphamPerPage;");
+
+            $resultLietKeSP=$conn->query("SELECT * FROM sanpham where HangDTH='".$_GET["type"]."' limit $start, $sanphamPerPage;");
 
             ?>
 
@@ -89,7 +97,7 @@
                 <?php
                     for($i=1; $i<=$numberOfPage; ++$i){ 
                         ?>
-                        <a href=<?php echo "?type=".$_GET["type"]."?page-nr=".$i?>><?php echo $i ?></a>
+                        <a href=<?php echo "?type=".$_GET["type"]."&page-nr=".$i?>><?php echo $i ?></a>
                         <?php 
                     } 
                 ?>
