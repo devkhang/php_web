@@ -1,5 +1,3 @@
-Ten cua database la: webphpdatabase
-
 CREATE TABLE SANPHAM(
     MaSP int PRIMARY KEY AUTO_INCREMENT,
     HangDTH varchar(10),
@@ -15,22 +13,21 @@ CREATE TABLE SANPHAM(
 
 
 CREATE TABLE TAIKHOAN(
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    MaTK INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     user_account varchar(60) NOT null, 
     HinhDaiDien varchar(200), 
     DiaChi varchar(100), 
     Email varchar(100), 
     pwd varchar(20) NOT null, 
     SoDTH varchar(10), 
-    TinhTrang char(1),
-    vaitro char(1)
+    TinhTrang char(1)
 );
 
 CREATE TABLE HOADON(
     MaHD varchar(10) PRIMARY KEY,
     ThoiGianDat date,
-    TrangThaiXuLy varchar(1), //c (chưa xong), x(đã xong)
-    MaTK varchar(20),
+    TrangThaiXuLy varchar(1), //'1' (da xu ly), '0' (chua xu ly)
+    MaTK INT,
     CONSTRAINT fk_hoadon_taikhoan FOREIGN KEY(MaTK) REFERENCES TAIKHOAN(MaTK)
 );
 
@@ -44,7 +41,7 @@ CREATE TABLE TAIKHOANGADMIN(
 
 CREATE TABLE CHITIETGIOHANG(
     MaSP int,
-    MaTK varchar(20),
+    MaTK int,
     SoLuong int,
     
     CONSTRAINT fk_sanpham_chitietgiohang FOREIGN KEY (MaSP) REFERENCES SANPHAM(MaSP),

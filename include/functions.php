@@ -13,7 +13,7 @@ function invalid_username($email){
 }
 
 function MatchPwd($pwd,$rep_pwd){
-    $result;
+    $result=false;
     if($pwd !== $rep_pwd){
         $result = true;
     }else{
