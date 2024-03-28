@@ -90,3 +90,4 @@ function loginUser($conn, $email, $pwd){
         exit();
     }
 }
+
