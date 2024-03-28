@@ -12,13 +12,14 @@
 
 </head>
 <body>
-    <script src="js\simple.js"></script>
+
     
-    <!-- connect to database, query sanpham with HangDTH="oppo", then display the result using html and css--> 
+    <!-- connect to database, query sanpham with HangDTH= url parameter type, then display the result using html and css--> 
     <?php include_once("headerRegion.php"); ?>
     <div id="main_body">
         <?php include_once("leftPannelRegion.php"); ?>
 
+        
         <div id="main_content">
 
             <?php 
@@ -53,7 +54,7 @@
             while($sanpham=$resultLietKeSP->fetch_array(MYSQLI_ASSOC)){ ?>
                     <li class="phone_list_element">
                         
-                        <a href="#" onclick="watchProductDetail(this)">
+                        <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?> onclick="watchProductDetail(this)">
                             
                             <p class="masp" style="display: none;"><?php echo $sanpham["MaSP"]?></p><!-- use to identity sanpham to query chitietsanpham-->
 
@@ -66,7 +67,7 @@
                             </h3>
                             
 
-                            <strong class="phone_list_element_price"><?php echo $sanpham["Gia"] ?>₫</strong>
+                            <strong class="phone_list_element_price"><?php echo number_format($sanpham["Gia"],0,".",".") ?>₫</strong>
                 
                         </a>
                     </li>
@@ -83,12 +84,12 @@
                 
             </div>
 
-            <div style="display: none;">
+            <!-- <div style="display: none;">
                 <form action="chiTietSanPham.php"  name="chitietsp" method="post">
                     <input type="text" name="masp">
                     <input type="submit" name="xemchitiet" value="nhan">
                 </form>
-            </div>
+            </div> -->
 
             <div id="page_numbering">
                 <?php 

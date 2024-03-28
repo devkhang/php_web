@@ -1,6 +1,6 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"]!="POST"){
+if($_SERVER["REQUEST_METHOD"]!="GET" && isset($_GET["MaSP"])){
     echo "you are not allowed to access";
     die();
 }
@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"]!="POST"){
                 $start=0;
                 
 
-                $result=$conn->query("SELECT * FROM `sanpham` WHERE masp=".$_POST["masp"]. ";");
+                $result=$conn->query("SELECT * FROM `sanpham` WHERE masp=".$_GET["MaSP"]. ";");
                 $sanpham=$result->fetch_array(MYSQLI_ASSOC);
 
             ?>
@@ -75,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"]!="POST"){
                 </div>
                 <div class="box-product-info-right">
                     <div class="price">
-                        <p><?php echo $sanpham["Gia"]?>₫</p>
+                        <p><?php echo number_format($sanpham["Gia"], 0, ".", ".")?>₫</p>
                     </div>
                     <div class="box-promotion">
                         <div class="title">
