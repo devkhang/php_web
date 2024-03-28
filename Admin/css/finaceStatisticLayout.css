@@ -1,0 +1,18 @@
+#search{
+    border-style: solid;
+    border-width: 1px;
+    background-color: rgba(125,194,173,255);
+
+}
+#search form{
+    margin-bottom: 20px;
+}
+#product-name{
+    width: 90%;
+}
+#search-product{
+    display: none;
+}
+#search-product-type{
+    display: none;
+}

@@ -1,20 +1,48 @@
 <?php 
-$host="localhost";
-$username="root";
-$pwd="";
-$db="test";
-$conn=mysqli_connect($host, $username, $pwd, $db);
+include_once('include\db.inc.php');
 
-if($conn->connect_errno){
-        die($conn->connect_errno);
-}
+$result=$conn->query("SELECT * FROM sanpham where HangDTH='oppo'");
+?>
 
-echo "connection succeed <br>";
+<ul id="phone_list" class="main_content_element">
 
+<?php
+while($sanpham=$result->fetch_array(MYSQLI_ASSOC)){ ?>
+        <li class="phone_list_element">
+                        <a href="samsung-galaxy-z-fold5-kem.html">
+                            <div class="phone_list_element_img">
+                                <img alt="thêm ảnh" src="assets/samsung-galaxy-z-fold5- kem-600x600.jpg">
+                            </div>
+            
+                            <h3>
+                                Samsung Galaxy Z Fold5 5G
+                            </h3>
+                            
+                            <div class="phone_list_element_compare">
+                                        <span>Chính 7.6" &amp; Phụ 6.2"</span>
+                                        <span>Quad HD+ (2K+)</span>
+                            </div>
 
-$result=$conn->query("SELECT * FROM tb1;");
+                            <strong class="phone_list_element_price">40.990.000₫</strong>
+                
+                
+                
+                            <div class="phone_list_element_rating">
+                                <p>
+                                        <span><img class="icon-star" src="assets/star.png"></span>
+                                        <span><img class="icon-star" src="assets/star.png"></span>
+                                        <span><img class="icon-star" src="assets/star.png"></span>
+                                        <span><img class="icon-star" src="assets/star.png"></span>
+                                        <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
+                                        
+                                </p>
+                                <p class="item-rating-total">5</p>
+                            </div>   
+                        </a>
+                    </li>
 
-while($row=$result->fetch_array(MYSQLI_ASSOC)){
-        echo $row["id"]." ".$row["str"]."<br>";
-}
+<?php }; ?>
 
+?>
+
+</ul>

@@ -1,0 +1,11 @@
+#production-detail-form{
+    width: 100%;
+    height: 50%;
+}
+#product-detail-box{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(9,1fr);
+    width: 100%;
+    height: 100%;
+}

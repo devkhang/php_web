@@ -40,7 +40,8 @@
             width: 10%;
         }
 
-        .box-product .box-product-interaction{
+        .box-product .box-product-interaction .interaction{
+            display: flex;
 
         }
         .box-product .box-product-interaction .interaction .plus{

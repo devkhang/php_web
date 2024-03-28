@@ -1,6 +1,8 @@
-Ten cua database la: webphpdatabase
+Ten databse "webphpdatabase"
+
 
 CREATE TABLE SANPHAM(
+    MaSP int PRIMARY KEY AUTO_INCREMENT,
     HangDTH varchar(10),
     Ten varchar(50),
     Mau varchar(10),
@@ -9,28 +11,26 @@ CREATE TABLE SANPHAM(
     SoLuongTonKho int NOT NULL,
     Gia int,
     HinhAnhMH varchar(200),
-    HinhAnhChiTiet varchar(200),
-    CONSTRAINT pk_sanpham PRIMARY KEY(HangDTH, Ten)
+    HinhAnhChiTiet varchar(200)
 );
 
 
 CREATE TABLE TAIKHOAN(
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    MaTK INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     user_account varchar(60) NOT null, 
     HinhDaiDien varchar(200), 
     DiaChi varchar(100), 
     Email varchar(100), 
     pwd varchar(255) NOT null, 
     SoDTH varchar(10), 
-    TinhTrang char(1),
-    vaitro char(1)
+    TinhTrang char(1)// 'k' (khoa), 'm' (mo)
 );
 
 CREATE TABLE HOADON(
     MaHD varchar(10) PRIMARY KEY,
-    ThoiGianDat date ,
-    TrangThaiXuLy varchar(1),
-    MaTK varchar(20),
+    ThoiGianDat date,
+    TrangThaiXuLy varchar(1), //'1' (da xu ly), '0' (chua xu ly)
+    MaTK INT,
     CONSTRAINT fk_hoadon_taikhoan FOREIGN KEY(MaTK) REFERENCES TAIKHOAN(MaTK)
 );
 
@@ -43,19 +43,23 @@ CREATE TABLE TAIKHOANGADMIN(
 
 
 CREATE TABLE CHITIETGIOHANG(
-    HangDTH varchar(10),
-    Ten varchar(50),
-    MaTK varchar(20), 
+    MaSP int,
+    MaTK int,
     SoLuong int,
-    CONSTRAINT pk_chitietgiohang PRIMARY KEY(HangDTH, Ten, MaTK)
+    
+    CONSTRAINT fk_sanpham_chitietgiohang FOREIGN KEY (MaSP) REFERENCES SANPHAM(MaSP),
+    CONSTRAINT fk_taikhoan_chitietgiohang FOREIGN KEY (MaTK) REFERENCES TAIKHOAN(MaTK),
+    CONSTRAINT pk_chitietgiohang PRIMARY KEY(MaSP, MaTK)
 );
 
 CREATE TABLE CHITIETDONHANG(
-    HangDTH varchar(10),
-    Ten varchar(50),
+    MaSP int,
     MaHD varchar(10),
     SoLuong int,
-    CONSTRAINT pk_chitietdonhang PRIMARY KEY(HangDTH, Ten, MaHD)
+    
+    CONSTRAINT fk_sanpham_chitietdonhang FOREIGN KEY (MaSP) REFERENCES SANPHAM(MaSP),
+    CONSTRAINT fk_hoadong_chitietdonghang FOREIGN KEY (MaHD) REFERENCES HOADON(MaHD),
+    CONSTRAINT pk_chitietdonhang PRIMARY KEY(MaSP, MaHD)
 );
 
 

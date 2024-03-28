@@ -29,7 +29,7 @@
                             <a href="login.php">Đăng nhập</a>
                         </div>';
                     echo '<div class="menu_top_element" id="signup" style="display: inline;">
-                            <a href="singup.php">Đăng Ký</a>
+                            <a href="signup.php">Đăng Ký</a>
                         </div>';
                 }
             ?>

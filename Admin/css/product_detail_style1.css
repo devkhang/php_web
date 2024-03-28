@@ -1,0 +1,116 @@
+.product_name{
+    
+    width: 100%;
+}
+.product_name div{
+    display: inline-block;
+}
+.box-product-info{
+    display: flex;
+    width: 100%;
+}
+
+.box-title p {
+    color: #444;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+
+.box-product-info-left{
+    width: 70%;
+    height: 100%;
+    
+}
+.box-gallery img{
+    width: 100%;
+}
+.box-gallery image{
+    width: 100%;
+    object-fit: contain;
+}
+.box-detail-info{
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.3);
+    border-width: 1px;
+    border-radius: 11px;
+    padding: 3px;
+    background-color: rgba(255,255,255,255);
+
+}
+.info-element .description{
+    margin-top: 2px;
+}
+
+.box-product-info .box-product-info-left .box-detail-info .box-title{
+    margin-bottom: 15px;
+    margin-top: 1px;
+}
+.box-product-info .box-product-info-left .box-detail-info .info-element{
+    margin-bottom: 10px;
+}
+.box-product-info-right{
+    width: 27%;
+    
+}
+.box-product-info-middle{
+    width: 3%;
+}
+.box-product-info-right .price{
+    background-color: rgba(238,238,239,255);
+    width: 100%;
+    height: 80px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.3);
+    border-radius: 11px;
+    border-width: 1px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 7px;
+}
+.box-product-info-right .price p{
+    margin: 0px;
+
+    color: rgba(253,64,64,255);
+    font-size: 1.6em;
+}
+.box-product-info-right .box-promotion{
+    background-color: rgba(255,255,255,255);
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.3);
+    border-radius: 11px;
+    border-width: 1px;
+
+
+}
+.box-product-info-right .box-promotion .title{
+    background-color: rgba(254,226,226,255);
+    color: rgba(215,2,25,255);
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0);
+    border-radius: inherit;
+
+
+    display: flex;
+    justify-content: center;
+}
+.box-product-info-right .add-to-cart{  
+    height: 50px;
+}
+.box-product-info-right .add-to-cart button{
+    width: 100%;
+    height: 100%;
+    font-size: 19px;
+    font-family:serif;
+
+    background-color: rgba(255,238,232,255);
+    color: rgba(244,120,79,255);
+}
+.box-product-info-right .add-to-cart button:hover{
+    background-color: rgba(255,218,212,255);
+    cursor: pointer;
+}

@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="layout_style.css">
+    <link rel="stylesheet" href="account_layout.css">
+
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="brand">
+            <h1 id="header_p">Thegioidienthoai Admin Interface</h1>
+        </div>
+        <div id="menu_top">   
+        </div>
+
+        <div id="search">
+        </div>
+        
+    </div>
+
+    
+    
+   
+    </div>
+
+    <div id="main_body">
+        <div id="left_panel">
+            <div class="left_panel_element" id="homepage">
+                <a href="index.html">Giao diện admin</a>
+            </div>
+            <div class="left_panel_element" id="login">
+                <a href="login.html">Đăng nhập</a>
+            </div>
+            <div class="left_panel_element" id="singout">
+                <a href="signout.html">Đăng xuất</a>
+            </div>
+            <div class="left_panel_element" id="addUser">
+                <a href="UserManage.html">Thêm người dùng</a>
+            </div>
+            <div class="left_panel_element" id="addProduct">
+                <a href="addProduct.html">Thêm sản phẩm</a>
+            </div>
+            <div class="left_panel_element" id="modifyProduct">
+                <a href="modifyProduct.html">Chỉnh sửa sản phẩm</a>
+            </div>
+            <div class="left_panel_element" id="orderManage">
+                <a href="orderManage.html">Quản lý đơn hàng của khách</a>
+            </div>
+            <div class="left_panel_element" id="financeStatistic">
+                <a href="financeStatistic.html">Thống kê tình hình kinh doanh</a>
+            </div>
+            <div class="left_panel_element" id="modifyUser">
+                <a href="modifyUser.html">Chỉnh sửa tài khoản người dùng</a>
+            </div>
+        </div>
+        <div id="main_content">
+            <div id="user-info_box">
+                <div class="user-info-box-element" id="genernal-info">
+                    <div id="avatar">
+                        <img src="assets/emperor.jpeg">
+                    </div>
+                    <div id="basic-info">
+                        <p id="p1">Torquemada</p>
+                        <p id="p2">Forimperium@gmail.com</p>
+                        <p id="p3">Tình trạng: Không thể bị khóa</p>
+                    </div>
+                </div>
+                <div class="user-info-box-element" id="detail-info">
+                    <div id="Account">
+                        Account
+                    </div>
+                    <div id="UserName-title">
+                        Nick name
+                    </div>
+                    <div id="UserName" class="real-value">
+                        The Omnissiah
+                    </div>
+                    <div id="Email-title">
+                        Email
+                    </div>
+                    <div id="Email" class="real-value">
+                        Forimperium@gmail.com
+                    </div>
+                    <div id="FullName-title">
+                        Tên đầy đủ
+                    </div>
+                    <div id="FullName" class="real-value">
+                        Torquemada 
+                    </div>
+                    <div id="Role-title">
+                        Chức vụ
+                    </div>
+                    <div id="Role" class="real-value">
+                        Quản trị viên
+                    </div>
+                    <div id="Phone-title">
+                        Số điện thoại
+                    </div>
+                    <div id="Phone" class="real-value">
+                        0311108888
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+        <div id="right_panel">
+            <div class="right_panel_element" id="Lock">
+                <a onclick="LockUser(this)">Khóa người dùng</a>
+            </div>
+            <div class="right_panel_element" id="Modify">
+                <a href="Emperor_modify.html">Chỉnh sửa thông tin</a>
+            </div>
+            <div class="right_panel_element" id="UnLock">
+                <a onclick="UnlockUser(this)" >Khóa người dùng</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="footer_container">
+            <p style="color: rgba(255,255,255,255);">
+                <strong style="color:#308d46;">Tổng đài hỗ trợ</strong> (Miễn phí gọi)
+            </p>
+            <p style="color: rgba(255,255,255,255);">
+                <span style="color:#308d46;">Khiếu nại:</span> 1800.1062
+                (8:00 - 21:30)
+            </p>
+            <p style="color: rgba(255,255,255,255);">
+                <span style="color:#308d46;">Bảo hành:</span> 1800.1064
+                (8:00 - 21:00)
+            </p>
+            
+        </div>
+    </div>
+
+
+    <script src="layout_skeketon_js.js"></script>
+    <script src="user_accountJS.js"></script>
+
+</body>
+</html>
