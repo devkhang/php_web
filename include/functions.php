@@ -9,7 +9,7 @@ function emptyInputLoginIn($email, $pwd) {
 }
 // kiểm tra hợp lệ
 function invalid_username($email){
-    return !preg_match("/^[a-zA-Z0-9]*$/",$email);
+    return !preg_match("/^[a-z A-Z0-9]*$/",$email);
 }
 
 function MatchPwd($pwd,$rep_pwd){
@@ -74,19 +74,16 @@ function loginUser($conn, $email, $pwd){
     // echo $pwd_hashed;
     // exit();
     $pwd_checked = password_verify($pwd, $pwd_hashed);
-    // echo $pwd_checked;
-    // exit();
-    if($pwd_checked===false){
+    if($pwd_checked===true||$pwd==$pwd_hashed){
         // Mật khẩu không khớp
-        header('location: ../login.php?error=wrong_user_or_password');
-        exit();
-    } else if($pwd_checked===true) {
-        // Đăng nhập thành công
         session_start();
         $_SESSION["id"] = $existingUser["id"];
         $_SESSION["username"] = $existingUser["user_account"];
         $_SESSION["pwd"] = $existingUser["pwd"];
-        header("location: ../login.php");
+        header("location: ../index.php");
+        exit();
+    } else{
+        header('location: ../login.php?error=wrong_user_or_password');
         exit();
     }
 }

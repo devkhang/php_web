@@ -15,12 +15,12 @@
                     echo '<div class="menu_top_element" id="cart">
                             <a href="cart.php">Giỏ hàng</a>
                         </div>';
-                    echo "<div class='menu_top_element' id='singout' style='display: none;'>
-                            <a href='singout.php'>Đăng xuất</a>
-                        </div>";
-                    echo "<div class='menu_top_element' id='profile' style='display: none;'>
-                        <a href='profile.php'>profile</a>
-                        </div>";
+                    echo '<div class="menu_top_element" id="singout" style="display: inline;">
+                            <a href="signout.php">Đăng xuất</a>
+                        </div>';
+                    echo '<div class="menu_top_element" id="profile" style="display: inline;">
+                        <a href="profile.php">profile</a>
+                        </div>';
                     echo '<div class="menu_top_element" id="history">
                             <a href="history.php">Lịch sử mua hàng</a>
                         </div>';
