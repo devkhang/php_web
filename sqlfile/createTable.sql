@@ -21,7 +21,7 @@ CREATE TABLE TAIKHOAN(
     HinhDaiDien varchar(200), 
     DiaChi varchar(100), 
     Email varchar(100), 
-    pwd varchar(20) NOT null, 
+    pwd varchar(255) NOT null, 
     SoDTH varchar(10), 
     TinhTrang char(1)// 'k' (khoa), 'm' (mo)
 );

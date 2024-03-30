@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css\layout_style.css">
         <!--<link rel="stylesheet" href="style_test1.css">-->
         <link rel="stylesheet" href="css\product_list_layout_style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
         <style>
             
@@ -19,6 +20,9 @@
 
     </head>
     <body>
+        <!-- include function to submit masp to chitietsanpham.php -->
+        <script src="js\simple.js"></script> 
+        
         <?php
             include_once("headerRegion.php");
         ?>
@@ -28,213 +32,82 @@
                 include_once("leftPannelRegion.php");
             ?>
 
-            <div id="main_content">
-                <ul id="phone_list" class="main_content_element">
-                    <!-- start here -->
-                    
+        <div id="main_content">
+
+            <?php 
+            include_once('include\db.inc.php');
+
+            $start=0;
+            $sanphamPerPage=6;
+
+
+            $record=$conn->query("SELECT * FROM sanpham LIMIT 0,10 ;");
+            $numberOfPage=ceil($record->num_rows/$sanphamPerPage);
+
+
+
+
+            // echo "true1: ".isset($_GET["page-nr"]);
+            // echo "<br>";
+            // echo "true2: ".isset($_GET["type"]);
+            // echo "<br>";
+            if(isset($_GET["page-nr"])){
+                $start=($_GET["page-nr"]-1)*$sanphamPerPage;
+                
+            }
+
+            $resultLietKeSP=$conn->query("SELECT * FROM sanpham limit $start, $sanphamPerPage;");
+
+            ?>
+
+            <ul id="phone_list" class="main_content_element">
+
+            <?php
+            while($sanpham=$resultLietKeSP->fetch_array(MYSQLI_ASSOC)){ ?>
                     <li class="phone_list_element">
-                        <a href="samsung-galaxy-z-fold5-kem.html">
-                            <div class="phone_list_element_img">
-                                <img alt="thêm ảnh" src="assets/samsung-galaxy-z-fold5- kem-600x600.jpg">
-                            </div>
-            
-                            <h3>
-                                Samsung Galaxy Z Fold5 5G
-                            </h3>
+                        
+                        <a href="#" onclick="watchProductDetail(this)">
                             
-                            <div class="phone_list_element_compare">
-                                        <span>Chính 7.6" &amp; Phụ 6.2"</span>
-                                        <span>Quad HD+ (2K+)</span>
+                            <p class="masp" style="display: none;"><?php echo $sanpham["MaSP"]?></p><!-- use to identity sanpham to query chitietsanpham-->
+
+                            <div class="phone_list_element_img">
+                                <img alt="thêm ảnh" src=<?php echo $sanpham["HinhAnhMH"] ?>>
                             </div>
 
-                            <strong class="phone_list_element_price">40.990.000₫</strong>
+                            <h3>
+                                <?php echo $sanpham["Ten"] ?>
+                            </h3>
+                            
+
+                            <strong class="phone_list_element_price"><?php echo $sanpham["Gia"] ?>₫</strong>
                 
-                
-                
-                            <div class="phone_list_element_rating">
-                                <p>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
-                                        
-                                </p>
-                                <p class="item-rating-total">5</p>
-                            </div>   
                         </a>
                     </li>
 
-                    <li class="phone_list_element">
-                        <a href="Galaxy-S22-Ultra-Burgundy.html">
-                            <div class="phone_list_element_img">
-                                <img alt="Samsung Galaxy S22 Ultra 5G 128GB" src="assets/Galaxy-S22-Ultra-Burgundy-600x600.jpg">
-                            </div>
-            
-                            <h3>
-                                Samsung Galaxy S22 Ultra 5G 128GB
-                            </h3>
-                            
-                            <div class="phone_list_element_compare">
-                                        <span>6.8"</span>
-                                        <span>Quad HD+ (2K+)</span>
-                            </div>
+            <?php };?>
 
-                            <strong class="phone_list_element_price">16.990.000₫</strong>
-                
-                
-                
-                            <div class="phone_list_element_rating">
-                                <p>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
-                                        
-                                </p>
-                                <p class="item-rating-total">194</p>
-                            </div>   
-                        </a>
-                    </li>
+            </ul>
 
-                    <li class="phone_list_element">
-                        <a href="samsung-galaxy-z-fold5-kem.html">
-                            <div class="phone_list_element_img">
-                                <img alt="thêm ảnh" src="assets/samsung-galaxy-z-fold5- kem-600x600.jpg">
-                            </div>
-            
-                            <h3>
-                                Samsung Galaxy Z Fold5 5G
-                            </h3>
-                            
-                            <div class="phone_list_element_compare">
-                                        <span>Chính 7.6" &amp; Phụ 6.2"</span>
-                                        <span>Quad HD+ (2K+)</span>
-                            </div>
-
-                            <strong class="phone_list_element_price">40.990.000₫</strong>
-                
-                
-                
-                            <div class="phone_list_element_rating">
-                                <p>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
-                                        
-                                </p>
-                                <p class="item-rating-total">5</p>
-                            </div>   
-                        </a>
-                    </li>
-
-                    <li class="phone_list_element">
-                        <a href="Galaxy-S22-Ultra-Burgundy.html">
-                            <div class="phone_list_element_img">
-                                <img alt="Samsung Galaxy S22 Ultra 5G 128GB" src="assets/Galaxy-S22-Ultra-Burgundy-600x600.jpg">
-                            </div>
-            
-                            <h3>
-                                Samsung Galaxy S22 Ultra 5G 128GB
-                            </h3>
-                            
-                            <div class="phone_list_element_compare">
-                                        <span>6.8"</span>
-                                        <span>Quad HD+ (2K+)</span>
-                            </div>
-
-                            <strong class="phone_list_element_price">16.990.000₫</strong>
-                
-                
-                
-                            <div class="phone_list_element_rating">
-                                <p>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
-                                        
-                                </p>
-                                <p class="item-rating-total">194</p>
-                            </div>   
-                        </a>
-                    </li>
-                    <li class="phone_list_element">
-                        <a href="samsung-galaxy-z-fold5-kem.html">
-                            <div class="phone_list_element_img">
-                                <img alt="thêm ảnh" src="assets/samsung-galaxy-z-fold5- kem-600x600.jpg">
-                            </div>
-            
-                            <h3>
-                                Samsung Galaxy Z Fold5 5G
-                            </h3>
-                            
-                            <div class="phone_list_element_compare">
-                                        <span>Chính 7.6" &amp; Phụ 6.2"</span>
-                                        <span>Quad HD+ (2K+)</span>
-                            </div>
-
-                            <strong class="phone_list_element_price">40.990.000₫</strong>
-                
-                
-                
-                            <div class="phone_list_element_rating">
-                                <p>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
-                                        
-                                </p>
-                                <p class="item-rating-total">5</p>
-                            </div>   
-                        </a>
-                    </li>
-
-                    <li class="phone_list_element">
-                        <a href="Galaxy-S22-Ultra-Burgundy.html">
-                            <div class="phone_list_element_img">
-                                <img alt="Samsung Galaxy S22 Ultra 5G 128GB" src="assets/Galaxy-S22-Ultra-Burgundy-600x600.jpg">
-                            </div>
-            
-                            <h3>
-                                Samsung Galaxy S22 Ultra 5G 128GB
-                            </h3>
-                            
-                            <div class="phone_list_element_compare">
-                                        <span>6.8"</span>
-                                        <span>Quad HD+ (2K+)</span>
-                            </div>
-
-                            <strong class="phone_list_element_price">16.990.000₫</strong>
-                
-                
-                
-                            <div class="phone_list_element_rating">
-                                <p>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/star.png"></span>
-                                        <span><img class="icon-star" src="assets/bad-icon-starjpg.jpg"></span>
-                                        
-                                </p>
-                                <p class="item-rating-total">194</p>
-                            </div>   
-                        </a>
-                    </li>
-                </ul>
-
-                <div id="page_numbering">
-                    <a href="index.html">1</a>
-                    <a href="index2.html">2</a>
-                </div>
+            <div style="display: none;">
+                <form action="chiTietSanPham.php"  name="chitietsp" method="post">
+                    <input type="text" name="masp">
+                    <input type="submit" name="xemchitiet" value="nhan">
+                </form>
             </div>
+
+            <div id="page_numbering">
+                
+                <?php
+                    for($i=1; $i<=$numberOfPage; ++$i){ 
+                        ?>
+                        <a href=<?php echo "?page-nr=".$i?>><?php echo $i ?></a>
+                        <?php 
+                    } 
+                ?>
+        </div>
+
+
+        </div>
                 
             <?php include_once("rightPannelRegion.php"); ?>
 
