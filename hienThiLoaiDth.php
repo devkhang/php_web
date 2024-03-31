@@ -64,7 +64,9 @@
                                 <h5 class="card-title"><?php echo $sanpham["Ten"] ?></h5>
                                 <p class="card-text"><strong class="phone_list_element_price"><?php echo $sanpham["Gia"] ?>₫</strong></p>
                                 <p class="card-text"><?php echo "khuyến mãi: ".$sanpham["KhuyeMai"]."%"?></p>
+                                <?php if(isset($_SESSION["username"])){?>
                                 <a href="#" class="btn btn-primary">thêm vào giỏ hàng</a>
+                                <?php } ?>
                             </div>
                         </div>
                      </a> 
