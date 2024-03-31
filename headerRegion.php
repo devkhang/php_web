@@ -13,7 +13,7 @@
             <?php
                 if(isset($_SESSION["username"])){
                     echo '<div class="menu_top_element" id="cart">
-                            <a href="cart.php">Giỏ hàng</a>
+                            <a href="cart.php">Giỏ hàng<i class="fa-solid fa-cart-shopping"></i></a>
                         </div>';
                     echo '<div class="menu_top_element" id="singout" style="display: inline;">
                             <a href="signout.php">Đăng xuất</a>

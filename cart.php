@@ -98,71 +98,49 @@
         <?php include_once("leftPannelRegion.php"); ?>
 
         <div id="main_content">
-            <div class="box-product" id="product-1">
-                <div class="box-product-image">
-                    <img src="assets/iphone-15-plus-128gb-xanh-thumb-600x600.jpg">
-                </div>
-                <div class="box-product-description">
-                    Điện thoại iPhone 15 Plus 128GB
-                </div>
-                <div class="box-product-price">
-                    25.990.000₫
-                </div>
-                <div class="box-product-interaction">
-                    <div class="interaction">
-                        <button class="plus">
-                           <img src="assets/plus-icon.png">
-                        </button>
-                        <input class="true-value" type="text" id="number-of-product" value="1">
-                        <button class="minus">
-                            <img src="assets/minus-icon.png"  button="">
-                    </button></div>
+        <!-- <div class="container" style="margin-top: 50px;"> -->
+        <?php
+        $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
+        $cart = json_decode($cart);
+
+        $total = 0;
+
+        foreach ($cart as $c)
+        {
+            $total += $c->Gia * $c->quantity;
+            ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card" style="height: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $c->Ten; ?></h5>
+                            <p class="card-text"><?php echo $c->Gia * $c->quantity; ?></p>
+
+                            <form method="POST" action="delete-cart.php" style="float: right; margin-left: 10px;">
+                                <input type="hidden" name="productCode" value="<?php echo $c->MaSP; ?>">
+                                <button type="submit" class="btn btn-danger">
+                                    x
+                                </button>
+                            </form>
+
+                            <form method="POST" action="update-cart.php" style="float: right;">
+                                <input type="number" name="quantity" min="1" value="<?php echo $c->quantity; ?>">
+                                <input type="hidden" name="productCode" value="<?php echo $c->MaSP; ?>">
+                                <input type="submit" class="btn btn-warning" value="Update">
+                            </form>
+
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="box-product" id="product-2">
-                <div class="box-product-image">
-                    <img src="assets/samsung-galaxy-a05-thumb-600x600.jpg">
-                </div>
-                <div class="box-product-description">
-                    Samsung Galaxy A05 4GB
-                </div>
-                <div class="box-product-price">
-                    3.090.000₫
-                </div>
-                <div class="box-product-interaction">
-                    <div class="interaction">
-                        <button class="plus">
-                           <img src="assets/plus-icon.png">
-                        </button>
-                        <input class="true-value" type="text" id="number-of-product" value="1">
-                        <button class="minus">
-                            <img src="assets/minus-icon.png"  button="">
-                    </button></div>
-                </div>
-            </div>
+            <?php
+        }
+        ?>
 
-            <div class="box-product" id="product-3">
-                <div class="box-product-image">
-                    <img src="assets/oppo-a57-xanh-thumb-1-600x600.jpeg">
-                </div>
-                <div class="box-product-description">
-                    Điện thoại OPPO Reno10 5G 128GB
-                </div>
-                <div class="box-product-price">
-                    9.490.000₫
-                </div>
-                <div class="box-product-interaction">
-                    <div class="interaction">
-                        <button class="plus">
-                           <img src="assets/plus-icon.png">
-                        </button>
-                        <input class="true-value" type="text" id="number-of-product" value="1">
-                        <button class="minus">
-                            <img src="assets/minus-icon.png" button="">
-                    </button></div>
-                </div>
-            </div>
+        <p>
+            <?php echo "<h1> tổng tiền :".$total."</h1>" ?>
+        </p>
 
             <div id="Address">
                 <form action="" method="get" id="form_address">
