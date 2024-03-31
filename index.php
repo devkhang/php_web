@@ -91,7 +91,7 @@
                             
 
                             <strong class="phone_list_element_price"><?php echo $sanpham->Gia ?>₫</strong>
-                            <?php
+                            <?php if(isset($_SESSION["username"])){
                             if($flag){ ?>
                                 <form action="delele-cart.php" method="POST">
                                     <input type="hidden" name="id" value=<?php echo $sanpham->MaSP?>>
@@ -103,7 +103,7 @@
                                     <input type="hidden" name="id" value=<?php echo $sanpham->MaSP?>>
                                     <input type="submit" class="btn btn-primary" value="adđ to cart">
                                 </form>
-                            <?php } ?>
+                            <?php }} ?>
                         </a>
                     </li>
 
