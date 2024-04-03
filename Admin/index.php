@@ -37,7 +37,7 @@
         
         console.log(isLogin);
         if(isLogin==="true")
-            window.location.href="Emperor_admin.html";
+            window.location.href="Emperor_admin.php";
     </script>
 
 </body>
