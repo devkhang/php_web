@@ -56,13 +56,13 @@
             <?php
             while($sanpham=$resultLietKeSP->fetch_array(MYSQLI_ASSOC)){ ?>
                     <li class="phone_list_element">
-                    <a href="#" onclick="watchProductDetail(this)">
+                    <a href=<?php echo "chitietsp.php?masp=".$sanpham["MaSP"] ?> onclick="watchProductDetail(this)">
                     <div class="card" style="width: 18rem ; height: 30rem" onclick="watchProductDetail(this)">
                         <img class="card-img-top" src=<?php echo $sanpham["HinhAnhMH"]?> alt="Card image cap">
                             <div class="card-body">
                                 <p class="masp" style="display: none;"><?php echo $sanpham["MaSP"]?></p>
                                 <h5 class="card-title"><?php echo $sanpham["Ten"] ?></h5>
-                                <p class="card-text"><strong class="phone_list_element_price"><?php echo $sanpham["Gia"] ?>₫</strong></p>
+                                <p class="card-text"><strong class="phone_list_element_price"><?php echo number_format($sanpham["Gia"],0,".",".") ?>₫</strong></p>
                                 <p class="card-text"><?php echo "khuyến mãi: ".$sanpham["KhuyeMai"]."%"?></p>
                                 <?php if(isset($_SESSION["username"])){?>
                                 <a href="#" class="btn btn-primary">thêm vào giỏ hàng</a>
