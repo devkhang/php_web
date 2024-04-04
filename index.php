@@ -77,7 +77,7 @@
                 ?>
                     <li class="phone_list_element">
                         
-                        <a href="#" onclick="watchProductDetail(this)">
+                        <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham->MaSP.";"?>>
                             
                             <p class="masp" style="display: none;"><?php echo $sanpham->MaSP?></p><!-- use to identity sanpham to query chitietsanpham-->
 

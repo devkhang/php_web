@@ -56,7 +56,7 @@
             <?php
             while($sanpham=$resultLietKeSP->fetch_array(MYSQLI_ASSOC)){ ?>
                     <li class="phone_list_element">
-                    <a href=<?php echo "chitietsp.php?masp=".$sanpham["MaSP"] ?> onclick="watchProductDetail(this)">
+                    <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?> onclick="watchProductDetail(this)">
                     <div class="card" style="width: 18rem ; height: 30rem" onclick="watchProductDetail(this)">
                         <img class="card-img-top" src=<?php echo $sanpham["HinhAnhMH"]?> alt="Card image cap">
                             <div class="card-body">
