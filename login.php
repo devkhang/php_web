@@ -63,7 +63,8 @@
     <?php include_once("headerRegion.php") ?>
     
     <div id="main_body">
-        <?php include_once("leftPannelRegion.php") ?>
+        <?php include_once("leftPannelRegion.php") ;
+        ?>
 
 
         <div id="main_content1">

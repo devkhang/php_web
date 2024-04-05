@@ -63,6 +63,7 @@ function createUser($conn,$email,$pwd){
 }
 function loginUser($conn, $email, $pwd){
     $existingUser = email_exist($conn, $email);
+    var_dump($existingUser);
     
     if(!$existingUser){
         // Không tìm thấy người dùng trong cơ sở dữ liệu
@@ -77,7 +78,7 @@ function loginUser($conn, $email, $pwd){
     if($pwd_checked===true||$pwd==$pwd_hashed){
         // Mật khẩu không khớp
         session_start();
-        $_SESSION["id"] = $existingUser["id"];
+        $_SESSION["MaTK"] = $existingUser["MaTK"];
         $_SESSION["username"] = $existingUser["user_account"];
         $_SESSION["pwd"] = $existingUser["pwd"];
         header("location: ../index.php");

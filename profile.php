@@ -2,7 +2,10 @@
 include_once("./include/connectDB.php");
 include_once("./include/common.php");
 $conn=connectDB();
-$result=$conn->query(sprintf('SELECT * FROM taikhoan WHERE MaTK=%d;',))
+$result=$conn->query(sprintf('SELECT * FROM taikhoan WHERE MaTK=%d;',$_SESSION["MaTK"]));
+$taikhoan=$result->fetch_assoc();
+
+
 
 ?>
 
@@ -24,6 +27,13 @@ $result=$conn->query(sprintf('SELECT * FROM taikhoan WHERE MaTK=%d;',))
     ?>
 
     <style>
+        #genernal-info {
+            width: auto;
+            height: 30%;
+        }
+        #avatar-real-value{
+            object-fit: scale-down;
+        }
         #detail-info{
             margin-top: 10px;
         }
@@ -52,7 +62,10 @@ $result=$conn->query(sprintf('SELECT * FROM taikhoan WHERE MaTK=%d;',))
         #right_panel #add-all-button:hover{
             background-color: red;
         }
-    </style>
+        #avatar-real-value{
+            max-width:100%; height:auto
+        }    
+        </style>
 
 </head>
 <body>
@@ -62,43 +75,18 @@ $result=$conn->query(sprintf('SELECT * FROM taikhoan WHERE MaTK=%d;',))
 
         <div id="main_content">
             <div id="user-info_box">
-                <form  action="signup.php" name="signupForm" method="POST" enctype="multipart/form-data">
-                    <?php
-                        if(isset($err_moveFile)){?>
-                            <div class="alert alert-danger alert-dismissible">
-                                
-                                <strong>Thất bại!</strong> Đăng ký thất bại do không upload được file.
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            </div>
-                    <?php
-                        }
-                        else if(isset($err_emptyValue)){?>
-                            <div class="alert alert-danger alert-dismissible">
-                                
-                                <strong>Thất bại!</strong>Do thiếu thông tin nhập.
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            </div>
-                    <?php
-                        } else if(isset($err_singup)){?>
-                            <div class="alert alert-success alert-dismissible">
-                                
-                                <strong>Thành công!</strong>Bạn đã đăng ký thành công.
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            </div>
-                    <?php
-                        }
-                    ?>
-                    
-
+                
+                <div class="user-detail-info">
 
                     <div class="user-info-box-element" id="genernal-info">
                         <div id="avatar">
                             <div id="avatarFrom">
-                                <label for="avatar-real-value">Chọn avatar</label>
-                                <input id="avatar-real-value" name="avatar-real-value" type="file" required>
+                                <img id="avatar-real-value" <?php echo sprintf("src='%s'",$taikhoan["HinhDaiDien"]); ?>>
+
+                                
                             </div>
                         </div>
-                
+                    
                     </div>
                     <div class="user-info-box-element" id="detail-info">
                         <div id="detail-info-form">
@@ -109,39 +97,35 @@ $result=$conn->query(sprintf('SELECT * FROM taikhoan WHERE MaTK=%d;',))
                                 User name
                             </div>
                             <div id="UserName" class="real-value">
-                                <input id="UserName" name="UserName" type="text" value="" required>
+                                <p id="UserName"><?php echo $taikhoan["user_account"] ?></p>
                             </div>
                             <div id="Email-title">
                                 Email
                             </div>
                             <div id="Email" class="real-value">
-                                <input id="Email" name="Email" type="text" value="" required>
+                                <p id="Email"><?php echo $taikhoan["Email"] ?></p>
                             </div>
                             <div id="Adress-title">
                                 Địa chỉ
                             </div>
                             <div id="Adress" class="real-value">
-                                <input id="Adress" name="Adress" type="text" value="" required>
+                                <p id="Adress"><?php echo $taikhoan["DiaChi"]; ?></p>
                             </div>
                             <div id="Pwd-title">
                                 Mật khẩu
                             </div>
                             <div id="Pwd" class="real-value">
-                                <input id="Pwd" name="pwd" type="password" value="" required>
+                                <p id="Pwd"><?php echo $taikhoan["pwd"]; ?></p>
                             </div>
                             <div id="Phone-title">
                                 Số điện thoại
                             </div>
                             <div id="Phone" class="real-value">
-                                <input id="Phone" name="Phone" type="text" value="" required>
+                                <p id="Phone"><?php echo $taikhoan["SoDTH"]; ?></p>
                             </div>
                         </div>
                     </div>
-                    <input id="add-all-button" type="submit" name="dangky" value="Đăng ký">
-                    <!-- <div id="add-all-button">
-                        <button type="submit" onclick="AddUser(this)">Đăng ký</a>
-                    </div> -->
-                </form>
+                </div>
             </div>
             
         </div>
