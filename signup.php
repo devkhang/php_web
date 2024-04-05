@@ -1,7 +1,31 @@
 <?php 
+include_once("./include/connectDB.php");
+
 
 if(isset($_POST['dangky'])){
+
+    //lay anh tu <input> va chuyen anh ve folder upload
     $userFile=$_FILES["avatar-real-value"];
+    $uploadDir="./upload/". basename($userFile['name']);
+    if(move_uploaded_file($userFile["tmp_name"], $uploadDir)){
+        echo "upload succeed";
+    }
+    else{
+        echo "fail";
+    }
+
+    //insert cac gia tri attribute cua taikhoan vao table taikhoan
+    $userAvatar=$uploadDir;
+    $userName=$_POST["UserName"];
+    $userEmail=$_POST["Email"];
+    $userAddress=$_POST["Adress"];
+    $userPWd=$_POST["pwd"];
+    $userPhone=$_POST["Phone"];
+
+    $conn=connectDB();
+    $insertStatus=$conn->query(sprintf("INSERT INTO taikhoan (user_account, HinhDaiDien, DiaChi, Email, pwd, SoDTH) 
+    values
+    ('%s','%s','%s','%s','%s','%s')",$userName, $userAvatar, $userAddress, $userEmail, $userPWd, $userPhone));
     
 
 
@@ -60,7 +84,7 @@ if(isset($_POST['dangky'])){
 
         <div id="main_content">
             <div id="user-info_box">
-                <form  action="signup.php" name="signupForm">
+                <form  action="signup.php" name="signupForm" method="POST" enctype="multipart/form-data">
                 
                 
                     <div class="user-info-box-element" id="genernal-info">
@@ -99,7 +123,7 @@ if(isset($_POST['dangky'])){
                                 Mật khẩu
                             </div>
                             <div id="Pwd" class="real-value">
-                                <input id="Adress" name="Adress" type="password" value="">
+                                <input id="Adress" name="pwd" type="password" value="">
                             </div>
                             <div id="Phone-title">
                                 Số điện thoại

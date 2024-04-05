@@ -1,3 +1,3 @@
 <?php
-    $a=1234567890;
-    echo number_format($a, 3, ".", ".");
+    $userFile=$_FILES["file"]["name"];
+    echo $userFile;
