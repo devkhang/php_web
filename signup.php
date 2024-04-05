@@ -1,3 +1,19 @@
+<?php 
+
+if(isset($_POST['dangky'])){
+    $userFile=$_FILES["avatar-real-value"];
+    
+
+
+}
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,9 +109,10 @@
                             </div>
                         </div>
                     </div>
-                    <div id="add-all-button">
+                    <input id="add-all-button" type="submit" name="dangky" value="Đăng ký">
+                    <!-- <div id="add-all-button">
                         <button type="submit" onclick="AddUser(this)">Đăng ký</a>
-                    </div>
+                    </div> -->
                 </form>
             </div>
             
