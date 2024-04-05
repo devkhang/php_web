@@ -12,6 +12,7 @@
             <!-- ẩn hiện headerbar -->
             <?php
                 if(isset($_SESSION["username"])){
+                    echo "da dang nhap";
                     echo '<div class="menu_top_element" id="cart">
                             <a href="cart.php">Giỏ hàng</a>
                         </div>';
@@ -25,6 +26,7 @@
                             <a href="history.php">Lịch sử mua hàng</a>
                         </div>';
                 }else{
+                    echo "chua dang nhpa";
                     echo '<div class="menu_top_element" id="login" style="display: inline;">
                             <a href="login.php">Đăng nhập</a>
                         </div>';
