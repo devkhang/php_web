@@ -15,5 +15,5 @@ foreach ($cart as $c)
 }
 setcookie("cart", json_encode($new_cart));
 header("Location: index.php");
- 
+
 ?>

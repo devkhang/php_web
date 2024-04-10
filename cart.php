@@ -117,7 +117,7 @@
                             <p class="card-text"><?php echo $c->Gia * $c->quantity; ?></p>
 
                             <form method="POST" action="delete-cart.php" style="float: right; margin-left: 10px;">
-                                <input type="hidden" name="productCode" value="<?php echo $c->MaSP; ?>">
+                                <input type="hidden" name="id" value="<?php echo $c->MaSP; ?>">
                                 <button type="submit" class="btn btn-danger">
                                     x
                                 </button>
@@ -125,7 +125,7 @@
 
                             <form method="POST" action="update-cart.php" style="float: right;">
                                 <input type="number" name="quantity" min="1" value="<?php echo $c->quantity; ?>">
-                                <input type="hidden" name="productCode" value="<?php echo $c->MaSP; ?>">
+                                <input type="hidden" name="id" value="<?php echo $c->MaSP; ?>">
                                 <input type="submit" class="btn btn-warning" value="Update">
                             </form>
 
