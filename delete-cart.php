@@ -13,7 +13,6 @@ foreach ($cart as $c)
         array_push($new_cart, $c);
     }
 }
- 
 setcookie("cart", json_encode($new_cart));
 header("Location: index.php");
  

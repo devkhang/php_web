@@ -56,7 +56,7 @@
             <?php
             while($sanpham=$resultLietKeSP->fetch_array(MYSQLI_ASSOC)){ ?>
                     <li class="phone_list_element">
-                    <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?> onclick="watchProductDetail(this)">
+                    <!-- <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?> onclick="watchProductDetail(this)">
                     <div class="card" style="width: 18rem ; height: 30rem" onclick="watchProductDetail(this)">
                         <img class="card-img-top" src=<?php echo $sanpham["HinhAnhMH"]?> alt="Card image cap">
                             <div class="card-body">
@@ -69,9 +69,9 @@
                                 <?php } ?>
                             </div>
                         </div>
-                     </a> 
-                            <!-- <a href="#" onclick="watchProductDetail(this)">
-                            use to identity sanpham to query chitietsanpham
+                     </a>  -->
+                    <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?>>
+                            <!-- use to identity sanpham to query chitietsanpham -->
                             <p class="masp" style="display: none;"><?php echo $sanpham["MaSP"]?></p>
 
                             <div class="phone_list_element_img">
@@ -81,11 +81,13 @@
                             <h3>
                                 <?php echo $sanpham["Ten"] ?>
                             </h3>
-                            
-
                             <strong class="phone_list_element_price"><?php echo number_format($sanpham["Gia"],0,".",".") ?>₫</strong>
-                
-                        </a>  -->
+                            <div>
+                            <?php if(isset($_SESSION["username"])){?>
+                                <a href="#" class="btn btn-primary">thêm vào giỏ hàng</a>
+                            <?php } ?>
+                            </div>
+                        </a> 
                     </li>
 
             <?php };?>
