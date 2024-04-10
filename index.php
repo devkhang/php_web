@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css\layout_style.css">
         <!--<link rel="stylesheet" href="style_test1.css">-->
         <link rel="stylesheet" href="css\product_list_layout_style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
         <style>
             
@@ -35,7 +36,8 @@
 
             <?php 
             include_once('include\db.inc.php');
-
+            $cart = isset($_COOKIE["cart"])?$_COOKIE["cart"]:"[]";
+            $cart = json_decode($cart);
             $start=0;
             $sanphamPerPage=6;
 
@@ -55,31 +57,53 @@
                 
             }
 
-            $resultLietKeSP=$conn->query("SELECT * FROM sanpham limit $start, $sanphamPerPage;");
-
+            $resultLietKeSP=mysqli_query($conn, "SELECT * FROM sanpham limit $start, $sanphamPerPage;");
             ?>
 
             <ul id="phone_list" class="main_content_element">
 
             <?php
-            while($sanpham=$resultLietKeSP->fetch_array(MYSQLI_ASSOC)){ ?>
+            while($sanpham=mysqli_fetch_object($resultLietKeSP)){ 
+                            // check if product already exists in cart
+                    $flag = false;
+                    foreach ($cart as $c)
+                    {
+                        if ($c->MaSP == $sanpham->MaSP)
+                        {
+                            $flag = true;
+                            break;
+                        }
+                    }
+                ?>
                     <li class="phone_list_element">
                         
-                        <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?> onclick="watchProductDetail(this)">
+                        <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham->MaSP.";"?>>
                             
-                            <p class="masp" style="display: none;"><?php echo $sanpham["MaSP"]?></p><!-- use to identity sanpham to query chitietsanpham-->
+                            <p class="masp" style="display: none;"><?php echo $sanpham->MaSP?></p><!-- use to identity sanpham to query chitietsanpham-->
 
                             <div class="phone_list_element_img">
-                                <img alt="thêm ảnh" src=<?php echo $sanpham["HinhAnhMH"] ?>>
+                                <img alt="thêm ảnh" src=<?php echo $sanpham->HinhAnhMH ?>>
                             </div>
 
                             <h3>
-                                <?php echo $sanpham["Ten"] ?>
+                                <?php echo $sanpham->Ten ?>
                             </h3>
                             
 
-                            <strong class="phone_list_element_price"><?php echo $sanpham["Gia"] ?>₫</strong>
-                
+                            <strong class="phone_list_element_price"><?php echo $sanpham->Gia ?>₫</strong>
+                            <?php if(isset($_SESSION["username"])){
+                            if($flag){ ?>
+                                <form action="delete-cart.php" method="POST">
+                                    <input type="hidden" name="id" value=<?php echo $sanpham->MaSP?>>
+                                    <input type="submit" class="btn btn-danger" value="delete from cart">
+                                </form>
+                            <?php }else{ ?>
+                                <form action="add-cart.php" method = "POST">
+                                    <input type="hidden" name="quantity" value="1">
+                                    <input type="hidden" name="id" value=<?php echo $sanpham->MaSP?>>
+                                    <input type="submit" class="btn btn-primary" value="adđ to cart">
+                                </form>
+                            <?php }} ?>
                         </a>
                     </li>
 

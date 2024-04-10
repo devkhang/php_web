@@ -19,7 +19,7 @@
                             <a href="signout.php">Đăng xuất</a>
                         </div>';
                     echo '<div class="menu_top_element" id="profile" style="display: inline;">
-                        <a href="profile.php">Tài khoản</a>
+                        <a href="profile.php">profile</a>
                         </div>';
                     echo '<div class="menu_top_element" id="history">
                             <a href="history.php">Lịch sử mua hàng</a>

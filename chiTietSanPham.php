@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if($_SERVER["REQUEST_METHOD"]!="GET" && isset($_GET["MaSP"])){
     echo "you are not allowed to access";
     die();
