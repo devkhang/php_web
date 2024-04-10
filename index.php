@@ -123,7 +123,7 @@
                 <?php
                     for($i=1; $i<=$numberOfPage; ++$i){ 
                         ?>
-                        <a href=<?php echo "?page-nr=".$i?>><?php echo $i ?></a>
+                        <a href=<?php echo "?page-nr=".$i?> data-no-bootstrap><?php echo $i ?></a>
                         <?php 
                     } 
                 ?>
