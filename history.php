@@ -46,7 +46,7 @@
                 while($row = mysqli_fetch_assoc($result)){
             ?>
                 <div id="Order-history">
-                    <div class="history-box" id="order1" onclick="window.location.href = 'order_detail.php<?php echo '?'.$row['MaTK'] ?>'";>
+                    <div class="history-box" id="order1" onclick="window.location.href = 'order_detail.php<?php echo '?id='.$row['MaHD'] ?>'";>
                         <p><?php echo "ngày đặt hàng :".$row["ThoiGianDat"] ?></p>
                         <p><?php if($row["TrangThaiXuLy"]==0){
                             echo "tình trạng : đang giao hàng";
