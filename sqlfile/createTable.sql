@@ -27,11 +27,13 @@ CREATE TABLE TAIKHOAN(
 );
 
 CREATE TABLE HOADON(
-    MaHD varchar(10) PRIMARY KEY,
+    MaHD INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     ThoiGianDat date,
     TrangThaiXuLy varchar(1), //'1' (da xu ly), '0' (chua xu ly)
     MaTK INT,
-    CONSTRAINT fk_hoadon_taikhoan FOREIGN KEY(MaTK) REFERENCES TAIKHOAN(MaTK)
+    diachi varchar(50),
+    CONSTRAINT fk_hoadon_taikhoan FOREIGN KEY(MaTK) REFERENCES TAIKHOAN(MaTK),
+    Tongtien INT
 );
 
 CREATE TABLE TAIKHOANGADMIN(
@@ -54,7 +56,7 @@ CREATE TABLE CHITIETGIOHANG(
 
 CREATE TABLE CHITIETDONHANG(
     MaSP int,
-    MaHD varchar(10),
+    MaHD int,
     SoLuong int,
     
     CONSTRAINT fk_sanpham_chitietdonhang FOREIGN KEY (MaSP) REFERENCES SANPHAM(MaSP),

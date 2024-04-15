@@ -80,7 +80,7 @@
     <script>
         function showAddressInputBox(option){
             let AddressInputBox=document.getElementById("text_address");
-            if(option.value==="Nhập địa chỉ giao hàng mới"){
+            if(option.value==="2"){
                 AddressInputBox.style.display="block";
             }
             else{
@@ -102,12 +102,13 @@
         <?php
         $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
         $cart = json_decode($cart);
-
+        $quantity = 0;
         $total = 0;
 
         foreach ($cart as $c)
         {
             $total += $c->Gia * $c->quantity;
+            $quantity += $c->quantity
             ?>
             <div class="row">
                 <div class="col-md-12">
@@ -143,13 +144,14 @@
         </p>
 
             <div id="Address">
-                <form action="" method="get" id="form_address">
-                    <input type="radio" id="address_option1" name="address_option" value="Chọn địa chỉ từ tài khoản" onclick="showAddressInputBox(this)" checked="checked">
+                <form action="add-to-order.php" method="get" id="form_address">
+                    <input type="radio" id="address_option1" name="address_option" value="1" onclick="showAddressInputBox(this)" checked="checked">
                     <label for="address_option1">Chọn địa chỉ từ tài khoản</label><br>
-                    <input type="radio" id="address_option2" name="address_option" value="Nhập địa chỉ giao hàng mới" onclick="showAddressInputBox(this)">
+                    <input type="radio" id="address_option2" name="address_option" value="2" onclick="showAddressInputBox(this)">
                     <label for="address_option2">Nhập địa chỉ giao hàng mới</label><br>
-                    <input type="text" id="text_address" placeholder="NHẬP ĐỈA CHỊ CỦA BẠN"><br>
-                    <input type="submit" id="submit" value="Mua hàng" onclick="muaHang()">
+                    <input type="hidden" name="total" value="<?php echo $total?>">
+                    <input type="text" id="text_address" name ="address" placeholder="NHẬP ĐỈA CHỊ CỦA BẠN"><br>
+                    <input type="submit" id="submit" value="Mua hàng" >
                 </form>
             </div>
             <!-- <button class="btn-primary">testing</button> -->

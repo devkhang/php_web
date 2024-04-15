@@ -77,7 +77,7 @@ function loginUser($conn, $email, $pwd){
     if($pwd_checked===true||$pwd==$pwd_hashed){
         // Mật khẩu không khớp
         session_start();
-        $_SESSION["id"] = $existingUser["id"];
+        $_SESSION["id"] = $existingUser["MaTK"];
         $_SESSION["username"] = $existingUser["user_account"];
         $_SESSION["pwd"] = $existingUser["pwd"];
         header("location: ../index.php");
