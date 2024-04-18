@@ -61,6 +61,56 @@
             grid-template-columns: 400px auto;
             background-color: aliceblue;
         }
+        #item1{
+            text-align: left;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: 
+            "label1 input1"
+            "label2 input2"
+            "label3 input3"
+            "label4 input4"
+            "input5 input6"
+            ;
+        }
+        #label4{
+            grid-area: label4;
+        }
+        #label1{
+            grid-area: label1;
+        }
+        #input1{
+            grid-area: input1;
+        }
+        #label2{
+            grid-area: label2;
+        }
+        #input2{
+            grid-area: input2;
+        }
+        #label3{
+            grid-area: label3;
+        }
+        #input3{
+            grid-area: input3;
+        }
+        #input4{
+            grid-area: input4;
+        }
+        #input5{
+            grid-area: input5;
+        }
+        #input6{
+            grid-area: input6;
+        }
+
+
+
+
+
+
+
     </style>
 
 </head>
@@ -74,23 +124,24 @@
                 <div class="title">Tìm kiếm nâng cao</div>
                 <div class="container">
                     <form id="item1" width="200px" height="200px" action="search_result.php" method="POST" target="_blank">
-                        <label for="name">Tên sản phẩm:</label>
-                        <input type="text" placeholder="iphone 15promax" id="name" name="name"><br>
+                        <label id="label1" for="name">Tên sản phẩm:</label>
+                        <input id="input1" type="text" placeholder="iphone 15promax" id="name" name="name">
                         
-                        <lable for="min">Giá nhỏ nhất</lable>
-                        <input type="number" id="min" name="min"><br>
+                        <label id="label2" for="min">Giá nhỏ nhất</label>
+                        <input id="input2" type="number" id="min" name="min">
 
-                        <lable for="min">Giá lớn nhất</lable>
-                        <input type="number" id="max" name="max"><br>
+                        <label id="label3" for="min">Giá lớn nhất</label>
+                        <input id="input3" type="number" id="max" name="max">
 
-                        <select name="kind" id="kind">
+                        <label id="label4" for="kind">Loại sản phẩm</label>
+                        <select id="input4" name="kind" id="kind">
                             <option value="iphone">iphone</option>
                             <option value="oppo">oppo</option>
                             <option value="samsung">samsung</option>
-                        </select><br>
+                        </select>
 
-                        <input type="reset">
-                        <input type="submit" value="Tìm" >
+                        <input id="input5" type="reset">
+                        <input id="input6" type="submit" value="Tìm" >
 
                     </form>
                     <!-- <div class="product-card">
