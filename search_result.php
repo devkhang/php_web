@@ -1,5 +1,5 @@
 <?php
-    chdir("include");
+    chdir("include");//rat hay anh ban a :)) subarashi my nakamaru
     include_once "db.inc.php";
     chdir("..");
     if(isset($_POST["submit"])){
