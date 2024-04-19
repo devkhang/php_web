@@ -1,5 +1,12 @@
 <?php
     include_once('include\db.inc.php');
+    
+    $urlParameters=$_POST["urlParameters"];
+    $file_position=$_POST["file_position"];
+    // var_dump($file_position); echo "<br>";
+
+    // var_dump($urlParameters); echo "<br>";
+
     $quantity = $_POST["quantity"];
     $id = $_POST["id"];
 
@@ -18,5 +25,6 @@
         "Ten" =>$product["Ten"]
     ));
     setcookie("cart", json_encode($cart));
-    header("Location: index.php");
+    header("Location: ". $file_position ."?".$urlParameters);
+    // var_dump("Location: ". $file_position ."?".$urlParameters);
 ?>

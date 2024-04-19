@@ -123,9 +123,9 @@
             <div id="search_advance">
                 <div class="title">Tìm kiếm nâng cao</div>
                 <div class="container">
-                    <form id="item1" width="200px" height="200px" action="search_result.php" method="POST" target="_blank">
+                    <form id="item1" width="200px" height="200px" action="search_result.php" method="POST">
                         <label id="label1" for="name">Tên sản phẩm:</label>
-                        <input id="input1" type="text" placeholder="iphone 15promax" id="name" name="name">
+                        <input id="input1" type="text" placeholder="iphone 15promax" id="name" name="Ten">
                         
                         <label id="label2" for="min">Giá nhỏ nhất</label>
                         <input id="input2" type="number" id="min" name="min">
@@ -134,14 +134,15 @@
                         <input id="input3" type="number" id="max" name="max">
 
                         <label id="label4" for="kind">Loại sản phẩm</label>
-                        <select id="input4" name="kind" id="kind">
+                        <select id="input4" name="HangDTH" id="kind">
+                            <option value="">Chọn loại điện thoại</option>
                             <option value="iphone">iphone</option>
                             <option value="oppo">oppo</option>
                             <option value="samsung">samsung</option>
                         </select>
 
-                        <input id="input5" type="reset">
-                        <input id="input6" type="submit" value="Tìm" >
+                        <input id="input5" type="reset" name="reset">
+                        <input id="input6" type="submit" name="submit">
 
                     </form>
                     <!-- <div class="product-card">

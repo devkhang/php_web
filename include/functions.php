@@ -89,3 +89,38 @@ function loginUser($conn, $email, $pwd){
     }
 }
 
+    function postFilter($post){//return an array of none empty string input name, the user didn't pick this input
+        $nonEmptyArr=array();
+        foreach($post as $key=>$value){
+            // echo "key: $key <br>";
+            // echo "value: $value <br>";
+            if($value!="" && $key!="submit"){
+                // echo "is chosen <br>";
+                $nonEmptyArr[$key]=$value;
+            }
+        }
+        return $nonEmptyArr;
+    }
+
+    function isShowAddToCart($sanpham){//transform Khang code to a 
+        //function for better coding, check wheather that san pham should be add to cart or delete form cart
+
+        $cart = isset($_COOKIE["cart"])?$_COOKIE["cart"]:"[]";
+        $cart = json_decode($cart);
+        $flag = false;
+        foreach ($cart as $c)
+        {
+            if ($c->MaSP == $sanpham["MaSP"])//toi dung fetch_array :))
+            {
+                $flag = true;
+                break;
+            }
+        }
+        //if $flag=false => san pham khong co trong cart
+        //if $flag=true => san pham co trong cart
+        return $flag;
+
+    }
+    
+
+?>
