@@ -117,7 +117,8 @@
                             <p class="card-text"><?php echo $c->Gia * $c->quantity; ?></p>
 
                             <form method="POST" action="delete-cart.php" style="float: right; margin-left: 10px;">
-                                <input type="hidden" name="productCode" value="<?php echo $c->MaSP; ?>">
+                                <input type="hidden" name="id" value="<?php echo $c->MaSP; ?>">
+                                <input type="text" name="file_position" value="<?php echo basename($_SERVER['SCRIPT_NAME']);?>">
                                 <button type="submit" class="btn btn-danger">
                                     x
                                 </button>

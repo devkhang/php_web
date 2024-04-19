@@ -185,19 +185,21 @@
                 ?>
                     <li class="phone_list_element">
                     
-                        <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?>>
-
-                            <div class="phone_list_element_img">
-                                <img alt="thêm ảnh" src=<?php echo $sanpham["HinhAnhMH"] ?>>
-                            </div>
-            
-                            <h3>
-                                <?php echo $sanpham["Ten"] ?>
-                            </h3>
-                            <strong class="phone_list_element_price"><?php echo number_format($sanpham["Gia"],0,".",".") ?>₫</strong>
-                            <?php include_once("include/addDeleteCart.php")?>
-
-                        </a> 
+                        <div>
+                            <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?>>
+                                <div class="phone_list_element_img">
+                                    <img alt="thêm ảnh" src=<?php echo $sanpham["HinhAnhMH"] ?>>
+                                </div>
+                                <h3>
+                                    <?php echo $sanpham["Ten"] ?>
+                                </h3>
+                                <strong class="phone_list_element_price"><?php echo number_format($sanpham["Gia"],0,".",".") ?>₫</strong>
+                                
+                            </a>
+                            <?php include_once("include/addDeleteCart.php");
+                                    processAddDeleteCart(isShowAddToCart($sanpham),$isReceivePost, true, $sanpham);
+                            ?>
+                        </div>
                     </li>
 
             <?php };?> 

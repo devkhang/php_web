@@ -70,11 +70,9 @@
                                 <?php echo $sanpham["Ten"] ?>
                             </h3>
                             <strong class="phone_list_element_price"><?php echo number_format($sanpham["Gia"],0,".",".") ?>₫</strong>
-                            <div>
-                            
-                            
-
-                            </div>
+                            <?php include_once("include/addDeleteCart.php");
+                                processAddDeleteCart(isShowAddToCart($sanpham), false, true, $sanpham);
+                            ?>
                         </a> 
                     </li>
 
