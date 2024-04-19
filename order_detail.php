@@ -68,7 +68,7 @@
                             echo "<td>" . $row_detail['MaSP'] . "</td>";
                             echo "<td>" . $row_detail['Ten'] . "</td>";
                             echo "<td>" . $row_detail['SoLuong'] . "</td>";
-                            echo "<td>" . number_format($row_detail['Gia'], 0, ',', '.') . " Đ</td>";
+                            echo "<td>" . number_format($row_detail['Gia']*$row_detail['SoLuong'], 0, ',', '.') . " Đ</td>";
                             echo "</tr>";
                         }
                     ?>

@@ -1,8 +1,7 @@
 <?php
  
-$productCode = $_POST["productCode"];
+$productCode = $_POST["id"];
 $quantity = $_POST["quantity"];
- 
 $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
 $cart = json_decode($cart);
  
