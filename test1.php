@@ -1,5 +1,21 @@
 <?php
+$name="cookie";
+$cookie=(isset($_COOKIE[$name])? $_COOKIE[$name]: json_encode([]));
 
-$arr=array(0,1,2,3);
-var_dump($arr[0]);
-var_dump(isset($arr[0]));
+$cookie=json_decode($cookie);
+
+
+array_push($cookie, 1);
+
+
+setcookie("cookie", json_encode($cookie));
+
+
+var_dump(strlen($_COOKIE[$name])); echo "<br>";
+
+
+
+
+// setcookie("asdf","sdfa");
+
+?>

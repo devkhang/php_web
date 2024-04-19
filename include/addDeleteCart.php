@@ -57,7 +57,7 @@ include_once("include/functions.php");
                 <form action="delete-cart.php" method="POST" >
                     <input type="hidden" name="id" value=<?php echo $sanpham["MaSP"]?>>
                     <input type="submit" class="btn btn-danger" value="delete from cart">
-                    <input type="text" name="urlParameters" value=<?php echo $urlParameters?> style="display:none;">
+                    <input type="text" name="urlParameters" value="<?php echo $urlParameters?>" style="display:none;">
                     <input type="text" name="file_position" value="<?php echo basename($_SERVER['SCRIPT_NAME']); ?>" style="display:none;">
                 </form>
             <?php }else{ ?>

@@ -1,5 +1,8 @@
 <?php
     include_once('include\db.inc.php');
+    function strbits($string){
+        return (strlen($string));
+    }
     
     $urlParameters=$_POST["urlParameters"];
     $file_position=$_POST["file_position"];
@@ -24,6 +27,10 @@
         "Gia" => $product["Gia"],
         "Ten" =>$product["Ten"]
     ));
+    echo count($cart); echo "<br>";
+    echo strlen($_COOKIE["cart"]); echo "<br>";
+
+    var_dump(json_encode($cart)); echo "<br>";
     setcookie("cart", json_encode($cart));
     header("Location: ". $file_position ."?".$urlParameters);
     // var_dump("Location: ". $file_position ."?".$urlParameters);

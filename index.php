@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include_once("include/functions.php");
     
 ?>
 <html>
@@ -92,20 +93,15 @@
                             
 
                             <strong class="phone_list_element_price"><?php echo $sanpham->Gia ?>₫</strong>
-                            <?php if(isset($_SESSION["username"])){
-                            if($flag){ ?>
-                                <form action="delete-cart.php" method="POST">
-                                    <input type="hidden" name="id" value=<?php echo $sanpham->MaSP?>>
-                                    <input type="submit" class="btn btn-danger" value="delete from cart">
-                                </form>
-                            <?php }else{ ?>
-                                <form action="add-cart.php" method = "POST">
-                                    <input type="hidden" name="quantity" value="1">
-                                    <input type="hidden" name="id" value=<?php echo $sanpham->MaSP?>>
-                                    <input type="submit" class="btn btn-primary" value="adđ to cart">
-                                </form>
-                            <?php }} ?>
+                            
+
+
                         </a>
+                        <?php
+                                include_once("include/addDeleteCart.php");
+                                processAddDeleteCart(isShowAddToCart((array)$sanpham), false, false, (array)$sanpham);
+
+                            ?>
                     </li>
 
             <?php };?>
