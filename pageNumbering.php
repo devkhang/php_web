@@ -8,8 +8,8 @@ function processPagerNumbering($queryOfPage, $sanphamPerPage, $conn){
     $queryOfPage=$queryOfPage;//query that original page uses to get data from database
     
 
-    echo "query:";
-    var_dump($queryOfPage); echo "<br>";
+    // echo "query:";
+    // var_dump($queryOfPage); echo "<br>";
 
     $record=$conn->query($queryOfPage);
     $numberOfPage=ceil($record->num_rows/$sanphamPerPage);//to get the number of pages required for data from datbase

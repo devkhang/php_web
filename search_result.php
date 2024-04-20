@@ -147,13 +147,13 @@
     }
     else{
 
-        // header("location: advanced_search.php");
+        header("location: advanced_search.php");
         
         
-        var_dump($_GET); echo "<br>";
+        // var_dump($_GET); echo "<br>";
         
-        var_dump($_GET["submit"]);  echo "<br>";
-        var_dump(isset($_GET["submit"]));  echo "<br>";
+        // var_dump($_GET["submit"]);  echo "<br>";
+        // var_dump(isset($_GET["submit"]));  echo "<br>";
         
 
     }
