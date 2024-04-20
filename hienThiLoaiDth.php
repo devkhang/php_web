@@ -80,13 +80,7 @@
 
             </ul>
 
-            <div id="page_numbering">
-                <!-- create page numbering base on the number of row resulted from query -->
-                <?php
-
-                ?>
-                
-            </div>
+    
 
             <!-- <div style="display: none;">
                 <form action="chiTietSanPham.php"  name="chitietsp" method="post">

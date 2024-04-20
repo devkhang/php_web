@@ -1,6 +1,7 @@
 <?php
     session_start();
     include_once("include/functions.php");
+    include_once("pageNumbering.php");
     
 ?>
 <html>
@@ -40,12 +41,10 @@
             include_once('include\db.inc.php');
             $cart = isset($_COOKIE["cart"])?$_COOKIE["cart"]:"[]";
             $cart = json_decode($cart);
-            $start=0;
-            $sanphamPerPage=6;
+            
 
 
-            $record=$conn->query("SELECT * FROM sanpham LIMIT 0,10 ;");
-            $numberOfPage=ceil($record->num_rows/$sanphamPerPage);
+            $query="SELECT * FROM sanpham ;";
 
 
 
@@ -54,12 +53,11 @@
             // echo "<br>";
             // echo "true2: ".isset($_GET["type"]);
             // echo "<br>";
-            if(isset($_GET["page-nr"])){
-                $start=($_GET["page-nr"]-1)*$sanphamPerPage;
-                
-            }
+            
 
-            $resultLietKeSP=mysqli_query($conn, "SELECT * FROM sanpham limit $start, $sanphamPerPage;");
+            // $resultLietKeSP=mysqli_query($conn, "SELECT * FROM sanpham limit $start, $sanphamPerPage;");
+            $resultLietKeSP=processPagerNumbering($query, 6, $conn);
+
             ?>
 
             <ul id="phone_list" class="main_content_element">
@@ -115,16 +113,7 @@
                 </form>
             </div>
 
-            <div id="page_numbering">
-                
-                <?php
-                    for($i=1; $i<=$numberOfPage; ++$i){ 
-                        ?>
-                        <a href=<?php echo "?page-nr=".$i?> data-no-bootstrap><?php echo $i ?></a>
-                        <?php 
-                    } 
-                ?>
-        </div>
+           <?php printPageNumbering() ?>
 
 
         </div>
