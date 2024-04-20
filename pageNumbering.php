@@ -6,7 +6,7 @@ function processPagerNumbering($queryOfPage, $sanphamPerPage, $conn){
     $start=0;
     $sanphamPerPage=$sanphamPerPage;//how many row from databse that original page want to display at once, with no limit
     $queryOfPage=$queryOfPage;//query that original page uses to get data from database
-    $queryOfPage=str_replace(";", " ", $queryOfPage);
+    
 
     echo "query:";
     var_dump($queryOfPage); echo "<br>";
@@ -17,8 +17,10 @@ function processPagerNumbering($queryOfPage, $sanphamPerPage, $conn){
 
     if(isset($_GET["page-nr"])){
         $start=($_GET["page-nr"]-1)*$sanphamPerPage;   
+        // var_dump($start); echo"<br>";
     }
 
+    $queryOfPage=str_replace(";", " ", $queryOfPage);
     $queryPageNumbering=$queryOfPage." limit $start, $sanphamPerPage;";// query to request rows from databse
     //based on sanphamPerPage
     // var_dump($queryPageNumbering); echo "<br>";

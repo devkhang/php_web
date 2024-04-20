@@ -117,20 +117,22 @@
             
             if($key=="min"){
                 $query.=" Gia>= $value";
+                $query.=" and";
             }
             else if($key=="max"){
                 $query.=" Gia<= $value";
-            }
-            else{
-                $query.=" $key='$value'";
-            }
-
-            if($key!=$lastKey){
                 $query.=" and";
             }
-            else{
+            else if($key!="page-nr"){
+                $query.=" $key='$value'";
+                $query.=" and";
+            }
+
+            if($key==$lastKey){
+                $query=substr($query, 0, -3);//remove the last "and" from query
                 $query.=" ;";
             }
+
         }
 
         // echo "query: <br>";
@@ -225,6 +227,9 @@
                         // $isReceivePost=true;
                         $nonEmptyPost=postFilter($_POST);
                         foreach($nonEmptyPost as $key=>$value){
+                            if($key=="page-nr"){
+                                continue;
+                            }
                             $stringOfParameters.="$key=$value";
                 
                             if($key!=$lastKey){
@@ -238,6 +243,9 @@
                         // $isReceivePost=false;
                         $nonEmptyPost=postFilter($_GET);
                         foreach($nonEmptyPost as $key=>$value){
+                            if($key=="page-nr"){
+                                continue;
+                            }
                             $stringOfParameters.="$key=$value";
                 
                             if($key!=$lastKey){
