@@ -7,6 +7,10 @@ function processPagerNumbering($queryOfPage, $sanphamPerPage, $conn){
     $sanphamPerPage=$sanphamPerPage;//how many row from databse that original page want to display at once, with no limit
     $queryOfPage=$queryOfPage;//query that original page uses to get data from database
     $queryOfPage=str_replace(";", " ", $queryOfPage);
+
+    echo "query:";
+    var_dump($queryOfPage); echo "<br>";
+
     $record=$conn->query($queryOfPage);
     $numberOfPage=ceil($record->num_rows/$sanphamPerPage);//to get the number of pages required for data from datbase
     $GLOBALS["numberOfPage"]=$numberOfPage;
@@ -25,7 +29,7 @@ function processPagerNumbering($queryOfPage, $sanphamPerPage, $conn){
 ?>
 
 <?php
-function printPageNumbering(){?>
+function printPageNumbering($stringOfParameters){?>
 
     <div id="page_numbering">
                 
@@ -33,7 +37,7 @@ function printPageNumbering(){?>
             $numberOfPage=$GLOBALS["numberOfPage"];
             for($i=1; $i<=$numberOfPage; ++$i){ 
                 ?>
-                <a href=<?php echo "?page-nr=".$i?> data-no-bootstrap><?php echo $i ?></a>
+                <a href=<?php echo "?page-nr=".$i."&$stringOfParameters" ?> data-no-bootstrap><?php echo $i ?></a>
                 <?php 
             } 
         ?>

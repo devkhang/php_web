@@ -1,6 +1,8 @@
 <?php
     session_start();
     include_once("include/functions.php");
+    include_once("pageNumbering.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,12 +31,10 @@
             <?php 
             include_once('include\db.inc.php');
 
-            $start=0;
-            $sanphamPerPage=6;
-
             
-            $record=$conn->query("SELECT * FROM sanpham where HangDTH='".$_GET["type"]."';");
-            $numberOfPage=ceil($record->num_rows/$sanphamPerPage);
+            $query="SELECT * FROM sanpham where HangDTH='".$_GET["type"]."';";
+
+
             
             
            
@@ -43,12 +43,11 @@
             // echo "<br>";
             // echo "true2: ".isset($_GET["type"]);
             // echo "<br>";
-            if(isset($_GET["page-nr"])){
-                $start=($_GET["page-nr"]-1)*$sanphamPerPage;
-                
-            }
 
-            $resultLietKeSP=$conn->query("SELECT * FROM sanpham where HangDTH='".$_GET["type"]."' limit $start, $sanphamPerPage;");
+            // $resultLietKeSP=$conn->query("SELECT * FROM sanpham where HangDTH='".$_GET["type"]."' limit $start, $sanphamPerPage;");
+
+            $resultLietKeSP=processPagerNumbering($query, 6, $conn);
+
 
             ?>
 
@@ -89,18 +88,10 @@
                 </form>
             </div> -->
 
-            <div id="page_numbering">
-                <?php 
-                    
-                ?>
-                <?php
-                    for($i=1; $i<=$numberOfPage; ++$i){ 
-                        ?>
-                        <a href=<?php echo "?type=".$_GET["type"]."&page-nr=".$i?>><?php echo $i ?></a>
-                        <?php 
-                    } 
-                ?>
-            </div>
+            <?php 
+                $stringOfParameters="type=". $_GET["type"];
+                printPageNumbering($stringOfParameters);
+            ?>
       
 
         </div>

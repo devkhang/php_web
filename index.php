@@ -113,7 +113,7 @@
                 </form>
             </div>
 
-           <?php printPageNumbering() ?>
+           <?php printPageNumbering("") ?>
 
 
         </div>

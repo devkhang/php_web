@@ -1,6 +1,11 @@
 <?php
     session_start();
     include_once("include/functions.php");
+    
+    include_once("pageNumbering.php");
+
+
+
 ?>
 <?php
     // chdir("include");//rat hay anh ban a :)) subarashi my nakamaru
@@ -87,7 +92,8 @@
         // var_dump($query);
 
 
-        $resultLietKeSP=$conn->query($query);
+        // $resultLietKeSP=$conn->query($query);
+        $resultLietKeSP=processPagerNumbering($query, 6, $conn);
         // var_dump($result->fetch_all());
 
 
@@ -131,7 +137,9 @@
         // var_dump($query);
 
 
-        $resultLietKeSP=$conn->query($query);
+        // $resultLietKeSP=$conn->query($query);
+        
+        $resultLietKeSP=processPagerNumbering($query, 6, $conn);
         // var_dump($result->fetch_all());
 
     }
@@ -211,6 +219,37 @@
                     <a href="index.html">1</a>
                     <a href="index2.html">2</a>
                 </div> -->
+                <?php
+                    $stringOfParameters="";
+                    if(isset($_POST["submit"])){
+                        // $isReceivePost=true;
+                        $nonEmptyPost=postFilter($_POST);
+                        foreach($nonEmptyPost as $key=>$value){
+                            $stringOfParameters.="$key=$value";
+                
+                            if($key!=$lastKey){
+                                $query.="$";
+                            }
+                        }
+
+
+                    }
+                    else if(isset($_GET["submit"])){
+                        // $isReceivePost=false;
+                        $nonEmptyPost=postFilter($_GET);
+                        foreach($nonEmptyPost as $key=>$value){
+                            $stringOfParameters.="$key=$value";
+                
+                            if($key!=$lastKey){
+                                $query.="$";
+                            }
+                        }
+                    }
+                    $stringOfParameters.="&submit=yes";
+
+
+                    printPageNumbering($stringOfParameters);
+                ?>
             </div>
                 
             <?php include_once("leftPannelRegion.php"); ?>

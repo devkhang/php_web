@@ -1,5 +1,8 @@
 <?php
     session_start();
+    include_once("pageNumbering.php");
+
+
 ?>
 
 <!DOCTYPE html>
