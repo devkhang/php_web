@@ -80,7 +80,7 @@
     <script>
         function showAddressInputBox(option){
             let AddressInputBox=document.getElementById("text_address");
-            if(option.value==="Nhập địa chỉ giao hàng mới"){
+            if(option.value==="2"){
                 AddressInputBox.style.display="block";
             }
             else{
@@ -102,12 +102,13 @@
         <?php
         $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
         $cart = json_decode($cart);
-
+        $quantity = 0;
         $total = 0;
 
         foreach ($cart as $c)
         {
             $total += $c->Gia * $c->quantity;
+            $quantity += $c->quantity
             ?>
             <div class="row">
                 <div class="col-md-12">
@@ -126,7 +127,7 @@
 
                             <form method="POST" action="update-cart.php" style="float: right;">
                                 <input type="number" name="quantity" min="1" value="<?php echo $c->quantity; ?>">
-                                <input type="hidden" name="productCode" value="<?php echo $c->MaSP; ?>">
+                                <input type="hidden" name="id" value="<?php echo $c->MaSP; ?>">
                                 <input type="submit" class="btn btn-warning" value="Update">
                             </form>
 
@@ -144,13 +145,14 @@
         </p>
 
             <div id="Address">
-                <form action="process_buy_cart.php" method="get" id="form_address">
-                    <input type="radio" id="address_option1" name="address_option" value="fromTaiKhoan" placeholder="Chọn địa chỉ từ tài khoản" onclick="showAddressInputBox(this)" checked="checked">
+                <form action="add-to-order.php" method="get" id="form_address">
+                    <input type="radio" id="address_option1" name="address_option" value="1" onclick="showAddressInputBox(this)" checked="checked">
                     <label for="address_option1">Chọn địa chỉ từ tài khoản</label><br>
-                    <input type="radio" id="address_option2" name="address_option" value="fromUserInput" placeholder="Nhập địa chỉ giao hàng mới" onclick="showAddressInputBox(this)">
+                    <input type="radio" id="address_option2" name="address_option" value="2" onclick="showAddressInputBox(this)">
                     <label for="address_option2">Nhập địa chỉ giao hàng mới</label><br>
-                    <input type="text" id="text_address" name="new_address" placeholder="NHẬP ĐỈA CHỊ CỦA BẠN"><br>
-                    <input type="submit" id="submit" name="submit" value="Mua hàng">
+                    <input type="hidden" name="total" value="<?php echo $total?>">
+                    <input type="text" id="text_address" name ="address" placeholder="NHẬP ĐỈA CHỊ CỦA BẠN"><br>
+                    <input type="submit" id="submit" value="Mua hàng" >
                 </form>
             </div>
             <!-- <button class="btn-primary">testing</button> -->

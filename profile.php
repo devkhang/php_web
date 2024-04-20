@@ -2,7 +2,7 @@
 include_once("./include/connectDB.php");
 include_once("./include/common.php");
 $conn=connectDB();
-$result=$conn->query(sprintf('SELECT * FROM taikhoan WHERE MaTK=%d;',$_SESSION["MaTK"]));
+$result=$conn->query(sprintf('SELECT * FROM taikhoan WHERE MaTK=%d;',$_SESSION["id"]));
 $taikhoan=$result->fetch_assoc();
 
 

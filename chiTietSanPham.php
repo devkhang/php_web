@@ -86,9 +86,11 @@ if($_SERVER["REQUEST_METHOD"]!="GET" && isset($_GET["MaSP"])){
                         </div>
                     </div>
                     <div class="add-to-cart">
-                        <button type="button" onclick="alert('Đã thêm sản phẩm vào giỏ hàng')">
-                            Thêm Vào Giỏ Hàng
-                        </button>
+                        <form action="add-cart.php" method = "POST">
+                                    <input type="hidden" name="quantity" value="1">
+                                    <input type="hidden" name="id" value=<?php echo $sanpham["MaSP"]?>>
+                                    <button type="submit" class="btn btn-primary">add to cart</button>
+                        </form>
                     </div>
                 </div>
             </div>
