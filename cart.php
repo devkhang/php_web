@@ -144,13 +144,13 @@
         </p>
 
             <div id="Address">
-                <form action="" method="get" id="form_address">
-                    <input type="radio" id="address_option1" name="address_option" value="Chọn địa chỉ từ tài khoản" onclick="showAddressInputBox(this)" checked="checked">
+                <form action="process_buy_cart.php" method="get" id="form_address">
+                    <input type="radio" id="address_option1" name="address_option" value="fromTaiKhoan" placeholder="Chọn địa chỉ từ tài khoản" onclick="showAddressInputBox(this)" checked="checked">
                     <label for="address_option1">Chọn địa chỉ từ tài khoản</label><br>
-                    <input type="radio" id="address_option2" name="address_option" value="Nhập địa chỉ giao hàng mới" onclick="showAddressInputBox(this)">
+                    <input type="radio" id="address_option2" name="address_option" value="fromUserInput" placeholder="Nhập địa chỉ giao hàng mới" onclick="showAddressInputBox(this)">
                     <label for="address_option2">Nhập địa chỉ giao hàng mới</label><br>
-                    <input type="text" id="text_address" placeholder="NHẬP ĐỈA CHỊ CỦA BẠN"><br>
-                    <input type="submit" id="submit" value="Mua hàng" onclick="muaHang()">
+                    <input type="text" id="text_address" name="new_address" placeholder="NHẬP ĐỈA CHỊ CỦA BẠN"><br>
+                    <input type="submit" id="submit" name="submit" value="Mua hàng">
                 </form>
             </div>
             <!-- <button class="btn-primary">testing</button> -->

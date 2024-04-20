@@ -122,5 +122,6 @@ function loginUser($conn, $email, $pwd){
 
     }
     
+    
 
 ?>
