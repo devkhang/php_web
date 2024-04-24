@@ -35,9 +35,7 @@
     <script src="layout_skeketon_js.js"></script>
     <script>
         
-        console.log(isLogin);
-        if(isLogin==="true")
-            window.location.href="Emperor_admin.html";
+
     </script>
 
 </body>

@@ -38,15 +38,15 @@
             margin-bottom: 20px;
             width: 100%;
         }
-        .box-login .username form input{
+        .box-login .username input{
             width: 95%;
             height: 30px;
         }
-        .box-login .password form input{
+        .box-login .password input{
             width: 95%;
             height: 30px;
         }
-        .box-login .submit form input{
+        .box-login .submit input{
             margin-top: 6%;
             width: 100%;
             height: 40px;
@@ -67,22 +67,24 @@
                 <div class="login-title">
                     Đăng nhập
                 </div>
-                <div class="username">
-                    <form action="" method="get">
-                        <input type="text" id="username" name="username" placeholder="Tên đăng nhập">
-                    </form>
-                </div>
-                <div class="password">
-                    <form action="" method="get">
-                        <input type="password" id="password" name="password" placeholder="Mật khẩu">
-                    </form>
-                </div>
+                <form action="#" method="post">
+                    <div class="username">
+                            <input type="text" id="username" name="username" placeholder="Tên đăng nhập">
+                    </div>
 
-                <div class="submit">
-                    <form action="" method="get" onsubmit="setisLoginTrue(this)" target="_blank">
+                    <div class="password">
+                        <input type="password" id="password" name="password" placeholder="Mật khẩu">
+                    </div>
+
+                    <div class="submit">
                         <input type="submit" id="submit" name="submit" value="Đăng nhập">
-                    </form>
-                </div>
+                    </div>
+
+                </form>
+                
+                
+
+                
 
             </div>
 
