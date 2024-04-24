@@ -1,3 +1,14 @@
 <?php
-    $a=1234567890;
-    echo number_format($a, 3, ".", ".");
+
+
+$hello  = "Hello Worlddd";
+
+var_dump(rtrim($hello, "dl")); echo "<br>";
+var_dump($hello);
+
+
+
+
+// setcookie("asdf","sdfa");
+
+?>

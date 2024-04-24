@@ -1,5 +1,8 @@
 <?php
     session_start();
+    include_once("include/functions.php");
+    include_once("pageNumbering.php");
+    
 ?>
 <html>
     <head>
@@ -36,13 +39,12 @@
 
             <?php 
             include_once('include\db.inc.php');
+            $cart = isset($_COOKIE["cart"])?$_COOKIE["cart"]:"[]";
+            $cart = json_decode($cart);
+            
 
-            $start=0;
-            $sanphamPerPage=6;
 
-
-            $record=$conn->query("SELECT * FROM sanpham LIMIT 0,10 ;");
-            $numberOfPage=ceil($record->num_rows/$sanphamPerPage);
+            $query="SELECT * FROM sanpham ;";
 
 
 
@@ -51,37 +53,53 @@
             // echo "<br>";
             // echo "true2: ".isset($_GET["type"]);
             // echo "<br>";
-            if(isset($_GET["page-nr"])){
-                $start=($_GET["page-nr"]-1)*$sanphamPerPage;
-                
-            }
+            
 
-            $resultLietKeSP=$conn->query("SELECT * FROM sanpham limit $start, $sanphamPerPage;");
+            // $resultLietKeSP=mysqli_query($conn, "SELECT * FROM sanpham limit $start, $sanphamPerPage;");
+            $resultLietKeSP=processPagerNumbering($query, 6, $conn);
 
             ?>
 
             <ul id="phone_list" class="main_content_element">
 
             <?php
-            while($sanpham=$resultLietKeSP->fetch_array(MYSQLI_ASSOC)){ ?>
+            while($sanpham=mysqli_fetch_object($resultLietKeSP)){ 
+                            // check if product already exists in cart
+                    $flag = false;
+                    foreach ($cart as $c)
+                    {
+                        if ($c->MaSP == $sanpham->MaSP)
+                        {
+                            $flag = true;
+                            break;
+                        }
+                    }
+                ?>
                     <li class="phone_list_element">
                         
-                        <a href="#" onclick="watchProductDetail(this)">
+                        <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham->MaSP.";"?>>
                             
-                            <p class="masp" style="display: none;"><?php echo $sanpham["MaSP"]?></p><!-- use to identity sanpham to query chitietsanpham-->
+                            <p class="masp" style="display: none;"><?php echo $sanpham->MaSP?></p><!-- use to identity sanpham to query chitietsanpham-->
 
                             <div class="phone_list_element_img">
-                                <img alt="thêm ảnh" src=<?php echo $sanpham["HinhAnhMH"] ?>>
+                                <img alt="thêm ảnh" src=<?php echo $sanpham->HinhAnhMH ?>>
                             </div>
 
                             <h3>
-                                <?php echo $sanpham["Ten"] ?>
+                                <?php echo $sanpham->Ten ?>
                             </h3>
                             
 
-                            <strong class="phone_list_element_price"><?php echo $sanpham["Gia"] ?>₫</strong>
-                
+                            <strong class="phone_list_element_price"><?php echo $sanpham->Gia ?>₫</strong>
+                            
+
+
                         </a>
+                        <?php
+                                include_once("include/addDeleteCart.php");
+                                processAddDeleteCart(isShowAddToCart((array)$sanpham), false, false, (array)$sanpham);
+
+                            ?>
                     </li>
 
             <?php };?>
@@ -95,16 +113,7 @@
                 </form>
             </div>
 
-            <div id="page_numbering">
-                
-                <?php
-                    for($i=1; $i<=$numberOfPage; ++$i){ 
-                        ?>
-                        <a href=<?php echo "?page-nr=".$i?>><?php echo $i ?></a>
-                        <?php 
-                    } 
-                ?>
-        </div>
+           <?php printPageNumbering("") ?>
 
 
         </div>

@@ -3,6 +3,8 @@
     session_unset();
     session_destroy();
 
-    header("location:../index.php");
+    unset($_COOKIE['cart']);
+    setcookie('cart', '', 1); // 1 is just a sample time point in the past.
+    header("location: index.php");
     exit();
 ?>

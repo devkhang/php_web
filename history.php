@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/layout_style.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         #Order-history{
             background-color: aliceblue;
@@ -31,35 +31,37 @@
 
 </head>
 <body>
+    <?php include_once('include\db.inc.php'); ?>
     <?php include_once("headerRegion.php"); ?>
     <div id="main_body">
 
         <?php include_once("leftPannelRegion.php"); ?>
 
-        <div id="main_content">
+        <div id="main_content"> 
             
-            <div id="Order-history">
-                <div class="history-box" id="order1" onclick="window.location.href = 'order1.html';">
-                    <p>Ngày đặt hàng: 22/12/2022</p>
-                    <p>Tình trạng đặt hàng: Đang giao</p>
-                    <p>Giá đặt hàng:46.990.000₫</p>
+        <?php
+                $query =  "select * from hoadon where MaTK = ".$_SESSION["id"];
+                $result = mysqli_query($conn,$query);
+
+                while($row = mysqli_fetch_assoc($result)){
+            ?>
+                <div id="Order-history">
+                    <div class="history-box" id="order1" onclick="window.location.href = 'order_detail.php<?php echo '?id='.$row['MaHD'] ?>'";>
+                        <p><?php echo "ngày đặt hàng :".$row["ThoiGianDat"] ?></p>
+                        <p><?php if($row["TrangThaiXuLy"]==0){
+                            echo "tình trạng : đang giao hàng";
+                        }else{
+                            echo "tình trạng : đã giao hàng";
+                        } ?></p>
+                        <p><?php
+                            echo $row["Tongtien"]."Đ";
+                        ?></p>
+                    </div>
                 </div>
-                <div class="history-box" id="order2" onclick="window.location.href = 'order2.html';">
-                    <p>Ngày đặt hàng: 12/5/2022</p>
-                    <p>Tình trạng đặt hàng: Hủy</p>
-                    <p>Giá đặt hàng:25.990.000₫</p>
-                </div>
-                <div class="history-box" id="order3" onclick="window.location.href = 'order3.html';">
-                    <p>Ngày đặt hàng: 22/2/2022</p>
-                    <p>Tình trạng đặt hàng: Hủy</p>
-                    <p>Giá đặt hàng:33.990.000₫</p>
-                </div>
+                <?php } ?>
                 
-               
-                
-            </div>
-            
         </div>
+            
 
         <?php include_once("rightPannelRegion.php"); ?>
         

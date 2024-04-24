@@ -1,5 +1,8 @@
 <?php
     session_start();
+    include_once("include/functions.php");
+    include_once("pageNumbering.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,12 +31,10 @@
             <?php 
             include_once('include\db.inc.php');
 
-            $start=0;
-            $sanphamPerPage=6;
-
             
-            $record=$conn->query("SELECT * FROM sanpham where HangDTH='".$_GET["type"]."';");
-            $numberOfPage=ceil($record->num_rows/$sanphamPerPage);
+            $query="SELECT * FROM sanpham where HangDTH='".$_GET["type"]."';";
+
+
             
             
            
@@ -42,12 +43,11 @@
             // echo "<br>";
             // echo "true2: ".isset($_GET["type"]);
             // echo "<br>";
-            if(isset($_GET["page-nr"])){
-                $start=($_GET["page-nr"]-1)*$sanphamPerPage;
-                
-            }
 
-            $resultLietKeSP=$conn->query("SELECT * FROM sanpham where HangDTH='".$_GET["type"]."' limit $start, $sanphamPerPage;");
+            // $resultLietKeSP=$conn->query("SELECT * FROM sanpham where HangDTH='".$_GET["type"]."' limit $start, $sanphamPerPage;");
+
+            $resultLietKeSP=processPagerNumbering($query, 6, $conn);
+
 
             ?>
 
@@ -56,20 +56,9 @@
             <?php
             while($sanpham=$resultLietKeSP->fetch_array(MYSQLI_ASSOC)){ ?>
                     <li class="phone_list_element">
-                    <a href="#" onclick="watchProductDetail(this)">
-                    <div class="card" style="width: 18rem ; height: 30rem" onclick="watchProductDetail(this)">
-                        <img class="card-img-top" src=<?php echo $sanpham["HinhAnhMH"]?> alt="Card image cap">
-                            <div class="card-body">
-                                <p class="masp" style="display: none;"><?php echo $sanpham["MaSP"]?></p>
-                                <h5 class="card-title"><?php echo $sanpham["Ten"] ?></h5>
-                                <p class="card-text"><strong class="phone_list_element_price"><?php echo $sanpham["Gia"] ?>₫</strong></p>
-                                <p class="card-text"><?php echo "khuyến mãi: ".$sanpham["KhuyeMai"]."%"?></p>
-                                <a href="#" class="btn btn-primary">thêm vào giỏ hàng</a>
-                            </div>
-                        </div>
-                     </a> 
-                            <!-- <a href="#" onclick="watchProductDetail(this)">
-                            use to identity sanpham to query chitietsanpham
+                    
+                    <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?>>
+                            <!-- use to identity sanpham to query chitietsanpham -->
                             <p class="masp" style="display: none;"><?php echo $sanpham["MaSP"]?></p>
 
                             <div class="phone_list_element_img">
@@ -79,24 +68,18 @@
                             <h3>
                                 <?php echo $sanpham["Ten"] ?>
                             </h3>
-                            
-
                             <strong class="phone_list_element_price"><?php echo number_format($sanpham["Gia"],0,".",".") ?>₫</strong>
-                
-                        </a>  -->
+                            <?php include_once("include/addDeleteCart.php");
+                                processAddDeleteCart(isShowAddToCart($sanpham), false, true, $sanpham);
+                            ?>
+                        </a> 
                     </li>
 
             <?php };?>
 
             </ul>
 
-            <div id="page_numbering">
-                <!-- create page numbering base on the number of row resulted from query -->
-                <?php
-
-                ?>
-                
-            </div>
+    
 
             <!-- <div style="display: none;">
                 <form action="chiTietSanPham.php"  name="chitietsp" method="post">
@@ -105,18 +88,10 @@
                 </form>
             </div> -->
 
-            <div id="page_numbering">
-                <?php 
-                    
-                ?>
-                <?php
-                    for($i=1; $i<=$numberOfPage; ++$i){ 
-                        ?>
-                        <a href=<?php echo "?type=".$_GET["type"]."&page-nr=".$i?>><?php echo $i ?></a>
-                        <?php 
-                    } 
-                ?>
-            </div>
+            <?php 
+                $stringOfParameters="type=". $_GET["type"];
+                printPageNumbering($stringOfParameters);
+            ?>
       
 
         </div>

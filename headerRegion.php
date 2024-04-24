@@ -13,7 +13,7 @@
             <?php
                 if(isset($_SESSION["username"])){
                     echo '<div class="menu_top_element" id="cart">
-                            <a href="cart.php">Giỏ hàng</a>
+                            <a href="cart.php">Giỏ hàng<i class="fa-solid fa-cart-shopping" ></i></a>
                         </div>';
                     echo '<div class="menu_top_element" id="singout" style="display: inline;">
                             <a href="signout.php">Đăng xuất</a>
@@ -50,9 +50,9 @@
         <div id="search">
             
             <div class="menu_top_element" id="simple_search">
-                <form action="" method="get" target="_blank">
-                    <input type="text" placeholder="Tìm theo tên" id="ss" name="ss">
-                    <input type="submit" value="Tìm" onclick="window.location.replace('search_result.php')">
+                <form action="simple_search_result.php" method="get" >
+                    <input type="text" placeholder="Tìm theo tên" id="ss" name="ten">
+                    <input type="submit" value="Tìm" name="submit">
                 </form>
             </div>
 

@@ -63,6 +63,7 @@ function createUser($conn,$email,$pwd){
 }
 function loginUser($conn, $email, $pwd){
     $existingUser = email_exist($conn, $email);
+    var_dump($existingUser);
     
     if(!$existingUser){
         // Không tìm thấy người dùng trong cơ sở dữ liệu
@@ -77,7 +78,7 @@ function loginUser($conn, $email, $pwd){
     if($pwd_checked===true||$pwd==$pwd_hashed){
         // Mật khẩu không khớp
         session_start();
-        $_SESSION["id"] = $existingUser["id"];
+        $_SESSION["id"] = $existingUser["MaTK"];
         $_SESSION["username"] = $existingUser["user_account"];
         $_SESSION["pwd"] = $existingUser["pwd"];
         header("location: ../index.php");
@@ -88,3 +89,65 @@ function loginUser($conn, $email, $pwd){
     }
 }
 
+    function postFilter($post){//return an array of none empty string input name, the user didn't pick this input
+        $nonEmptyArr=array();
+        foreach($post as $key=>$value){
+            // echo "key: $key <br>";
+            // echo "value: $value <br>";
+            if($value!="" && $key!="submit"){
+                // echo "is chosen <br>";
+                $nonEmptyArr[$key]=$value;
+            }
+        }
+        return $nonEmptyArr;
+    }
+
+    function isShowAddToCart($sanpham){//transform Khang code to a 
+        //function for better coding, check wheather that san pham should be add to cart or delete form cart
+
+        $cart = isset($_COOKIE["cart"])?$_COOKIE["cart"]:"[]";
+        $cart = json_decode($cart);
+        $flag = false;
+        foreach ($cart as $c)
+        {
+            if ($c->MaSP == $sanpham["MaSP"])//toi dung fetch_array :))
+            {
+                $flag = true;
+                break;
+            }
+        }
+        //if $flag=false => san pham khong co trong cart
+        //if $flag=true => san pham co trong cart
+        return $flag;
+
+    }
+    
+    function getStringOfParaPOST($post){
+        $stringOfParameters="";
+        $nonEmptyPost=postFilter($post);
+        $lastKey=array_key_last($nonEmptyPost);
+        foreach($nonEmptyPost as $key=>$value){
+            if($key=="page-nr"){
+                continue;
+            }
+            $stringOfParameters.="$key=$value";
+
+        }
+        return $stringOfParameters;
+    }
+    
+    function getStringOfParaGET($get){
+        $stringOfParameters="";
+        $nonEmptyGet=postFilter($get);
+        $lastKey=array_key_last($nonEmptyGet);
+        foreach($nonEmptyGet as $key=>$value){
+            if($key=="page-nr"){
+                continue;
+            }
+            $stringOfParameters.="$key=$value";
+
+        }
+        return $stringOfParameters;
+    }
+
+?>
