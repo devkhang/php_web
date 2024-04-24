@@ -49,6 +49,7 @@
 
                     <label for="product-illustration">Hình ảnh minh họa</label>
                     <input type="file" name="product-illustration" id="product-illustration">
+                    <input type="hidden" name="submit" value=1>
 
 
 

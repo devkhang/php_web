@@ -92,10 +92,11 @@
                             <div id="Phone" class="real-value">
                                 <input id="Phone" name="Phone" type="text" value="">
                             </div>
+                            <input type="hidden" name="submit" value="1"/>
                         </div>
                     </div>
                     <div id="add-all-button">
-                        <button type="submit" onclick="AddUser(this)">Thêm</a>
+                        <button type="submit">Thêm</a>
                     </div>
                 </form>
             </div>
