@@ -232,9 +232,9 @@
                             }
                             $stringOfParameters.="$key=$value";
                 
-                            if($key!=$lastKey){
-                                $query.="$";
-                            }
+                            // if($key!=$lastKey){
+                            //     $query.="$";
+                            // }
                         }
 
 
@@ -248,9 +248,9 @@
                             }
                             $stringOfParameters.="$key=$value";
                 
-                            if($key!=$lastKey){
-                                $query.="$";
-                            }
+                            // if($key!=$lastKey){
+                            //     $query.="$";
+                            // }
                         }
                     }
                     $stringOfParameters.="&submit=yes";

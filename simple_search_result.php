@@ -2,6 +2,8 @@
 //this code is used to include important other files
 session_start();
 include_once("include/connectDB.php");
+include_once("pageNumbering.php");
+include_once("include/functions.php");
 
 ?>
 
@@ -11,11 +13,12 @@ if(isset($_GET["submit"]) && isset($_GET["ten"])){
     $ten=$_GET["ten"];
     $query="SELECT * FROM `sanpham` WHERE LOWER(Ten) LIKE '%$ten%'";
     $conn=connectDB();
-    $resultLietKeSP=$conn->query($query);
+    // $resultLietKeSP=$conn->query($query);
+    $resultLietKeSP=processPagerNumbering($query, 6, $conn);
 
 }
 else{
-    header("Location: index.php");
+    // header("Location: index.php");
 }
 
 ?>
@@ -84,9 +87,28 @@ else{
                     <a href="index.html">1</a>
                     <a href="index2.html">2</a>
                 </div> -->
+                <?php 
+                    $stringOfParameters="";
+                    if(isset($_POST["submit"])){
+                        $stringOfParameters=getStringOfParaPOST($_POST);
+                    
+                    
+                    }
+                    else if(isset($_GET["submit"])){
+                    
+                        $stringOfParameters=getStringOfParaGET($_GET);
+                    
+                    
+                    }
+                    
+                    $stringOfParameters.="&submit=yes";
+
+                    printPageNumbering($stringOfParameters); 
+                ?>
             </div>
                 
             <?php include_once("leftPannelRegion.php"); ?>
+            
 
 
 

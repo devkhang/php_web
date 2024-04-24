@@ -122,6 +122,32 @@ function loginUser($conn, $email, $pwd){
 
     }
     
+    function getStringOfParaPOST($post){
+        $stringOfParameters="";
+        $nonEmptyPost=postFilter($post);
+        $lastKey=array_key_last($nonEmptyPost);
+        foreach($nonEmptyPost as $key=>$value){
+            if($key=="page-nr"){
+                continue;
+            }
+            $stringOfParameters.="$key=$value";
+
+        }
+        return $stringOfParameters;
+    }
     
+    function getStringOfParaGET($get){
+        $stringOfParameters="";
+        $nonEmptyGet=postFilter($get);
+        $lastKey=array_key_last($nonEmptyGet);
+        foreach($nonEmptyGet as $key=>$value){
+            if($key=="page-nr"){
+                continue;
+            }
+            $stringOfParameters.="$key=$value";
+
+        }
+        return $stringOfParameters;
+    }
 
 ?>
