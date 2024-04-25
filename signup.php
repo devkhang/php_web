@@ -22,9 +22,9 @@ if(isset($_POST['dangky'])){
     if($userAvatar&& $userName && $userEmail && $userAddress && $userAddress
     && $userPWd && $userPhone){
         $conn=connectDB();
-        $insertStatus=$conn->query(sprintf("INSERT INTO taikhoan (user_account, HinhDaiDien, DiaChi, Email, pwd, SoDTH) 
+        $insertStatus=$conn->query(sprintf("INSERT INTO taikhoan (TinhTrang, user_account, HinhDaiDien, DiaChi, Email, pwd, SoDTH) 
         values
-        ('%s','%s','%s','%s','%s','%s')",$userName, $userAvatar, $userAddress, $userEmail, $userPWd, $userPhone));
+        ('m','%s','%s','%s','%s','%s','%s')",$userName, $userAvatar, $userAddress, $userEmail, $userPWd, $userPhone));
         $err_singup=true;
     }
     else{
