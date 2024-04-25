@@ -18,7 +18,8 @@ if(isset($_GET["submit"]) && isset($_GET["ten"])){
 
 }
 else{
-    // header("Location: index.php");
+    echo "second <br> <br> <br>";
+    header("Location: index.php");
 }
 
 ?>
@@ -102,6 +103,8 @@ else{
                     }
                     
                     $stringOfParameters.="&submit=yes";
+                    $stringOfParameters.="&ten=";
+                    $stringOfParameters.=$_GET["ten"];
 
                     printPageNumbering($stringOfParameters); 
                 ?>
