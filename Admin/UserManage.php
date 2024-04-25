@@ -1,5 +1,6 @@
 <?php 
 include_once("../include/connectDB.php");
+session_start();
 
 
 if(isset($_POST['dangky'])){
