@@ -21,6 +21,7 @@ include_once("include/functions.php");
             $urlParameters="";
         
             if($isBasedOnRequestToQuery){
+                // echo "this line run";
                 if($isReceivePost){
                     $unemptyPost=postFilter($_POST);
                     
@@ -33,6 +34,7 @@ include_once("include/functions.php");
                     }
                 }
                 else{
+                    // echo "this line run";
                     $unemptyGet=postFilter($_GET);
                     
                     $lastKey=array_key_last($unemptyGet);

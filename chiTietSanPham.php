@@ -4,6 +4,11 @@ if($_SERVER["REQUEST_METHOD"]!="GET" && isset($_GET["MaSP"])){
     echo "you are not allowed to access";
     die();
 }
+
+include_once("include/commonStyles.php");
+include_once("include/commonScript.php");
+
+
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +43,10 @@ if($_SERVER["REQUEST_METHOD"]!="GET" && isset($_GET["MaSP"])){
                 
 
                 $result=$conn->query("SELECT * FROM `sanpham` WHERE masp=".$_GET["MaSP"]. ";");
+                // echo "query: <br>";
+                // var_dump($result);
+
+
                 $sanpham=$result->fetch_array(MYSQLI_ASSOC);
 
             ?>
@@ -85,13 +94,18 @@ if($_SERVER["REQUEST_METHOD"]!="GET" && isset($_GET["MaSP"])){
                             <h1 style="text-align: center;"><?php echo $sanpham["KhuyeMai"]; ?>%</h1>
                         </div>
                     </div>
-                    <div class="add-to-cart">
+                    <!-- <div class="add-to-cart">
                         <form action="add-cart.php" method = "POST">
                                     <input type="hidden" name="quantity" value="1">
                                     <input type="hidden" name="id" value=<?php echo $sanpham["MaSP"]?>>
                                     <button type="submit" class="btn btn-primary">add to cart</button>
                         </form>
-                    </div>
+                    </div> -->
+                    <?php
+                        include_once("include/addDeleteCart.php");
+                        processAddDeleteCart(isShowAddToCart((array)$sanpham), false, true, (array)$sanpham);
+
+                    ?>
                 </div>
             </div>
             
