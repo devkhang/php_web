@@ -62,28 +62,38 @@
 
         $conn=connectDB();
         $nonEmptyPost=postFilter($_POST);
-        if(count($nonEmptyPost)==0){
-            header("Location: advanced_search.php");
-        }
+        
 
         $query="SELECT * FROM `SANPHAM` WHERE";
         $lastKey=array_key_last($nonEmptyPost);
         
+        if(count($nonEmptyPost)==0){
+            // header("Location: advanced_search.php");
+            $query.=" 1=1;";
+        }
+
+
+        
         foreach($nonEmptyPost as $key=>$value){
             if($key=="min"){
                 $query.=" Gia>= $value";
+                $query.=" and";
             }
             else if($key=="max"){
                 $query.=" Gia<= $value";
-            }
-            else{
-                $query.=" $key='$value'";
-            }
-
-            if($key!=$lastKey){
                 $query.=" and";
             }
-            else{
+            else if($key=="Ten"){
+                $query.=" $key like '%$value%'";
+                $query.=" and";
+            }
+            else if($key!="page-nr"){
+                $query.=" $key='$value'";
+                $query.=" and";
+            }
+
+            if($key==$lastKey){
+                $query=substr($query, 0, -3);//remove the last "and" from query
                 $query.=" ;";
             }
         }
@@ -111,6 +121,10 @@
         $query="SELECT * FROM `SANPHAM` WHERE";
         $lastKey=array_key_last($nonEmptyGet);
         // var_dump($nonEmptyGet); 
+        if(count($nonEmptyGet)==0){
+            // header("Location: advanced_search.php");
+            $query.=" 1=1;";
+        }
 
 
         foreach($nonEmptyGet as $key=>$value){
@@ -121,6 +135,10 @@
             }
             else if($key=="max"){
                 $query.=" Gia<= $value";
+                $query.=" and";
+            }
+            else if($key=="Ten"){
+                $query.=" $key like '%$value%'";
                 $query.=" and";
             }
             else if($key!="page-nr"){
