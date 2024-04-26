@@ -12,3 +12,7 @@ function watchProductDetail(information){
 
 
 }
+
+function popUp(message){
+    window.alert(message);
+}
