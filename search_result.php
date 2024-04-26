@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include_once("include/functions.php");
     
     include_once("pageNumbering.php");
 
@@ -138,7 +137,7 @@
                 $query.=" and";
             }
             else if($key=="Ten"){
-                $query.=" $key like '%$value%'";
+                $query.=" lower($key) like '%$value%'";
                 $query.=" and";
             }
             else if($key!="page-nr"){
@@ -216,10 +215,7 @@
                         <div>
                             <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?>>
                                 <div class="phone_list_element_img">
-                                    <?php 
-                                        echo "directory: <br>";
-                                        echo $sanpham["HinhAnhMH"]."<br>";
-                                    ?>
+                                    
                                     <img alt="thêm ảnh" src=<?php echo $sanpham["HinhAnhMH"] ?>>
                                 </div>
                                 <h3>

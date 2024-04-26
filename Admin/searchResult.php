@@ -30,7 +30,7 @@ include_once("../pageNumbering.php");
         
         foreach($nonEmptyGet as $key=>$value){
             if($key=="DiaChi"||$key=="Email"||$key=="SoDTH"||$key=="user_account" ){
-                $query.="$key like '%$value%'";
+                $query.=" lower($key) like '%$value%'";
                 $query.=" and";
             }
             else if($key!="page-nr"){
@@ -54,6 +54,24 @@ include_once("../pageNumbering.php");
 
         // var_dump($resultLietKeSP);
 
+
+        $stringOfParameters="";
+            
+        // $isReceivePost=true;
+        $nonEmptyGet=postFilter($_GET);
+        foreach($nonEmptyGet as $key=>$value){
+            if($key=="page-nr"){
+                continue;
+            }
+            $stringOfParameters.="$key=$value";
+
+            
+
+            if($key!=$lastKey){
+                $stringOfParameters.="&";
+            }
+        }
+        var_dump($stringOfParameters);
 
 
 
@@ -159,8 +177,10 @@ include_once("../pageNumbering.php");
 
                             </p>
                             <div class="user_list_button">
-                                <a id="Lock" onclick="Lock(this)">Khóa</a>
-                                <a id="Unlock" onclick="Unlock(this)">Mở khóa</a>
+                                <?php 
+                                    include_once("khoa_mo_button.php");
+                                    processKhoaMoKhoaBtn($taikhoan["MaTK"], $stringOfParameters);
+                                ?>
                                 <a id="Modify" href="robute_modify.html">Chỉnh sửa</a>
                             </div>
                         </div>
@@ -177,20 +197,7 @@ include_once("../pageNumbering.php");
             </div>
                 
             <?php
-                $stringOfParameters="";
-            
-                // $isReceivePost=true;
-                $nonEmptyGet=postFilter($_GET);
-                foreach($nonEmptyGet as $key=>$value){
-                    if($key=="page-nr"){
-                        continue;
-                    }
-                    $stringOfParameters.="$key=$value";
-        
-                    // if($key!=$lastKey){
-                    //     $query.="$";
-                    // }
-                }
+               
 
 
                 
