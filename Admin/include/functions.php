@@ -64,16 +64,12 @@ function createAdmin($conn,$email,$pwd){
 function loginAdmin($conn, $email, $pwd){
     $existingUser = email_exist($conn, $email);
     var_dump($existingUser);
-    
     if(!$existingUser){
         // Không tìm thấy người dùng trong cơ sở dữ liệu
         header("location: ../login.php?error");
         exit();
     }
-
-    $pwd_hashed = $existingUser["pwd"];
-    // echo $pwd_hashed;
-    // exit();
+    $pwd_hashed = $existingUser["Pwd"];
     $pwd_checked = password_verify($pwd, $pwd_hashed);
     if($pwd_checked===true||$pwd==$pwd_hashed){
         // Mật khẩu không khớp
@@ -81,6 +77,7 @@ function loginAdmin($conn, $email, $pwd){
         $_SESSION["id"] = $existingUser["MaTK"];
         $_SESSION["admin_name"] = $existingUser["Ten"];
         $_SESSION["pwd"] = $existingUser["Pwd"];
+        $_SESSION["HinhDaiDien"] = $existingUser["HinhDaiDien"];
         header("location: ../index.php");
         exit();
     } else{

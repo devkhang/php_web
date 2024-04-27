@@ -1,11 +1,14 @@
 <div id="left_panel">
-            <div class="left_panel_element" id="homepage">
-                <a href="index.php">Giao diện admin</a>
-            </div>
+            <?php 
+                if(!isset($_SESSION['admin_name'])){?>
             <div class="left_panel_element" id="login" style="display: flex;">
                 <a href="login.php">Đăng nhập</a>
             </div>
-            <div class="left_panel_element" id="singout" style="display: none;">
+            <?php }else{?>
+            <div class="left_panel_element" id="homepage">
+                <a href="index.php">Giao diện admin</a>
+            </div>
+            <div class="left_panel_element" id="singout" style="display: flex;">
                 <a href="signout.php">Đăng xuất</a>
             </div>
             <div class="left_panel_element" id="addUser">
@@ -26,4 +29,5 @@
             <div class="left_panel_element" id="modifyUser">
                 <a href="modifyUser.php">Chỉnh sửa tài khoản người dùng</a>
             </div>
+            <?php } ?>
 </div>
