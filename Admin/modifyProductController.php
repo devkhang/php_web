@@ -1,199 +1,101 @@
 <?php 
-include_once("../include/connectDB.php");
 session_start();
+include_once("../include/connectDB.php");
+include_once("../include/functions.php");
 
-$conn=connectDB();
-$MaSP=$_GET["MaSP"];
-$sanPham=$conn->query("select * from sanpham where MaSP=$MaSP")->fetch_array(MYSQLI_ASSOC);
+
+if($_POST["submit"]){
+    $conn=connectDB();
+    $masp=$_GET['MaSP'];
+    $unemptyPost=postFilter($_POST);
+    $query="UPDATE sanpham SET ";
+    $lastKey=array_key_last($unemptyPost);
+
+    echo $lastKey."<br>";
+
+    if($_FILES["product-detailPicture"]["size"]!=0){
+        echo "run:"."<br>";
+        var_dump($_FILES["product-detailPicture"]);
+        echo "<br>";
+
+        // $query.="HinhDaiDien='$value'";
+        $product_detailPicture=$_FILES["product-detailPicture"];
+        $uploadir=basename($product_detailPicture["name"]);
+        if(!move_uploaded_file($product_detailPicture["tmp_name"], "../upload/".$uploadir));
+        $uploadir="./upload/".$uploadir;
+        
+        $query.="HinhAnhChiTiet='$uploadir',";
+    }
+
+    if($_FILES["product-illustration"]["size"]!=0){
+        echo "run:"."<br>";
+        var_dump($_FILES["product-illustration"]);
+        echo "<br>";
+
+        // $query.="HinhDaiDien='$value'";
+        $product_illustration=$_FILES["product-illustration"];
+        $uploadir=basename($product_illustration["name"]);
+        if(!move_uploaded_file($product_illustration["tmp_name"], "../upload/".$uploadir));
+        $uploadir="./upload/".$uploadir;
+        
+        $query.="HinhAnhMH='$uploadir',";
+    }
+
+    foreach($unemptyPost as $key=>$value){
+        // $query.="$key=$value";
+        // if($key=="user_account"|| $key=="HinhDaiDien"|| $key=="DiaChi"|| $key==""|| $key==""){
+        //     $query.="$key='$value'";
+        // }
+        // $query.="$key='$value'";
+        echo $key."<br>";
+        
+        if($key=="product-brand"){
+            
+            $query.="HangDTH='$value'";
+        }
+        else if($key=="product-name"){
+            $query.="Ten='$value'";
+            
+        }
+        else if($key=="product-promotion"){
+            $query.="KhuyeMai='$value'";
+            
+        }
+        else if($key=="product-remaining"){
+            $query.="SoLuongTonKho='$value'";
+            
+        }
+        else if($key=="product-price"){
+            $query.="Gia='$value'";
+            
+        }
+        else if($key=="MieuTa"){
+            $query.="MieuTa='$value'";
+            
+        }
+
+        if($key!==$lastKey){
+            $query.=",";
+        }
+
+    }
+    $query.=" where MaSP=$masp;";
+
+    var_dump($query);
+
+    $result=$conn->query($query);
+    $isSucceed=false;
+    if($result!=null){
+        $isSucceed=true;
+    }
+
+    header("Location: modifyProductLayout.php?isSucceed=".$isSucceed."&MaSP=".$masp);
+    // var_dump("Location: modifyUserLayout.php?isSucceed=".$isSucceed."&MaTK=".$matk);
+
+}
+
+
+
+
 
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\layout_style.css">
-    <link rel="stylesheet" href="css\product_detail_style.css">
-
-    <style>
-
-        #preview-area{
-            margin-top: 30px;
-            height: 300px;
-            width: 100%;
-            /* border-style: solid; */
-            display: flex;
-        }
-
-        #preview-illustration{
-            width: 100%;
-            height: 100%;
-        }
-        #preview-detail{
-            width: 100%;
-            height: 100%;
-        }
-        
-        #preview-illustration img{
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        #preview-detail img{
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-    </style>
-</head>
-<body>
-
-    <?php include_once("headerRegion.php"); ?>
-
-
-   
-
-    <div id="main_body">
-
-        <?php include_once("leftPannelRegion.php"); ?>
-
-
-        <div id="main_content">
-            <form action="addProductControler.php" id="production-detail-form" method="post" enctype="multipart/form-data">
-                <div id="product-detail-box">
-                    <label for="product-brand">Hãng điện thoại</label>
-                    <!-- <input type="text" name="product-brand" id="product-brand" required> -->
-                    <select name="product-brand" id="product-brand">
-                        <option value="iphone" <?php if($sanPham["HangDTH"]=="iphone") echo "selected" ?>>Iphone</option>
-                        <option value="samsung" <?php if($sanPham["HangDTH"]=="samsung") echo "selected" ?>>Samsung</option>
-                        <option value="oppo" <?php if($sanPham["HangDTH"]=="oppo") echo "selected" ?>>Oppo</option>
-                    </select>
-
-                    <label for="product-name">Tên sản phẩm</label>
-                    <input type="text" name="product-name" id="product-name" value="<?php echo $sanPham["Ten"] ?>">
-
-                    <!-- <label for="product-color">Màu</label>
-                    <input type="text" name="product-color" id="product-color" required> -->
-
-                    <label for="product-promotion"> Khuyến mãi</label>
-                    <input type="number" name="product-promotion" id="product-promotion" value="<?php echo $sanPham["KhuyeMai"]?>">
-
-                    <label for="product-remaining">Số lượng tồn kho</label>
-                    <input type="number" name="product-remaining" id="product-remaining" value="<?php echo $sanPham["SoLuongTonKho"]?>">
-
-                    <label for="product-price">Giá sản phẩm</label>
-                    <input type="number" name="product-price" id="product-price" value="<?php echo $sanPham["Gia"]?>">
-
-                    <label for="MieuTa">Miêu tả</label>
-                    <textarea id="MieuTa" name="MieuTa" rows="1" cols="50"><?php echo ($sanPham["MieuTa"])?></textarea>
-
-                    <label for="product-detailPicture">Hình ảnh chi tiết</label>
-                    <input type="file" name="product-detailPicture" id="product-detailPicture" required>
-
-                    <label for="product-illustration">Hình ảnh minh họa</label>
-                    <input type="file" name="product-illustration" id="product-illustration" required>
-                    <input type="hidden" name="submit" value=1>
-
-                   
-
-
-                </div>
-                <button id="submit-product-detail" name="them" value=1>Thêm</button>
-            </form>
-
-            
-
-
-            <div id="preview-area">
-                <div id="preview-illustration">
-                    <img src="<?php echo "../".$sanPham["HinhAnhMH"]?>">
-
-                </div>
-
-                <div id="preview-detail">
-                    
-                    <img src="<?php echo "../".$sanPham["HinhAnhChiTiet"]?>" >
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-        <?php include_once("rightPannelRegion.php"); ?>
-
-    </div>
-
-    <?php include_once("footerRegion.php"); ?>
-
-
-    <script src="layout_skeketon_js.js"></script>
-    <script>
-        let illustrationImgInput=document.getElementById("product-illustration");
-        let detailImgInput=document.getElementById("product-detailPicture");
-
-        let preview_illustration=document.getElementById("preview-illustration");
-        let preview_detail=document.getElementById("preview-detail");
-
-        illustrationImgInput.addEventListener("change", ()=>{
-            const fr=new FileReader();
-            fr.readAsDataURL(illustrationImgInput.files[0]);
-
-            fr.addEventListener("load", ()=>{
-                const url=fr.result;
-                // const img=new Image();
-                // img.src=url;
-
-                // preview_illustration.appendChild(img);
-                const innerImg=preview_illustration.getElementsByTagName("img")[0];
-                innerImg.src=url;
-                innerImg.style.display="block";
-
-
-            });
-        });
-
-        detailImgInput.addEventListener("change", ()=>{
-            // console.log(1);
-            const fr1=new FileReader();
-            fr1.readAsDataURL(detailImgInput.files[0]);
-
-            fr1.addEventListener("load", ()=>{
-                console.log(2);
-                const url=fr1.result;
-
-                // const img1=new Image();
-                // img1.src=url;
-
-                // preview_detail.appendChild(img1);
-
-                const innerImg=preview_detail.getElementsByTagName("img")[0];
-                innerImg.src=url;
-                innerImg.style.display="block";
-
-
-            });
-        })
-
-    </script>
-
-    <?php 
-        if(isset($_GET["querySucceed"]) && !$_GET["querySucceed"]){?>
-            <script src="../js/simple.js"></script>
-            <script>
-                popUp("Đã có lỗi gì đó xảy ra!!!");
-            </script>
-    <?php
-        }
-        ?>
-
-    
-
-
-</body>
-</html>

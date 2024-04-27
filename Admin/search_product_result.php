@@ -120,7 +120,7 @@
                     <li class="phone_list_element">
                     
                         <div>
-                            <a href=<?php echo "modifyProductController.php?MaSP=".$sanpham["MaSP"] ?>>
+                            <a href=<?php echo "modifyProductLayout.php?MaSP=".$sanpham["MaSP"] ?>>
                                 <div class="phone_list_element_img">
                                     
                                     <img alt="thêm ảnh" src=<?php echo "../".$sanpham["HinhAnhMH"] ?>>
