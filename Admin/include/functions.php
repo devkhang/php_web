@@ -78,6 +78,7 @@ function loginAdmin($conn, $email, $pwd){
         $_SESSION["admin_name"] = $existingUser["Ten"];
         $_SESSION["pwd"] = $existingUser["Pwd"];
         $_SESSION["HinhDaiDien"] = $existingUser["HinhDaiDien"];
+        $_SESSION['allowed_access'] = true;
         header("location: ../index.php");
         exit();
     } else{
