@@ -87,7 +87,7 @@
         <title>Trang chủ</title>
         <link rel="stylesheet" href="css\layout_style.css">
         <!--<link rel="stylesheet" href="style_test1.css">-->
-        <link rel="stylesheet" href="css\product_list_layout_style.css">
+        <link rel="stylesheet" href="..\css\product_list_layout_style.css">
         <?php include_once("..\include\commonStyles.php")?>
 
         <style>
@@ -120,7 +120,7 @@
                     <li class="phone_list_element">
                     
                         <div>
-                            <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?>>
+                            <a href=<?php echo "modifyProductController.php?MaSP=".$sanpham["MaSP"] ?>>
                                 <div class="phone_list_element_img">
                                     
                                     <img alt="thêm ảnh" src=<?php echo "../".$sanpham["HinhAnhMH"] ?>>
@@ -155,9 +155,9 @@
                             }
                             $stringOfParameters.="$key=$value";
                 
-                            // if($key!=$lastKey){
-                            //     $query.="$";
-                            // }
+                            if($stringOfParameters!=$lastKey){
+                                $stringOfParameters.="&";
+                            }
                         }
 
 
@@ -171,9 +171,9 @@
                             }
                             $stringOfParameters.="$key=$value";
                 
-                            // if($key!=$lastKey){
-                            //     $query.="$";
-                            // }
+                            if($stringOfParameters!=$lastKey){
+                                $stringOfParameters.="&";
+                            }
                         }
                     }
                     $stringOfParameters.="&submit=yes";
