@@ -261,14 +261,15 @@
                         // $isReceivePost=false;
                         $nonEmptyPost=postFilter($_GET);
                         foreach($nonEmptyPost as $key=>$value){
+                            echo $key."<br>";
                             if($key=="page-nr"){
                                 continue;
                             }
                             $stringOfParameters.="$key=$value";
                 
-                            // if($key!=$lastKey){
-                            //     $query.="$";
-                            // }
+                            if($key!=$lastKey){
+                                $stringOfParameters.="&";
+                            }
                         }
                     }
                     $stringOfParameters.="&submit=yes";
