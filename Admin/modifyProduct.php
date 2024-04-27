@@ -119,9 +119,9 @@
 
         <div id="main_content">
             <div id="search_advance">
-                <div class="title">Tìm kiếm nâng cao</div>
+                <div class="title">Tìm sản phẩm</div>
                 <div class="container">
-                    <form id="item1" width="200px" height="200px" action="search_result.php" method="POST">
+                    <form id="item1" width="200px" height="200px" action="search_product_result.php" method="GET">
                         <label id="label1" for="name">Tên sản phẩm:</label>
                         <input id="input1" type="text" placeholder="iphone 15promax" id="name" name="Ten">
                         

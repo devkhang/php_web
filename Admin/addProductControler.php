@@ -10,16 +10,16 @@ if(isset($_POST['them'])){
     //lay anh tu <input> va chuyen anh ve folder upload
     $detailPicture=$_FILES["product-detailPicture"];
     
-    $uploadDir_detailPicture="upload/". basename($detailPicture['name']);
-    if(!move_uploaded_file($detailPicture["tmp_name"], $uploadDir_detailPicture)){
+    $uploadDir_detailPicture=basename($detailPicture['name']);
+    if(!move_uploaded_file($detailPicture["tmp_name"], "../upload/" .$uploadDir_detailPicture)){
         $err_moveFile=true;
     }
 
     var_dump($uploadDir_detailPicture);
 
     $illustration=$_FILES["product-illustration"];
-    $uploadDir_illustration="upload/". basename($illustration['name']);
-    if(!move_uploaded_file($illustration["tmp_name"], $uploadDir_illustration)){
+    $uploadDir_illustration=basename($illustration['name']);
+    if(!move_uploaded_file($illustration["tmp_name"],"../upload/" . $uploadDir_illustration)){
         $err_moveFile=true;
     }
 
@@ -37,8 +37,8 @@ if(isset($_POST['them'])){
     $product_price=(int)$_POST["product-price"];
     $MieuTa=$_POST["MieuTa"];
 
-    $uploadDir_detailPicture="./Admin/".$uploadDir_detailPicture;
-    $uploadDir_illustration="./Admin/".$uploadDir_illustration;
+    $uploadDir_detailPicture="./upload/".$uploadDir_detailPicture;
+    $uploadDir_illustration="./upload/".$uploadDir_illustration;
 
     // ./Admin/
 

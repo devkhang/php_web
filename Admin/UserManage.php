@@ -7,7 +7,7 @@ if(isset($_POST['dangky'])){
 
     //lay anh tu <input> va chuyen anh ve folder upload
     $userFile=$_FILES["avatar-real-value"];
-    $uploadDir="./upload/". basename($userFile['name']);
+    $uploadDir="../upload/". basename($userFile['name']);
     if(!move_uploaded_file($userFile["tmp_name"], $uploadDir)){
         $err_moveFile=true;
     }
