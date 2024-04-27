@@ -29,7 +29,7 @@
         }else{
     ?>
 
-            <form action=<?php echo "khoamoController.php?$originnalUrlParameters" ?> method="get">
+            <form action="khoamoController.php" method="get">
                 <button type="submit" name="luaChon" value="k">Khóa</button>
                 <input type="text" name="MaTK" value="<?php echo $maTK ?>" style="display: none;">
                 <input type="text" name="originnalUrlParameters" value="<?php echo $originnalUrlParameters ?>" style="display: none;">
@@ -38,6 +38,13 @@
     <?php
         }
     ?>
+        <form action="modifyUserLayout.php">
+            <button type="submit">Chỉnh sửa</button>
+            <input type="text" name="MaTK" value="<?php echo $maTK ?>" style="display: none;">
+
+        </form>
+
+
 
 <?php
     }

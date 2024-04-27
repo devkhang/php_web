@@ -71,7 +71,7 @@ include_once("../pageNumbering.php");
                 $stringOfParameters.="&";
             }
         }
-        var_dump($stringOfParameters);
+        // var_dump($stringOfParameters);
 
 
 
@@ -178,10 +178,9 @@ include_once("../pageNumbering.php");
                             </p>
                             <div class="user_list_button">
                                 <?php 
-                                    include_once("khoa_mo_button.php");
+                                    include_once("khoa_mo_sua_button.php");
                                     processKhoaMoKhoaBtn($taikhoan["MaTK"], $stringOfParameters);
                                 ?>
-                                <a id="Modify" href="robute_modify.html">Chỉnh sửa</a>
                             </div>
                         </div>
 
