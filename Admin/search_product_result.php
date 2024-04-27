@@ -123,7 +123,7 @@
                             <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?>>
                                 <div class="phone_list_element_img">
                                     
-                                    <img alt="thêm ảnh" src=<?php echo $sanpham["HinhAnhMH"] ?>>
+                                    <img alt="thêm ảnh" src=<?php echo "../".$sanpham["HinhAnhMH"] ?>>
                                 </div>
                                 <h3>
                                     <?php echo $sanpham["Ten"] ?>

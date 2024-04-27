@@ -123,7 +123,7 @@ $taikhoan=$taikhoan->fetch_array(MYSQLI_ASSOC);
                             <div id="avatarFrom">
                                 <label for="avatar-real-value">Chọn avatar</label>
                                 <input id="avatar-real-value1" name="avatar-real-value" type="file"> <br>
-                                <img  id="preview" src="<?php echo $taikhoan["HinhDaiDien"]?>">
+                                <img  id="preview" src="<?php echo "../". $taikhoan["HinhDaiDien"]?>">
                             </div>
                         </div>
                 

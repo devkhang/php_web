@@ -164,7 +164,7 @@ include_once("../pageNumbering.php");
                     ?>
 
                         <div>
-                            <img src="<?php echo $taikhoan["HinhDaiDien"] ?>" onclick="">
+                            <img src="<?php echo "../".$taikhoan["HinhDaiDien"] ?>" onclick="">
                             <p><?php echo $taikhoan["user_account"] ?></p>
                             <p>Tình trạng:<?php
                                 if($taikhoan["TinhTrang"]=='k'){

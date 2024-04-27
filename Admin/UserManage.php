@@ -7,10 +7,11 @@ if(isset($_POST['dangky'])){
 
     //lay anh tu <input> va chuyen anh ve folder upload
     $userFile=$_FILES["avatar-real-value"];
-    $uploadDir="../upload/". basename($userFile['name']);
-    if(!move_uploaded_file($userFile["tmp_name"], $uploadDir)){
+    $uploadDir= basename($userFile['name']);
+    if(!move_uploaded_file($userFile["tmp_name"], "../upload/". $uploadDir)){
         $err_moveFile=true;
     }
+    $uploadDir="./upload/".$uploadDir;
 
     //insert cac gia tri attribute cua taikhoan vao table taikhoan
     $userAvatar=$uploadDir;
