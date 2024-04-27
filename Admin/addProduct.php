@@ -154,7 +154,7 @@ session_start();
         });
 
         detailImgInput.addEventListener("change", ()=>{
-            console.log(1);
+            // console.log(1);
             const fr1=new FileReader();
             fr1.readAsDataURL(detailImgInput.files[0]);
 

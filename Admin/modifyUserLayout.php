@@ -178,6 +178,22 @@ $taikhoan=$taikhoan->fetch_array(MYSQLI_ASSOC);
 
     <?php include_once("footerRegion.php"); ?>
 
+    <script>
+        let avatar_real_value1=document.getElementById("avatar-real-value1");
+        avatar_real_value1.addEventListener("change", ()=>{
+            const file=new FileReader();
+            file.readAsDataURL(avatar_real_value1.files[0]);
+            file.addEventListener("load", ()=>{
+                let preview=document.getElementById("preview");
+                preview.src=file.result;
+            });
+
+
+        });
+
+
+    </script>
+
 
 </body>
 </html>
