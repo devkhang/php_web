@@ -8,6 +8,7 @@ $taikhoan=$conn->query("select * from taikhoan where MaTK=$MaTK");
 $taikhoan=$taikhoan->fetch_array(MYSQLI_ASSOC);
 
 
+
 ?>
 
 
@@ -88,7 +89,7 @@ $taikhoan=$taikhoan->fetch_array(MYSQLI_ASSOC);
 
         <div id="main_content">
             <div id="user-info_box">
-                <form  action="UserManage.php" name="signupForm" method="POST" enctype="multipart/form-data">
+                <form  action="modifyUserController.php?MaTK=<?php echo $MaTK ?>" name="signupForm" method="POST" enctype="multipart/form-data">
                     <?php
                         if(isset($err_moveFile)){?>
                             <div class="alert alert-danger alert-dismissible">
@@ -136,35 +137,44 @@ $taikhoan=$taikhoan->fetch_array(MYSQLI_ASSOC);
                                 User name
                             </div>
                             <div id="UserName" class="real-value">
-                                <input id="UserName" name="UserName" type="text" value="" required>
+                                <input id="UserName" name="UserName" type="text" value="<?php echo $taikhoan["user_account"] ?>" >
                             </div>
                             <div id="Email-title">
                                 Email
                             </div>
                             <div id="Email" class="real-value">
-                                <input id="Email" name="Email" type="text" value="" required>
+                                <input id="Email" name="Email" type="text" value="<?php echo $taikhoan["Email"] ?>" >
                             </div>
                             <div id="Adress-title">
                                 Địa chỉ
                             </div>
                             <div id="Adress" class="real-value">
-                                <input id="Adress" name="Adress" type="text" value="" required>
+                                <input id="Adress" name="Adress" type="text" value="<?php echo $taikhoan["DiaChi"] ?>" >
                             </div>
                             <div id="Pwd-title">
                                 Mật khẩu
                             </div>
                             <div id="Pwd" class="real-value">
-                                <input id="Pwd" name="pwd" type="password" value="" required>
+                                <input id="Pwd" name="pwd" type="text" value="<?php echo $taikhoan["pwd"] ?>" >
                             </div>
                             <div id="Phone-title">
                                 Số điện thoại
                             </div>
                             <div id="Phone" class="real-value">
-                                <input id="Phone" name="Phone" type="text" value="" required>
+                                <input id="Phone" name="Phone" type="text" value="<?php echo $taikhoan["SoDTH"] ?>" >
+                            </div>
+                            <div id="TinhTrang-title">
+                                Tình trạng
+                            </div>
+                            <div id="TinhTrang" class="real-value">
+                                <select name="TinhTrang" id="TinhTrang">
+                                    <option value="k" <?php if($taikhoan["TinhTrang"]=='k') echo "selected"?>>Khóa</option>
+                                    <option value="m" <?php if($taikhoan["TinhTrang"]=='m') echo "selected"?>>Mở</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <input id="add-all-button" type="submit" name="dangky" value="Đăng ký">
+                    <input id="add-all-button" type="submit" name="submit" value="Thay đổi">
                     <!-- <div id="add-all-button">
                         <button type="submit" onclick="AddUser(this)">Đăng ký</a>
                     </div> -->
