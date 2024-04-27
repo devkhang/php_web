@@ -65,11 +65,11 @@
         <div id="main_content">
             <div class="box-login">
                 <div class="login-title">
-                    Đăng nhập
+                    Đăng nhập admin
                 </div>
-                <form action="#" method="post">
+                <form action="include/login.inc.php" method="post">
                     <div class="username">
-                            <input type="text" id="username" name="username" placeholder="Tên đăng nhập">
+                            <input type="text" id="username" name="admin_name" placeholder="Tên đăng nhập">
                     </div>
 
                     <div class="password">
