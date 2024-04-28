@@ -63,7 +63,7 @@
         $nonEmptyPost=postFilter($_POST);
         
 
-        $query="SELECT * FROM `SANPHAM` WHERE";
+        $query="SELECT * FROM `SANPHAM` WHERE an='ka' and";
         $lastKey=array_key_last($nonEmptyPost);
         
         if(count($nonEmptyPost)==0){
@@ -117,7 +117,7 @@
             // header("Location: advanced_search.php");
         }
 
-        $query="SELECT * FROM `SANPHAM` WHERE";
+        $query="SELECT * FROM `SANPHAM` WHERE an='ka' and";
         $lastKey=array_key_last($nonEmptyGet);
         // var_dump($nonEmptyGet); 
         if(count($nonEmptyGet)==0){
