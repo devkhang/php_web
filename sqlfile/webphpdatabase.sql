@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2024 at 04:38 PM
+-- Generation Time: Apr 28, 2024 at 03:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,27 +29,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `chitietdonhang` (
   `MaSP` int(11) NOT NULL,
-  `MaHD` int(10) NOT NULL,
-  `SoLuong` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+  `MaHD` int(11) NOT NULL,
+  `SoLuong` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `chitietdonhang`
 --
 
 INSERT INTO `chitietdonhang` (`MaSP`, `MaHD`, `SoLuong`) VALUES
-(1, 1, 1),
-(1, 2, 1),
-(1, 3, 2),
-(1, 4, 1),
-(1, 5, 2),
-(2, 6, 1),
-(2, 7, 2),
-(2, 8, 1),
-(2, 9, 2),
-(4, 1, 3),
-(4, 2, 2),
-(4, 3, 5);
+(54, 20, 1),
+(55, 20, 1);
 
 -- --------------------------------------------------------
 
@@ -60,20 +50,8 @@ INSERT INTO `chitietdonhang` (`MaSP`, `MaHD`, `SoLuong`) VALUES
 CREATE TABLE `chitietgiohang` (
   `MaSP` int(11) NOT NULL,
   `MaTK` int(11) NOT NULL,
-  `SoLuong` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
-
---
--- Dumping data for table `chitietgiohang`
---
-
-INSERT INTO `chitietgiohang` (`MaSP`, `MaTK`, `SoLuong`) VALUES
-(1, 1, 1),
-(1, 2, 2),
-(2, 1, 1),
-(2, 2, 2),
-(3, 1, 1),
-(4, 1, 1);
+  `SoLuong` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -83,25 +61,19 @@ INSERT INTO `chitietgiohang` (`MaSP`, `MaTK`, `SoLuong`) VALUES
 
 CREATE TABLE `hoadon` (
   `MaHD` int(11) NOT NULL,
-  `ThoiGianDat` datetime NOT NULL,
-  `TrangThaiXuLy` varchar(1) NOT NULL,
-  `MaTK` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+  `ThoiGianDat` date DEFAULT NULL,
+  `TrangThaiXuLy` varchar(1) DEFAULT NULL,
+  `MaTK` int(11) DEFAULT NULL,
+  `diachi` varchar(50) DEFAULT NULL,
+  `Tongtien` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `hoadon`
 --
 
-INSERT INTO `hoadon` (`MaHD`, `ThoiGianDat`, `TrangThaiXuLy`, `MaTK`) VALUES
-(1, '2023-10-29 00:00:00', '0', 1),
-(2, '2023-09-29 00:00:00', '1', 2),
-(3, '2023-08-29 00:00:00', '0', 3),
-(4, '2023-07-29 00:00:00', '1', 3),
-(5, '2023-11-29 00:00:00', '1', 2),
-(6, '2023-11-29 00:00:00', '0', 2),
-(7, '2023-11-29 00:00:00', '0', 2),
-(8, '2023-11-29 00:00:00', '1', 1),
-(9, '2023-11-29 00:00:00', '0', 3);
+INSERT INTO `hoadon` (`MaHD`, `ThoiGianDat`, `TrangThaiXuLy`, `MaTK`, `diachi`, `Tongtien`) VALUES
+(20, '2024-04-27', '0', 12, 'TP.HCM', 42680000);
 
 -- --------------------------------------------------------
 
@@ -111,29 +83,34 @@ INSERT INTO `hoadon` (`MaHD`, `ThoiGianDat`, `TrangThaiXuLy`, `MaTK`) VALUES
 
 CREATE TABLE `sanpham` (
   `MaSP` int(11) NOT NULL,
-  `HangDTH` varchar(10) NOT NULL,
-  `Ten` varchar(50) NOT NULL,
-  `Mau` varchar(10) NOT NULL,
-  `KhuyeMai` int(11) NOT NULL,
-  `MieuTa` text NOT NULL,
+  `HangDTH` varchar(10) DEFAULT NULL,
+  `Ten` varchar(50) DEFAULT NULL,
+  `Mau` varchar(10) DEFAULT NULL,
+  `KhuyeMai` int(11) DEFAULT NULL,
+  `MieuTa` text DEFAULT NULL,
   `SoLuongTonKho` int(11) NOT NULL,
-  `Gia` int(11) NOT NULL,
-  `HinhAnhMH` varchar(200) NOT NULL,
-  `HinhAnhChiTiet` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+  `Gia` int(11) DEFAULT NULL,
+  `HinhAnhMH` varchar(200) DEFAULT NULL,
+  `HinhAnhChiTiet` varchar(200) DEFAULT NULL,
+  `An` varchar(2) NOT NULL DEFAULT 'ka'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `sanpham`
 --
 
-INSERT INTO `sanpham` (`MaSP`, `HangDTH`, `Ten`, `Mau`, `KhuyeMai`, `MieuTa`, `SoLuongTonKho`, `Gia`, `HinhAnhMH`, `HinhAnhChiTiet`) VALUES
-(1, 'oppo', 'OPPO A57 128GB', 'xanh', 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \n\n\r\nCông nghệ màn hình:IPS LCD \n\r\nĐộ phân giải:HD+ (720 x 1612 Pixels) \n\r\nMàn hình rộng:6.56\" - Tần số quét 60 Hz \n\r\nĐộ sáng tối đa:600 nits \n\r\nMặt kính cảm ứng:Kính cường lực Panda \n', 10, 3790000, 'assets/oppo-a57-xanh-thumb-1-600x600.jpeg', 'assets/OPPO A57 128GB.jpg'),
-(2, 'oppo', 'OPPO Reno10 5G 128GB', 'xanh', 10, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \n\r\nĐiện thoại x 1\n\r\nSạc x 1\n\r\nCáp dữ liệu USB x 1\n\r\nCông cụ đẩy SIM x 1\n\r\nHướng dẫn sử dụngx 1\n\r\nỐp bảo vệ x 1\n', 20, 9490000, 'assets/oppo-reno10-blue-thumbnew-600x600.jpg', 'assets/oppo-reno10-xanh-128gb-1.jpg'),
-(3, 'samsung', 'Samsung Galaxy Z Fold5 5G', 'trắng', 20, 'Mới, đầy đủ phụ kiện từ nhà sản xuất\n\r\nChip Snapdragon 8 Gen 2 for Galaxy\n\r\nRAM: 12 GB\n\r\nDung lượng: 256 GB\n\r\nCamera sau: Chính 50 MP & Phụ 12 MP, 10 MP\n\r\nCamera trước: 10 MP & 4 MP\n\r\nPin 4400 mAh, Sạc 25 W\n', 10, 40990000, 'assets/samsung-galaxy-z-fold5-kem-600x600.jpg', 'assets/samsung-galaxy-z-fold5-kem-600x600.jpg'),
-(4, 'samsung', 'Samsung Galaxy S22 Ultra 5G 128GB', 'Dull Purpl', 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất\n\r\nChip Snapdragon 8 Gen 1\n\r\nRAM: 8 GB\n\r\nDung lượng: 128 GB\n\r\nCamera sau: Chính 108 MP & Phụ 12 MP, 10 MP, 10 MP\n\r\nCamera trước: 40 MP\n\r\nPin 5000 mAh, Sạc 45 W\n', 50, 16990000, 'assets/Galaxy-S22-Ultra-Burgundy-600x600.jpg', 'assets/Galaxy-S22-Ultra-Burgundy-600x600.jpg'),
-(5, 'iphone', 'iPhone 15 Pro Max 512GB', 'đen', 0, 'Máy mới 100% , chính hãng Apple Việt Nam.\n\r\niPhone 15 Pro Max, Cáp Type C - Type C, Tài liệu hướng dẫn\n\r\n1 ĐỔI 1 trong 30 ngày nếu có lỗi phần cứng nhà sản xuất. Bảo hành 12 tháng tại trung tâm bảo hành chính hãng Apple\n', 10, 46990000, 'assets/iphone-15-pro-max-blue-thumbnew-600x600.jpg', 'assets/iphone_15_pro_max_512gb_-_1_1_.webp'),
-(6, 'iphone', 'iPhone 15 Plus 128GB', 'trắng', 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất\n\r\n6.1 inch\n\r\nMàn hình Super Retina XDR\n\r\nĐộ phân giải 2556x1179 pixel với mật độ điểm ảnh 460 ppi\n\r\n1 ĐỔI 1 trong 30 ngày nếu có lỗi phần cứng nhà sản xuất. Bảo hành 12 tháng tại trung tâm bảo hành chính hãng Apple\n', 20, 25990000, 'assets/iphone-15-plus-128gb-xanh-thumb-600x600.jpg', 'assets/iphone-15-128gb.jpg'),
-(7, 'iphone', 'Phone 15 Pro Max 256GB', 'trắng', 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất\n\r\nKích thước: 6.1 inch\n\r\nSuper Retina XDR OLED\n\r\nCông nghệ ProMotion\n\r\nDynamic Island\n\r\n2556 x 1179 pixels\n\r\n1 ĐỔI 1 trong 30 ngày nếu có lỗi phần cứng nhà sản xuất. Bảo hành 12 tháng tại trung tâm bảo hành chính hãng Apple\n', 30, 33990000, 'assets/iphone-15-pro-max-white-thumbnew-600x600.jpg', 'assets/iphone_15_pro_max_256gb_-_1_1_.webp');
+INSERT INTO `sanpham` (`MaSP`, `HangDTH`, `Ten`, `Mau`, `KhuyeMai`, `MieuTa`, `SoLuongTonKho`, `Gia`, `HinhAnhMH`, `HinhAnhChiTiet`, `An`) VALUES
+(54, 'iphone', 'iPhone 15 Pro Max 256GB 123', NULL, 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \r\n\r\n\r\nCông nghệ màn hình:IPS LCD \r\n\r\nĐộ phân giải:HD+ (720 x 1612 Pixels) \r\n\r\nMàn hình rộng:6.56\" - Tần số quét 60 Hz \r\n\r\nĐộ sáng tối đa:600 nits \r\n\r\nMặt kính cảm ứng:Kính cường lực Panda ', 99, 29090000, './upload/5.webp', './upload/5.webp', 'ka'),
+(55, 'iphone', 'iPhone 13 128GB', NULL, 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \r\n\r\n\r\nCông nghệ màn hình:IPS LCD \r\n\r\nĐộ phân giải:HD+ (720 x 1612 Pixels) \r\n\r\nMàn hình rộng:6.56\" - Tần số quét 60 Hz \r\n\r\nĐộ sáng tối đa:600 nits \r\n\r\nMặt kính cảm ứng:Kính cường lực Panda ', 9, 13590000, './upload/2.webp', './upload/2.webp', 'ka'),
+(56, 'iphone', 'iPhone 15 128GB', NULL, 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \r\n\r\n\r\nCông nghệ màn hình:IPS LCD \r\n\r\nĐộ phân giải:HD+ (720 x 1612 Pixels) \r\n\r\nMàn hình rộng:6.56\" - Tần số quét 60 Hz \r\n\r\nĐộ sáng tối đa:600 nits \r\n\r\nMặt kính cảm ứng:Kính cường lực Panda ', 10, 19190000, './upload/3.webp', './upload/3.webp', 'ka'),
+(57, 'iphone', 'iPhone 14 Pro Max 128GB', NULL, 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \r\n\r\n\r\nCông nghệ màn hình:IPS LCD \r\n\r\nĐộ phân giải:HD+ (720 x 1612 Pixels) \r\n\r\nMàn hình rộng:6.56\" - Tần số quét 60 Hz \r\n\r\nĐộ sáng tối đa:600 nits \r\n\r\nMặt kính cảm ứng:Kính cường lực Panda ', 100, 27190000, './upload/4.webp', './upload/4.webp', 'ka'),
+(58, 'iphone', 'iPhone 15 Pro 128GB', NULL, 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \r\n\r\n\r\nCông nghệ màn hình:IPS LCD \r\n\r\nĐộ phân giải:HD+ (720 x 1612 Pixels) \r\n\r\nMàn hình rộng:6.56\" - Tần số quét 60 Hz \r\n\r\nĐộ sáng tối đa:600 nits \r\n\r\nMặt kính cảm ứng:Kính cường lực Panda ', 8, 24690000, './upload/5.webp', './upload/5.webp', 'ka'),
+(59, 'iphone', 'iPhone 11 64GB ', NULL, 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \r\n\r\n\r\nCông nghệ màn hình:IPS LCD \r\n\r\nĐộ phân giải:HD+ (720 x 1612 Pixels) \r\n\r\nMàn hình rộng:6.56\" - Tần số quét 60 Hz \r\n\r\nĐộ sáng tối đa:600 nits \r\n\r\nMặt kính cảm ứng:Kính cường lực Panda ', 34, 8790000, './upload/6.webp', './upload/6.webp', 'ka'),
+(60, 'iphone', 'iPhone 14 Pro 128GB', NULL, 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \r\n\r\n\r\nCông nghệ màn hình:IPS LCD \r\n\r\nĐộ phân giải:HD+ (720 x 1612 Pixels) \r\n\r\nMàn hình rộng:6.56\" - Tần số quét 60 Hz \r\n\r\nĐộ sáng tối đa:600 nits \r\n\r\nMặt kính cảm ứng:Kính cường lực Panda ', 34, 24190000, './upload/7.webp', './upload/7.webp', 'ka'),
+(61, 'samsung', 'Samsung Galaxy S23 Ultra 256GB', NULL, 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \r\n\r\n\r\nCông nghệ màn hình:IPS LCD \r\n\r\nĐộ phân giải:HD+ (720 x 1612 Pixels) \r\n\r\nMàn hình rộng:6.56\" - Tần số quét 60 Hz \r\n\r\nĐộ sáng tối đa:600 nits \r\n\r\nMặt kính cảm ứng:Kính cường lực Panda ', 45, 21990000, './upload/8.webp', './upload/8.webp', 'ka'),
+(62, 'samsung', 'Samsung Galaxy S24 Ultra 12GB 256GB', NULL, 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \r\n\r\n\r\nCông nghệ màn hình:IPS LCD \r\n\r\nĐộ phân giải:HD+ (720 x 1612 Pixels) \r\n\r\nMàn hình rộng:6.56\" - Tần số quét 60 Hz \r\n\r\nĐộ sáng tối đa:600 nits \r\n\r\nMặt kính cảm ứng:Kính cường lực Panda ', 3, 28490000, './upload/9.webp', './upload/9.webp', 'ka'),
+(63, 'oppo', 'OPPO Reno11 F 5G 8GB 256GB', NULL, 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \r\n\r\n\r\nCông nghệ màn hình:IPS LCD \r\n\r\nĐộ phân giải:HD+ (720 x 1612 Pixels) \r\n\r\nMàn hình rộng:6.56\" - Tần số quét 60 Hz \r\n\r\nĐộ sáng tối đa:600 nits \r\n\r\nMặt kính cảm ứng:Kính cường lực Panda ', 45, 8390000, './upload/10.webp', './upload/10.webp', 'ka'),
+(64, 'oppo', 'OPPO Reno10 5G 8GB 256GB', NULL, 0, 'Mới, đầy đủ phụ kiện từ nhà sản xuất \r\n\r\n\r\nCông nghệ màn hình:IPS LCD \r\n\r\nĐộ phân giải:HD+ (720 x 1612 Pixels) \r\n\r\nMàn hình rộng:6.56\" - Tần số quét 60 Hz \r\n\r\nĐộ sáng tối đa:600 nits \r\n\r\nMặt kính cảm ứng:Kính cường lực Panda ', 56, 8990000, './upload/11.webp', './upload/11.webp', 'ka');
 
 -- --------------------------------------------------------
 
@@ -144,22 +121,26 @@ INSERT INTO `sanpham` (`MaSP`, `HangDTH`, `Ten`, `Mau`, `KhuyeMai`, `MieuTa`, `S
 CREATE TABLE `taikhoan` (
   `MaTK` int(11) NOT NULL,
   `user_account` varchar(60) NOT NULL,
-  `HinhDaiDien` varchar(200) NOT NULL,
-  `DiaChi` varchar(100) NOT NULL,
-  `Email` varchar(100) NOT NULL,
-  `pwd` varchar(20) NOT NULL,
-  `SoDTH` varchar(10) NOT NULL,
-  `TinhTrang` char(1) NOT NULL DEFAULT 'm'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+  `HinhDaiDien` varchar(200) DEFAULT NULL,
+  `DiaChi` varchar(100) DEFAULT NULL,
+  `Email` varchar(100) DEFAULT NULL,
+  `pwd` varchar(255) NOT NULL,
+  `SoDTH` varchar(10) DEFAULT NULL,
+  `TinhTrang` char(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `taikhoan`
 --
 
 INSERT INTO `taikhoan` (`MaTK`, `user_account`, `HinhDaiDien`, `DiaChi`, `Email`, `pwd`, `SoDTH`, `TinhTrang`) VALUES
-(1, 'Roboute Guilliman', 'assets/guillimanfinal.jpg', 'TP.Hồ Chí Minh', 'A@gmail.com', '12345', '113', 'k'),
-(2, 'Horus Lupercal', 'assets/horus.jpg', 'TP.Hồ Chí Minh', 'Horus@gmail.com', '12345', '114', 'm'),
-(3, 'Lion El\'jonson', 'assets/lion.jpg', 'TP.Hồ Chí Minh', 'Lion@gmail.com', '12345', '115', 'k');
+(12, 'duy1', './upload/f1.jpg', 'Hue', 'duy1@gmail.com', '12345', '1134454545', 'm'),
+(14, 'duy2', './upload/f2.jpg', 'TP.HCM', 'duy2@gmail.com', '12345', '113', 'k'),
+(15, 'khang1', './upload/f3.jpg', 'TP.HCM', 'khang1@gmail.com', '12345', '112', 'k'),
+(16, 'Tram1', './upload/f4.jpg', 'TP.HCM', 'Tram1@gmail.com', '12345', '114', 'm'),
+(17, 'Tram2', './upload/f5.jpg', 'Vũng Tàu', 'Tram2@gmail.com', '12345', '114', 'm'),
+(18, 'Khang2', './upload/f6.jpg', 'TP.HCM', 'Khang2@gmail.com', '12345', '115', 'm'),
+(19, 'Tram3', './upload/f7.jpeg', 'TP.HCM', 'Tram3@gmail.com', '12345', '111', 'm');
 
 -- --------------------------------------------------------
 
@@ -168,20 +149,19 @@ INSERT INTO `taikhoan` (`MaTK`, `user_account`, `HinhDaiDien`, `DiaChi`, `Email`
 --
 
 CREATE TABLE `taikhoangadmin` (
-  `MaTK` int(11) NOT NULL,
-  `Ten` varchar(60) NOT NULL,
-  `Pwd` varchar(20) NOT NULL,
-  `HinhDaiDien` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+  `MaTK` int(20) NOT NULL,
+  `Ten` varchar(60) DEFAULT NULL,
+  `Pwd` varchar(20) DEFAULT NULL,
+  `HinhDaiDien` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `taikhoangadmin`
 --
 
 INSERT INTO `taikhoangadmin` (`MaTK`, `Ten`, `Pwd`, `HinhDaiDien`) VALUES
-(1, 'Nguyen San', '911', 'Admin/assets/duynguyen.png'),
-(2, 'Au Khang', '911', 'Admin/assets/khangau.png'),
-(3, 'Tram', '911', 'Admin/assets/tram.png');
+(1, 'admin1', '123', ''),
+(2, 'admin2', '123', '');
 
 --
 -- Indexes for dumped tables
@@ -234,25 +214,25 @@ ALTER TABLE `taikhoangadmin`
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MaHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `MaHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `MaSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `MaSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `MaTK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MaTK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `taikhoangadmin`
 --
 ALTER TABLE `taikhoangadmin`
-  MODIFY `MaTK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MaTK` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
