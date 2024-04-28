@@ -18,6 +18,7 @@
     <div id="main_body">
     <?php include_once("leftPannelRegion.php"); ?>
     <div id="main_content" class="container mt-3">
+    <h5 style="color:red " class="float-right">1 có nghĩa là đã xử lý<br>0 có là chưa xử lý<br>khi chỉnh sửa hãy chỉnh 0 hoặc 1</h5>
     <h2>Quản Lý Đơn Hàng</h2>
     <table class="table table-hover">
         <thead class="thead-dark">
@@ -42,7 +43,11 @@
                     echo "<tr>";
                     echo "<td>{$hd['MaHD']}</td>";
                     echo "<td>{$hd['ThoiGianDat']}</td>";
-                    echo "<td>{$hd['TrangThaiXuLy']}</td>";
+                    if($hd['TrangThaiXuLy']==1){
+                        echo "<td>đã xử lý</td>";
+                    }else{
+                        echo "<td>chưa xử lý</td>";
+                    }
                     echo "<td>{$hd['MaTK']}</td>";
                     echo "<td>{$hd['diachi']}</td>";
                     echo "<td>{$hd['Tongtien']}</td>";
@@ -70,7 +75,7 @@
                 </button>
                 </div>
                 <div class="modal-body">
-                <div class="form-group">
+                <div class="form-group" method="POST">
                     <label for="trangThaiXuLy">Trạng Thái Xử Lý</label>
                     <input type="text" class="form-control" id="trangThaiXuLy" name="trangThaiXuLy" required>
                     <input type="hidden" id="maHD" name="maHD">
