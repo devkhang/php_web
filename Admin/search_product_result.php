@@ -45,7 +45,7 @@
                 $query.=" lower($key) like '%$value%'";
                 $query.=" and";
             }
-            else if($key!="page-nr"){
+            else if($key!="page-nr" && $key!="MaSP" && $key!="daBan"){
                 $query.=" $key='$value'";
                 $query.=" and";
             }
@@ -123,14 +123,39 @@
                             <a href=<?php echo "modifyProductLayout.php?MaSP=".$sanpham["MaSP"] ?>>
                                 <div class="phone_list_element_img">
                                     
-                                    <img alt="thêm ảnh" src=<?php echo "../".$sanpham["HinhAnhMH"] ?>>
+                                    <img alt="thêm ảnh" src="<?php echo "../".$sanpham["HinhAnhMH"] ?>">
                                 </div>
                                 <h3>
                                     <?php echo $sanpham["Ten"] ?>
                                 </h3>
                                 <strong class="phone_list_element_price"><?php echo number_format($sanpham["Gia"],0,".",".") ?>₫</strong>
-                                
+                                <br>
+                                <strong>Trạng thái ẩn: <?php if($sanpham["An"]=="a") echo "Bị ẩn"; else echo "Không bị ẩn"; ?></strong>
                             </a>
+                            <?php include_once("deleteSanPham.php") ;
+
+                                $stringOfParameters="";
+                                            
+                                // $isReceivePost=true;
+                                $nonEmptyGet=postFilter($_GET);
+                                foreach($nonEmptyGet as $key=>$value){
+                                    if($key=="page-nr" || $key="daBan" || $key="MaSP"){
+                                        continue;
+                                    }
+                                    $stringOfParameters.="$key=$value";
+
+                                    
+
+                                    if($key!=$lastKey){
+                                        $stringOfParameters.="&";
+                                    }
+                                }
+
+                                processDeleteSanPham($sanpham["MaSP"],"");
+
+
+                            ?>
+
                            
                         </div>
                     </li>
@@ -145,37 +170,7 @@
                     <a href="index2.html">2</a>
                 </div> -->
                 <?php
-                    $stringOfParameters="";
-                    if(isset($_POST["submit"])){
-                        // $isReceivePost=true;
-                        $nonEmptyPost=postFilter($_POST);
-                        foreach($nonEmptyPost as $key=>$value){
-                            if($key=="page-nr"){
-                                continue;
-                            }
-                            $stringOfParameters.="$key=$value";
-                
-                            if($stringOfParameters!=$lastKey){
-                                $stringOfParameters.="&";
-                            }
-                        }
-
-
-                    }
-                    else if(isset($_GET["submit"])){
-                        // $isReceivePost=false;
-                        $nonEmptyPost=postFilter($_GET);
-                        foreach($nonEmptyPost as $key=>$value){
-                            if($key=="page-nr"){
-                                continue;
-                            }
-                            $stringOfParameters.="$key=$value";
-                
-                            if($stringOfParameters!=$lastKey){
-                                $stringOfParameters.="&";
-                            }
-                        }
-                    }
+                    
                     $stringOfParameters.="&submit=yes";
 
 
