@@ -7,7 +7,15 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/layout_style.css">
     <style>
-        /* Bạn có thể thêm style tùy chỉnh của mình ở đây */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }  /* Hiển thị */
+            50% { opacity: 0; }       /* Ẩn */
+        }
+
+        /* Áp dụng animation cho phần tử */
+        .blink {
+            animation: blink 1s infinite; /* lặp lại mãi mãi, mỗi chu kỳ 1 giây */
+        }
     </style>
 </head>
 <body>
@@ -18,7 +26,7 @@
     <div id="main_body">
     <?php include_once("leftPannelRegion.php"); ?>
     <div id="main_content" class="container mt-3">
-    <h5 style="color:red " class="float-right">1 có nghĩa là đã xử lý<br>0 có là chưa xử lý<br>khi chỉnh sửa hãy chỉnh 0 hoặc 1</h5>
+    <h5 style="color:red " class="float-right blink">1 có nghĩa là đã xử lý<br>0 có là chưa xử lý<br>khi chỉnh sửa hãy chỉnh 0 hoặc 1</h5>
     <h2>Quản Lý Đơn Hàng</h2>
     <table class="table table-hover">
         <thead class="thead-dark">
