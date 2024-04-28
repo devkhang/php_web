@@ -32,7 +32,7 @@
             include_once('include\db.inc.php');
 
             
-            $query="SELECT * FROM sanpham where HangDTH='".$_GET["type"]."';";
+            $query="SELECT * FROM sanpham where HangDTH='".$_GET["type"]."' and An='ka';";
 
 
             
