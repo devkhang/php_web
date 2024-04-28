@@ -44,9 +44,9 @@ if(isset($_POST['them'])){
 
 
     $conn=connectDB();
-    $insertStatus=$conn->query(sprintf("INSERT INTO sanpham (HangDTH, Ten, KhuyeMai, SoLuongTonKho, Gia, MieuTa, HinhAnhMH, HinhAnhChiTiet)
+    $insertStatus=$conn->query(sprintf("INSERT INTO sanpham (HangDTH, Ten, KhuyeMai, SoLuongTonKho, Gia, MieuTa, HinhAnhMH, HinhAnhChiTiet, An)
     VALUES
-    ('%s','%s',%d, %d, %d, '%s','%s','%s');", $product_brand, $product_name, $product_promotion, $product_remaining, 
+    ('%s','%s',%d, %d, %d, '%s','%s','%s', 'ka');", $product_brand, $product_name, $product_promotion, $product_remaining, 
     $product_price, $MieuTa, $uploadDir_illustration, $uploadDir_detailPicture));
 
     // echo "succeed? <br>";
