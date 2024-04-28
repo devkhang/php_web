@@ -73,6 +73,10 @@ if($_POST["submit"]){
             $query.="MieuTa='$value'";
             
         }
+        else if($key=="An"){
+            $query.="An='$value'";
+            
+        }
 
         if($key!==$lastKey){
             $query.=",";

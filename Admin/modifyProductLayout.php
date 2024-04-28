@@ -90,6 +90,12 @@ $sanPham=$conn->query("select * from sanpham where MaSP=$MaSP")->fetch_array(MYS
 
                     <label for="MieuTa">Miêu tả</label>
                     <textarea id="MieuTa" name="MieuTa" rows="1" cols="50"><?php echo ($sanPham["MieuTa"])?></textarea>
+                    
+                    <label for="An"> Ẩn</label>
+                    <select name="An" id="An">
+                        <option value="a" <?php if($sanPham["An"]=="a") echo "selected"; ?>>Ẩn</option>
+                        <option value="ka" <?php if($sanPham["An"]=="ka") echo "selected"; ?>>Không ẩn</option>
+                    </select>
 
                     <label for="product-detailPicture">Hình ảnh chi tiết</label>
                     <input type="file" name="product-detailPicture" id="product-detailPicture">
