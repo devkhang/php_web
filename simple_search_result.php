@@ -11,7 +11,7 @@ include_once("include/functions.php");
 <?php
 if(isset($_GET["submit"]) && isset($_GET["ten"])){
     $ten=$_GET["ten"];
-    $query="SELECT * FROM `sanpham` WHERE LOWER(Ten) LIKE '%$ten%'";
+    $query="SELECT * FROM `sanpham` WHERE LOWER(Ten) LIKE '%$ten%' and An='ka'";
     $conn=connectDB();
     // $resultLietKeSP=$conn->query($query);
     $resultLietKeSP=processPagerNumbering($query, 6, $conn);

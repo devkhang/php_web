@@ -108,7 +108,7 @@ $sanPham=$conn->query("select * from sanpham where MaSP=$MaSP")->fetch_array(MYS
 
 
                 </div>
-                <button id="submit-product-detail" name="submit" value=1>Thêm</button>
+                <button id="submit-product-detail" name="submit" value=1>Cập nhật</button>
             </form>
 
             
