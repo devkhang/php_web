@@ -26,9 +26,13 @@ $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr>
             <td>{$row['MaHD']}</td>
-            <td>{$row['ThoiGianDat']}</td>
-            <td>{$row['TrangThaiXuLy']}</td>
-            <td>{$row['MaTK']}</td>
+            <td>{$row['ThoiGianDat']}</td>";
+            if($row['TrangThaiXuLy']==1){
+                echo "<td>đã xử lý</td>";
+            }else{
+                echo "<td>chưa xử lý</td>";
+            }
+            echo "<td>{$row['MaTK']}</td>
             <td>{$row['diachi']}</td>
             <td>{$row['Tongtien']}</td>
             <td><a href='../order_detail.php?id={$row['MaHD']}' class='btn btn-info'>View</a></td>

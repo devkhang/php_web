@@ -155,11 +155,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" placeholder="chỉ nhập 0 hoặc 1">
+                    <input type="text" id="status_value" placeholder="chỉ nhập 0 hoặc 1">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn btn-primary">Lọc</button>
+                    <button type="submit" class="btn btn-primary" onclick="submitStatusFilter();">Lọc</button>
                 </div>
             </div>
         </div>
@@ -186,6 +186,9 @@
         $(document).ready(function() {
             $('#filter').change(function() {
                 var modalToOpen = $(this).val();
+                if(modalToOpen=="all"){
+                    submitAllFilter();
+                }
                 $(modalToOpen).modal('show');  // Sử dụng giá trị của option được chọn để mở modal tương ứng
             });
         });
@@ -212,6 +215,25 @@
                 }
             });
         }
+        function submitStatusFilter() {
+            var status_value = $("#status_value").val();
+            $.ajax({
+                url: 'process_filter.php', // Script phía server xử lý lọc
+                type: 'POST',
+                data: {
+                    filterType: 'status',
+                    status : status_value
+                },
+                success: function(response) {
+                        // Xử lý phản hồi ở đây, ví dụ: cập nhật dữ liệu hiển thị
+                    $('tbody').html(response);
+                    $('#date').modal('hide'); // Ẩn modal sau khi xử lý
+                },
+                error: function() {
+                    alert('Lỗi xử lý yêu cầu của bạn');
+                }
+            });
+        }
         function submitAddressFilter() {
             var address_value = $('#address_value').val();
             console.log(address_value);
@@ -221,6 +243,23 @@
                 data: {
                     filterType : 'address',
                     address : address_value
+                },
+                success: function(response) {
+                        // Xử lý phản hồi ở đây, ví dụ: cập nhật dữ liệu hiển thị
+                    $('tbody').html(response);
+                    $('#date').modal('hide'); // Ẩn modal sau khi xử lý
+                },
+                error: function() {
+                    alert('Lỗi xử lý yêu cầu của bạn');
+                }
+            });
+        }
+        function submitAllFilter() {
+            $.ajax({
+                url: 'process_filter.php', // Script phía server xử lý lọc
+                type: 'POST',
+                data: {
+                    filterType: 'nothing',
                 },
                 success: function(response) {
                         // Xử lý phản hồi ở đây, ví dụ: cập nhật dữ liệu hiển thị
