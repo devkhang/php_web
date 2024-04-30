@@ -216,6 +216,10 @@
                         <div>
                             <a href=<?php echo "chiTietSanPham.php?MaSP=".$sanpham["MaSP"] ?>>
                                 <div class="phone_list_element_img">
+                                    <?php 
+                                        echo "directory: <br>";
+                                        echo $sanpham["HinhAnhMH"]."<br>";
+                                    ?>
                                     <img alt="thêm ảnh" src=<?php echo $sanpham["HinhAnhMH"] ?>>
                                 </div>
                                 <h3>
