@@ -35,8 +35,8 @@ while ($row = mysqli_fetch_assoc($result)) {
             echo "<td>{$row['MaTK']}</td>
             <td>{$row['diachi']}</td>
             <td>{$row['Tongtien']}</td>
-            <td><a href='../order_detail.php?id={$row['MaHD']}' class='btn btn-info'>View</a></td>
-            <td><button class='btn btn-primary' data-toggle='modal' data-target='#editStatusModal' data-mahd='{$row['MaHD']}' data-trangthaixuly='{$row['TrangThaiXuLy']}'>Edit</button></td>
+            <td><a href='../order_detail.php?id={$row['MaHD']}' class='btn btn-info'>xem</a></td>
+            <td><button class='btn btn-primary' data-toggle='modal' data-target='#editStatusModal' data-mahd='{$row['MaHD']}' data-trangthaixuly='{$row['TrangThaiXuLy']}'>chỉnh sửa</button></td>
         </tr>";
 }
 mysqli_close($conn);

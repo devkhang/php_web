@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include_once('include\db.inc.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/layout_style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         #Order-history{
             background-color: aliceblue;
@@ -20,56 +21,52 @@
             margin-bottom: 10px;
         }
         #Order-history .history-box:hover{
-            background-color:rgba(29,162,216);
+            background-color: rgba(29,162,216);
             border-style: solid;
             border-width: 1px;
             margin-bottom: 10px;
             cursor: pointer;
         }
     </style>
-
-
 </head>
 <body>
-    <?php include_once('include\db.inc.php'); ?>
     <?php include_once("headerRegion.php"); ?>
     <div id="main_body">
-
         <?php include_once("leftPannelRegion.php"); ?>
-
-        <div id="main_content"> 
-            
-        <?php
-                $query =  "select * from hoadon where MaTK = ".$_SESSION["id"];
-                $result = mysqli_query($conn,$query);
-
-                while($row = mysqli_fetch_assoc($result)){
+        <div id="main_content">
+            <?php
+                if (isset($_GET["id"]) && isset($_GET['startDate']) && isset($_GET['endDate'])) {
+                    $query = "SELECT * FROM hoadon WHERE MaTK = " . $_GET["id"] . " AND ThoiGianDat BETWEEN '" . $_GET['startDate'] . "' AND '" . $_GET['endDate'] . "'";
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_assoc($result)) {
+                        echo "<div id='Order-history'><div class='history-box' onclick=\"window.location.href = 'order_detail.php?id=" . $row['MaHD'] . "';\">";
+                        echo "<p>ngày đặt hàng: " . $row["ThoiGianDat"] . "</p>";
+                        echo "<p>tình trạng: " . ($row["TrangThaiXuLy"] == 0 ? "chưa xử lý" : "đã xử lý") . "</p>";
+                        echo "<p>" . number_format($row['Tongtien'], 0, '.', ',')  . "Đ</p></div></div>";
+                    }
+                } else if (isset($_SESSION["id"])) {
+                    $query = "SELECT * FROM hoadon WHERE MaTK = " . $_SESSION["id"];
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_assoc($result)) {
+                        echo "<div id='Order-history'><div class='history-box' onclick=\"window.location.href = 'order_detail.php?id=" . $row['MaHD'] . "';\">";
+                        echo "<p>ngày đặt hàng: " . $row["ThoiGianDat"] . "</p>";
+                        echo "<p>tình trạng: " . ($row["TrangThaiXuLy"] == 0 ? "chưa xử lý" : "đã xử lý") . "</p>";
+                        echo "<p>" . number_format($row['Tongtien'], 0, '.', ',') . "Đ</p></div></div>";
+                    }
+                } else if (!isset($_SESSION["id"])) {
+                    $query = "SELECT * FROM hoadon WHERE MaTK = " . $_GET["id"];
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_assoc($result)) {
+                        echo "<div id='Order-history'><div class='history-box' onclick=\"window.location.href = 'order_detail.php?id=" . $row['MaHD'] . "';\">";
+                        echo "<p>ngày đặt hàng: " . $row["ThoiGianDat"] . "</p>";
+                        echo "<p>tình trạng: " . ($row["TrangThaiXuLy"] == 0 ? "chưa xử lý" : "đã xử lý") . "</p>";
+                        echo "<p>" . number_format($row['Tongtien'], 0, '.', ',') . "Đ</p></div></div>";
+                    }
+                }
             ?>
-                <div id="Order-history">
-                    <div class="history-box" id="order1" onclick="window.location.href = 'order_detail.php<?php echo '?id='.$row['MaHD'] ?>'";>
-                        <p><?php echo "ngày đặt hàng :".$row["ThoiGianDat"] ?></p>
-                        <p><?php if($row["TrangThaiXuLy"]==0){
-                            echo "tình trạng : đang giao hàng";
-                        }else{
-                            echo "tình trạng : đã giao hàng";
-                        } ?></p>
-                        <p><?php
-                            echo $row["Tongtien"]."Đ";
-                        ?></p>
-                    </div>
-                </div>
-                <?php } ?>
-                
         </div>
-            
-
         <?php include_once("rightPannelRegion.php"); ?>
-        
     </div>
-
     <?php include_once("footerRegion.php"); ?>
-
-    
-    
 </body>
 </html>

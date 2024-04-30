@@ -90,7 +90,7 @@
                             </h3>
                             
 
-                            <strong class="phone_list_element_price"><?php echo $sanpham->Gia ?>₫</strong>
+                            <strong class="phone_list_element_price"><?php echo number_format($sanpham->Gia, 0, '.', ',') ?>₫</strong>
                             
 
 

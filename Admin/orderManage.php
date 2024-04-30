@@ -264,7 +264,6 @@
                 success: function(response) {
                         // Xử lý phản hồi ở đây, ví dụ: cập nhật dữ liệu hiển thị
                     $('tbody').html(response);
-                    $('#date').modal('hide'); // Ẩn modal sau khi xử lý
                 },
                 error: function() {
                     alert('Lỗi xử lý yêu cầu của bạn');
