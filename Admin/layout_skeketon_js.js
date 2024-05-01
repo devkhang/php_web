@@ -2,13 +2,13 @@ function setisLoginTrue(currentTag){
     sessionStorage.setItem("loginState", "true");
     console.log("return to index");
     alert("Đăng nhập thành công");
-    window.location="index.html"; 
+    window.location="index.php"; 
 }
 function setisLoginFalse(currentTag){
     sessionStorage.setItem("loginState", "false");
     console.log("return to index");
     alert("Đăng xuất thành công");
-    window.location="index.html"; 
+    window.location="index.php"; 
 }
 
 let singout=document.getElementById("singout");

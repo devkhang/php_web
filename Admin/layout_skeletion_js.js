@@ -21,12 +21,12 @@ function setisLoginTrue(currentTag){
     let userAccount=
 
 
-    window.location="index.html"; 
+    window.location="index.php"; 
 }
 function setisLoginFalse(currentTag){
     sessionStorage.setItem("loginState", "false");;
     alert("Đăng xuất thành công");
-    window.location="index.html"; 
+    window.location="index.php"; 
 }
 function muaHang(){
     alert("Đặt hàng thành công");

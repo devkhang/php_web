@@ -55,63 +55,63 @@
         <div id="main_content">
             <div id="user-list">
                 <div id="robute" >
-                    <img src="assets/guillimanfinal.jpg" onclick="window.location.href=('robute_user.html')">
+                    <img src="assets/guillimanfinal.jpg" onclick="window.location.href=('robute_user.php')">
                     <p>The G man</p>
                     <p>Tình trạng: Không bị khóa</p>
                     <div class="user_list_button">
                         <a id="Lock" onclick="Lock(this)">Khóa</a>
                         <a id="Unlock" onclick="Unlock(this)">Mở khóa</a>
-                        <a id="Modify" href="robute_modify.html">Chỉnh sửa</a>
+                        <a id="Modify" href="robute_modify.php">Chỉnh sửa</a>
                     </div>
                 </div>
                 <div id="horus" >
-                    <img src="assets/horus.jpg" onclick="window.location.href=('Horus_user.html')">
+                    <img src="assets/horus.jpg" onclick="window.location.href=('Horus_user.php')">
                     <p>The Herectic</p>
                     <p>Tình trạng: Không bị khóa</p>
                     <div class="user_list_button">
                         <a id="Lock" onclick="Lock(this)">Khóa</a>
                         <a id="Unlock" onclick="Unlock(this)">Mở khóa</a>
-                        <a id="Modify" href="horus_modify.html">Chỉnh sửa</a>
+                        <a id="Modify" href="horus_modify.php">Chỉnh sửa</a>
                     </div>
                 </div>
                 <div id="lion" >
-                    <img src="assets/lion.jpg" onclick="window.location.href=('Lion_user.html')">
+                    <img src="assets/lion.jpg" onclick="window.location.href=('Lion_user.php')">
                     <p>The Exterminator</p>
                     <p>Tình trạng: Không bị khóa</p>
                     <div class="user_list_button">
                         <a id="Lock" onclick="Lock(this)">Khóa</a>
                         <a id="Unlock" onclick="Unlock(this)">Mở khóa</a>
-                        <a id="Modify" href="lion_modify.html">Chỉnh sửa</a>
+                        <a id="Modify" href="lion_modify.php">Chỉnh sửa</a>
                     </div>
                 </div>
                 <div id="lion1">
-                    <img src="assets/lion.jpg" onclick="window.location.href='Lion_user.html'">
+                    <img src="assets/lion.jpg" onclick="window.location.href=('Lion_user.php')">
                     <p>The Exterminator</p>
                     <p>Tình trạng: Không bị khóa</p>
                     <div class="user_list_button">
                         <a id="Lock" onclick="Lock(this)">Khóa</a>
                         <a id="Unlock" onclick="Unlock(this)">Mở khóa</a>
-                        <a id="Modify" href="lion_modify.html">Chỉnh sửa</a>
+                        <a id="Modify" href="lion_modify.php">Chỉnh sửa</a>
                     </div>
                 </div>
                 <div id="horus1">
-                    <img src="assets/horus.jpg" onclick="window.location.href=('Horus_user.html')">
+                    <img src="assets/horus.jpg" onclick="window.location.href=('Horus_user.php')">
                     <p>The Herectic</p>
                     <p>Tình trạng: Không bị khóa</p>
                     <div class="user_list_button">
                         <a id="Lock" onclick="Lock(this)">Khóa</a>
                         <a id="Unlock" onclick="Unlock(this)">Mở khóa</a>
-                        <a id="Modify" href="horus_modify.html">Chỉnh sửa</a>
+                        <a id="Modify" href="horus_modify.php">Chỉnh sửa</a>
                     </div>
                 </div>
                 <div id="robute1" >
-                    <img src="assets/guillimanfinal.jpg" onclick="window.location.href=('robute_user.html')">
+                    <img src="assets/guillimanfinal.jpg" onclick="window.location.href=('robute_user.php')">
                     <p>The G man</p>
                     <p>Tình trạng: Không bị khóa</p>
                     <div class="user_list_button">
                         <a id="Lock" onclick="Lock(this)">Khóa</a>
                         <a id="Unlock" onclick="Unlock(this)">Mở khóa</a>
-                        <a id="Modify" href="robute_modify.html">Chỉnh sửa</a>
+                        <a id="Modify" href="robute_modify.php">Chỉnh sửa</a>
                     </div>
                 </div>
                 

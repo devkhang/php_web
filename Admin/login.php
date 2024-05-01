@@ -5,7 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\layout_style.css">
-
+<?php $server='localhost';
+$user='root';
+$pass='';
+$database='webphpdatabase';
+$conn=new mysqLi($server,$user,$pass,$database);
+if(isset($_POST['dangnhap']))
+{
+    $username =$_POST['username'];
+    $password =$_POST['password'];
+    $sql = "SELECT * FROM taikhoangadmin WHERE Ten='$username' AND Pwd='$password'";
+    $result =mysqli_query($conn,$sql);
+    if(mysqli_num_rows($result)==1){
+        header("location:Emperor_admin.php");
+    }
+    else {
+        echo"tai khoan hoac mat khau dang nhap sai";
+    }
+}
+?>
     <style>
         #main_content{
             display: flex;
@@ -55,38 +73,39 @@
         }
     </style>
 </head>
-<body>
+<body> 
     <?php include_once("headerRegion.php"); ?>
 
     <div id="main_body">
 
-        <?php include_once("leftPannelRegion.php"); ?>
+    <div id="left_panel">
+             
+            <div class="left_panel_element" id="login" style="display: flex;">
+                <a href="login.php">Đăng nhập</a>
+            </div> 
+             
+</div>
 
         <div id="main_content">
-            <div class="box-login">
-                <div class="login-title">
-                    Đăng nhập
-                </div>
-                <div class="username">
-                    <form action="" method="get">
-                        <input type="text" id="username" name="username" placeholder="Tên đăng nhập">
-                    </form>
-                </div>
-                <div class="password">
-                    <form action="" method="get">
-                        <input type="password" id="password" name="password" placeholder="Mật khẩu">
-                    </form>
-                </div>
+        <div class="box-login">
+    <div class="login-title">
+        Đăng nhập
+    </div>
+    <form action="" method="post">
+        <div class="username">
+            <input type="text" id="username" name="username" placeholder="Tên đăng nhập">
+        </div>
+        <div class="password">
+            <input type="password" id="password" name="password" placeholder="Mật khẩu">
+        </div>
+        <div class="submit">
+            <input type="submit" id="submit" name="dangnhap" value="Đăng nhập">
+        </div>
+    </form>
+</div>
 
-                <div class="submit">
-                    <form action="" method="get" onsubmit="setisLoginTrue(this)" target="_blank">
-                        <input type="submit" id="submit" name="submit" value="Đăng nhập">
-                    </form>
-                </div>
 
-            </div>
-
-            
+             
         </div>
         <?php include_once("rightPannelRegion.php"); ?>
 

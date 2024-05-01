@@ -1,6 +1,6 @@
 <div id="left_panel">
             <div class="left_panel_element" id="homepage">
-                <a href="index.php">Giao diện admin</a>
+                <a href="">Giao diện admin</a>
             </div>
             <div class="left_panel_element" id="login" style="display: flex;">
                 <a href="login.php">Đăng nhập</a>
