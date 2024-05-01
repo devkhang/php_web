@@ -1,3 +1,10 @@
+<?php 
+
+include_once("../pageNumbering.php");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +13,10 @@
     <!-- Thêm Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/layout_style.css">
+    <link rel="stylesheet" href="..\css\product_list_layout_style.css">
+    <?php include_once("..\include\commonStyles.php")?>
+
+
     <style>
         @keyframes blink {
             0%, 100% { opacity: 1; }  /* Hiển thị */
@@ -51,7 +62,8 @@
             // Lấy dữ liệu từ database và hiển thị các dòng dữ liệu ở đây
             // Giả sử bạn đã lấy một mảng $donHang từ cơ sở dữ liệu
             $sql = "select * from hoadon";
-            $result = mysqli_execute_query($conn,$sql);
+            $result =processPagerNumbering($sql, 6, $conn);
+
             while($hd = mysqli_fetch_assoc($result)){
                     echo "<tr>";
                     echo "<td>{$hd['MaHD']}</td>";
@@ -71,6 +83,11 @@
             ?>
         </tbody>
     </table>
+
+    <?php 
+        printPageNumbering("");
+
+    ?>
 </div>
 
         </div>
