@@ -1,6 +1,5 @@
 <?php 
 include_once("../include/connectDB.php");
-session_start();
 
 
 if(isset($_POST['dangky'])){
@@ -97,7 +96,13 @@ if(isset($_POST['dangky'])){
     <?php include_once("headerRegion.php"); ?>
     <div id="main_body">
         <?php include_once("leftPannelRegion.php"); ?>
-
+        <?php 
+            if (!isset($_SESSION['allowed_access']) || $_SESSION['allowed_access'] !== true) {
+                // Nếu không có quyền truy cập, chuyển hướng người dùng về trang khác hoặc hiển thị thông báo lỗi
+                header('Location: index.php'); // Chuyển hướng người dùng về trang chủ hoặc trang login
+                exit();
+            }
+        ?>
         <div id="main_content">
             <div id="user-info_box">
                 <form  action="UserManage.php" name="signupForm" method="POST" enctype="multipart/form-data">

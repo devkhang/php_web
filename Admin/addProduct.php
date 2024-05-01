@@ -1,6 +1,5 @@
 <?php 
 include_once("../include/connectDB.php");
-session_start();
 ?>
 
 
@@ -47,7 +46,13 @@ session_start();
 </head>
 <body>
 
-    <?php include_once("headerRegion.php"); ?>
+    <?php include_once("headerRegion.php"); 
+        if (!isset($_SESSION['allowed_access'])) {
+            // Nếu không có quyền truy cập, chuyển hướng người dùng về trang khác hoặc hiển thị thông báo lỗi
+            header('Location: index.php'); // Chuyển hướng người dùng về trang chủ hoặc trang login
+            exit();
+        }
+    ?>
 
 
    
