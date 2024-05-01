@@ -161,7 +161,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" id="status_value" placeholder="chỉ nhập 0 hoặc 1">
+                    <!-- <input type="text" id="status_value" placeholder="chỉ nhập 0 hoặc 1"> -->
+                    <select name="status_value" id="status_value">
+                        <option value="1">Đã xử lý</option>
+                        <option value="0">Chưa xử lý</option>
+                    </select>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>

@@ -27,8 +27,8 @@
     <?php include_once("leftPannelRegion.php"); ?>
     <div id="main_content" class="container mt-3">
     <h2>Quản Lý Đơn Hàng <select name="filter" id="filter">
-        <option value="all">tất cả đơn hàng người dùng có đơn hàng</option>
-        <option value="#thongke">liệt kệ 5 người có đơn hàng với tổng tiền cao nhất</option>
+        <option value="all">Tất cả đơn hàng người dùng có đơn hàng</option>
+        <option value="#thongke">Liệt kê 5 người có đơn hàng với tổng tiền cao nhất</option>
     </select></h2>
     <table class="table table-hover">
         <thead class="thead-dark">

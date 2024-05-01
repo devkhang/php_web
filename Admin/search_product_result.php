@@ -133,14 +133,14 @@
                                 <strong>Trạng thái ẩn: <?php if($sanpham["An"]=="a") echo "Bị ẩn"; else echo "Không bị ẩn"; ?></strong>
                             </a>
                             <?php include_once("deleteSanPham.php") ;
-                             echo "asfadfadsfasdf";
+                             
 
                                 $stringOfParameters=" ";
                                             
                                 // $isReceivePost=true;
                                 $nonEmptyGet=postFilter($_GET);
                                 foreach($nonEmptyGet as $key=>$value){
-                                    echo $key. "<br>";
+                                    
                                     if($key=="page-nr" || $key=="daBan" || $key=="MaSP"){
                                         continue;
                                     }

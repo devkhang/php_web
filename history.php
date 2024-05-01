@@ -45,7 +45,7 @@
                         echo "<p>" . number_format($row['Tongtien'], 0, '.', ',')  . "Đ</p></div></div>";
                     }
                 }   else if (isset($_SESSION["id"])) {
-                    $query = "SELECT * FROM hoadon WHERE MaTK = " . $_GET["id"];
+                    $query = "SELECT * FROM hoadon WHERE MaTK = " . $_SESSION["id"];
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_assoc($result)) {
                         echo "<div id='Order-history'><div class='history-box' onclick=\"window.location.href = 'order_detail.php?id=" . $row['MaHD'] . "';\">";
