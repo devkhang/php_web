@@ -74,7 +74,7 @@ function loginAdmin($conn, $email, $pwd){
     if($pwd_checked===true||$pwd==$pwd_hashed){
         // Mật khẩu không khớp
         session_start();
-        $_SESSION["id"] = $existingUser["MaTK"];
+        $_SESSION["MaTK"] = $existingUser["MaTK"];
         $_SESSION["admin_name"] = $existingUser["Ten"];
         $_SESSION["pwd"] = $existingUser["Pwd"];
         $_SESSION["HinhDaiDien"] = $existingUser["HinhDaiDien"];

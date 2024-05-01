@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    if(isset($_SESSION['id'])){
+        session_start();
+    }
     include_once('include\db.inc.php');
 ?>
 <!DOCTYPE html>
@@ -30,9 +32,17 @@
     </style>
 </head>
 <body>
-    <?php include_once("headerRegion.php"); ?>
+    <?php if(isset($_SESSION['id'])){
+        include_once("headerRegion.php");
+    }else{
+        include_once("admin/headerRegion.php");
+    } ?>
     <div id="main_body">
-        <?php include_once("leftPannelRegion.php"); ?>
+        <?php if(isset($_SESSION['id'])){
+            include_once("leftPannelRegion.php");
+        }else{
+            include_once("admin/leftPannelRegion.php");
+        } ?>
         <div id="main_content">
             <?php
                 if (isset($_GET["id"]) && isset($_GET['startDate']) && isset($_GET['endDate'])) {
@@ -65,8 +75,16 @@
                 }
             ?>
         </div>
-        <?php include_once("rightPannelRegion.php"); ?>
+        <?php if(isset($_SESSION['id'])){
+            include_once("rightPannelRegion.php");
+        }else{
+            include_once("admin/rightPannelRegion.php");
+        } ?>
     </div>
-    <?php include_once("footerRegion.php"); ?>
+    <?php if(isset($_SESSION['id'])){
+        include_once("footerRegion.php");
+    }else{
+        include_once('admin/footerRegion.php');
+    } ?>
 </body>
 </html>
