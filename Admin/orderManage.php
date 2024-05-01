@@ -90,7 +90,13 @@
                 <div class="modal-body">
                 <div class="form-group" method="POST">
                     <label for="trangThaiXuLy">Trạng Thái Xử Lý</label>
-                    <input type="text" class="form-control" id="trangThaiXuLy" name="trangThaiXuLy" required>
+                    <!-- <input type="text" class="form-control" id="trangThaiXuLy" name="trangThaiXuLy" required> -->
+                    
+                    <select name="trangThaiXuLy" id="trangThaiXuLy" required>
+                        <option value="1">Đã xử lý</option>
+                        <option value="0">Chưa xử lý</option>
+                    </select>
+
                     <input type="hidden" id="maHD" name="maHD">
                 </div>
                 </div>

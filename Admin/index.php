@@ -1,3 +1,7 @@
+<?php 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +28,7 @@
                 </div>
                 <div class="card-body text-center">
                     <h5 class="card-title"><img src="assets/<?php echo $_SESSION['HinhDaiDien']; ?>" alt="picture" class="img-fluid"></h5>
-                    <h3 class="card-text">mã tài khoản :<?php echo $_SESSION["id"] ?><br>
+                    <h3 class="card-text">mã tài khoản :<?php echo $_SESSION["MaTK"] ?><br>
                     tên admin: <?php echo $_SESSION["admin_name"] ?></h3>
                 </div>
             </div>

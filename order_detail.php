@@ -44,7 +44,7 @@
             <div id="Order-history">
                 <div class="history-box">
                     <p>Ngày đặt hàng: <?php echo $row['ThoiGianDat']; ?></p>
-                    <p>Tình trạng: <?php echo $row['TrangThaiXuLy'] == 0 ? 'Đang giao hàng' : 'Đã giao hàng'; ?></p>
+                    <p>Tình trạng: <?php echo $row['TrangThaiXuLy'] == 0 ? 'Chưa xử lý': 'Đã xử lý'; ?></p>
                     <p>Tổng tiền: <?php echo number_format($row['Tongtien'], 0, ',', '.'); ?> Đ</p>
                     <p>Địa chỉ giao hàng: <?php echo $row['diachi']; ?></p>
                 </div>
