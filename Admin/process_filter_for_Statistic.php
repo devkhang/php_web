@@ -34,7 +34,7 @@ if ($filterType == 'date') {
                         <td>{$row['user_account']}</td>
                         <td>{$row['DiaChi']}</td>
                         <td>" . number_format($row['total_money_of_a_account'], 2, '.', ',') . " đ</td>;
-                        <td><a href='../history.php?id={$row['MaTK']}&startDate={$startDate}&endDate={$endDate}' class='btn btn-info'>Xem</a></td>
+                        <td><a href='history.php?MaTK={$row['MaTK']}&startDate={$startDate}&endDate={$endDate}' class='btn btn-info'>Xem</a></td>
                     </tr>";
     }
     $stmt->close();
@@ -52,7 +52,7 @@ if ($filterType == 'date') {
                         <td>{$row['user_account']}</td>
                         <td>{$row['DiaChi']}</td>
                         <td>" . number_format($row['total_money_of_a_account'], 2, '.', ',') . " đ</td>;
-                        <td><a href='../history.php?id={$row['MaTK']}' class='btn btn-info'>Xem</a></td>
+                        <td><a href='history.php?MaTK={$row['MaTK']}' class='btn btn-info'>Xem</a></td>
                     </tr>";
     }
 }

@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    if(isset($_SESSION['id'])){
+        session_start();
+    }
     include_once('include\db.inc.php');
 ?>
 <!DOCTYPE html>
@@ -35,8 +37,8 @@
         <?php include_once("leftPannelRegion.php");?>
         <div id="main_content">
             <?php
-                if (isset($_GET["id"]) && isset($_GET['startDate']) && isset($_GET['endDate'])) {
-                    $query = "SELECT * FROM hoadon WHERE MaTK = " . $_GET["id"] . " AND ThoiGianDat BETWEEN '" . $_GET['startDate'] . "' AND '" . $_GET['endDate'] . "'";
+                if (isset($_GET["MaTK"]) && isset($_GET['startDate']) && isset($_GET['endDate'])) {
+                    $query = "SELECT * FROM hoadon WHERE MaTK = " . $_GET["MaTK"] . " AND ThoiGianDat BETWEEN '" . $_GET['startDate'] . "' AND '" . $_GET['endDate'] . "'";
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_assoc($result)) {
                         echo "<div id='Order-history'><div class='history-box' onclick=\"window.location.href = 'order_detail.php?id=" . $row['MaHD'] . "';\">";
@@ -44,8 +46,8 @@
                         echo "<p>tình trạng: " . ($row["TrangThaiXuLy"] == 0 ? "chưa xử lý" : "đã xử lý") . "</p>";
                         echo "<p>" . number_format($row['Tongtien'], 0, '.', ',')  . "Đ</p></div></div>";
                     }
-                }   else if (isset($_SESSION["id"])) {
-                    $query = "SELECT * FROM hoadon WHERE MaTK = " . $_GET["id"];
+                } else if (isset($_GET['MaTK'])) {
+                    $query = "SELECT * FROM hoadon WHERE MaTK = " . $_GET["MaTK"];
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_assoc($result)) {
                         echo "<div id='Order-history'><div class='history-box' onclick=\"window.location.href = 'order_detail.php?id=" . $row['MaHD'] . "';\">";

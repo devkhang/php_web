@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +30,7 @@
     <?php include_once('include/db.inc.php'); ?>
     <?php include_once("headerRegion.php");?>
     <div id="main_body">
-    <?php include_once("leftPannelRegion.php");?>
+    <?php include_once("leftPannelRegion.php"); ?>
         <div id="main_content"> 
             <?php 
                 $MaHD = $_GET['id'];

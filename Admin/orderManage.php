@@ -64,7 +64,7 @@
                     echo "<td>{$hd['MaTK']}</td>";
                     echo "<td>{$hd['diachi']}</td>";
                     echo "<td>{$hd['Tongtien']}</td>";
-                    echo "<td><a href='../order_detail.php?id={$hd['MaHD']}' class='btn btn-info'>Xem</a></td>";
+                    echo "<td><a href='order_detail.php?id={$hd['MaHD']}' class='btn btn-info'>Xem</a></td>";
                     echo "<td><button class='btn btn-primary' data-toggle='modal' data-target='#editStatusModal' data-mahd='{$hd['MaHD']}' data-trangthaixuly='{$hd['TrangThaiXuLy']}'>Chỉnh Sửa</button></td>";
                     echo "</tr>";
             }

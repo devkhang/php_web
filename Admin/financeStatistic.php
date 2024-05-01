@@ -55,7 +55,7 @@
                     echo "<td>{$hd['user_account']}</td>";
                     echo "<td>{$hd['DiaChi']}</td>";
                     echo "<td>" . number_format($hd['total_money_of_a_account'], 2, '.', ',') . " đ</td>";
-                    echo "<td><a href='../history.php?id={$hd['MaTK']}' class='btn btn-info'>Xem</a></td>";
+                    echo "<td><a href='history.php?MaTK={$hd['MaTK']}' class='btn btn-info'>Xem</a></td>";
                     echo "</tr>";
             }
             ?>
