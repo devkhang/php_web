@@ -3,6 +3,8 @@
         session_start();
     }
     include_once('include\db.inc.php');
+    include_once("../pageNumbering.php");
+    include_once("./include/functions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +14,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/layout_style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="..\css\product_list_layout_style.css">
+    <?php include_once("..\include\commonStyles.php")?>
+
     <style>
         #Order-history{
             background-color: aliceblue;
@@ -39,7 +45,7 @@
             <?php
                 if (isset($_GET["MaTK"]) && isset($_GET['startDate']) && isset($_GET['endDate'])) {
                     $query = "SELECT * FROM hoadon WHERE MaTK = " . $_GET["MaTK"] . " AND ThoiGianDat BETWEEN '" . $_GET['startDate'] . "' AND '" . $_GET['endDate'] . "'";
-                    $result = mysqli_query($conn, $query);
+                    $result = processPagerNumbering($query, 6, $conn);
                     while($row = mysqli_fetch_assoc($result)) {
                         echo "<div id='Order-history'><div class='history-box' onclick=\"window.location.href = 'order_detail.php?id=" . $row['MaHD'] . "';\">";
                         echo "<p>ngày đặt hàng: " . $row["ThoiGianDat"] . "</p>";
@@ -48,7 +54,7 @@
                     }
                 } else if (isset($_GET['MaTK'])) {
                     $query = "SELECT * FROM hoadon WHERE MaTK = " . $_GET["MaTK"];
-                    $result = mysqli_query($conn, $query);
+                    $result = processPagerNumbering($query, 6, $conn);
                     while($row = mysqli_fetch_assoc($result)) {
                         echo "<div id='Order-history'><div class='history-box' onclick=\"window.location.href = 'order_detail.php?id=" . $row['MaHD'] . "';\">";
                         echo "<p>ngày đặt hàng: " . $row["ThoiGianDat"] . "</p>";
@@ -56,6 +62,29 @@
                         echo "<p>" . number_format($row['Tongtien'], 0, '.', ',') . "Đ</p></div></div>";
                     }
                 }
+            ?>
+            <?php
+                $stringOfParameters=" ";
+                                        
+                // $isReceivePost=true;
+                $nonEmptyGet=postFilter($_GET);
+                $lastKey=array_key_last($nonEmptyGet);
+                foreach($nonEmptyGet as $key=>$value){
+                    
+                    if($key=="page-nr" || $key=="daBan" || $key=="MaSP"){
+                        continue;
+                    }
+                    $stringOfParameters.="$key=$value";
+
+                    
+
+                    if($key!=$lastKey){
+                        $stringOfParameters.="&";
+                    }
+                }
+
+
+                printPageNumbering($stringOfParameters);
             ?>
         </div>
         <?php include_once("rightPannelRegion.php");?>
