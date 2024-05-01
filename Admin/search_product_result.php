@@ -112,7 +112,7 @@
 
             <div id="main_content">
                 <ul id="phone_list" class="main_content_element">
-                <?php
+                <?php  $stringOfParameters=" ";
             while($sanpham=$resultLietKeSP->fetch_array(MYSQLI_ASSOC)){ 
                 
 
@@ -133,13 +133,15 @@
                                 <strong>Trạng thái ẩn: <?php if($sanpham["An"]=="a") echo "Bị ẩn"; else echo "Không bị ẩn"; ?></strong>
                             </a>
                             <?php include_once("deleteSanPham.php") ;
+                             echo "asfadfadsfasdf";
 
-                                $stringOfParameters="";
+                                $stringOfParameters=" ";
                                             
                                 // $isReceivePost=true;
                                 $nonEmptyGet=postFilter($_GET);
                                 foreach($nonEmptyGet as $key=>$value){
-                                    if($key=="page-nr" || $key="daBan" || $key="MaSP"){
+                                    echo $key. "<br>";
+                                    if($key=="page-nr" || $key=="daBan" || $key=="MaSP"){
                                         continue;
                                     }
                                     $stringOfParameters.="$key=$value";
@@ -170,8 +172,11 @@
                     <a href="index2.html">2</a>
                 </div> -->
                 <?php
+
+                    // var_dump(($stringOfParameters)); echo "<br>";
                     
                     $stringOfParameters.="&submit=yes";
+                    
 
 
                     printPageNumbering($stringOfParameters);
